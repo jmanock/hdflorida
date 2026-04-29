@@ -5,7 +5,7 @@
 :root {
   color-scheme: light;
   background: #ffffff;
-  color: #102033;
+  color: #0f172a;
 }
 
 html {
@@ -15,9 +15,10 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 10% 0%, rgba(10, 167, 192, 0.08), transparent 34rem),
-    linear-gradient(180deg, #f8fdff 0%, #ffffff 34rem);
-  color: #102033;
+    radial-gradient(circle at 10% 0%, rgba(245, 158, 11, 0.12), transparent 28rem),
+    radial-gradient(circle at 86% 4%, rgba(14, 165, 233, 0.1), transparent 30rem),
+    linear-gradient(180deg, #fafaf7 0%, #ffffff 35rem);
+  color: #0f172a;
 }
 
 button,
@@ -26,12 +27,38 @@ input {
 }
 
 ::selection {
-  background: #d8f7ff;
-  color: #102033;
+  background: #e0f2fe;
+  color: #0f172a;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-full px-5 py-3 text-center text-sm font-black leading-none transition;
+  }
+
+  .btn-primary {
+    @apply bg-ink text-white shadow-lg shadow-slate-900/15 hover:-translate-y-0.5 hover:bg-ocean;
+  }
+
+  .btn-gold {
+    @apply bg-gold text-ink shadow-sm hover:-translate-y-0.5 hover:bg-amber-400;
+  }
+
+  .btn-secondary {
+    @apply border border-slate-300 bg-white text-ink shadow-sm hover:-translate-y-0.5 hover:border-sky-200 hover:text-ocean;
+  }
+
+  .btn-ghost-dark {
+    @apply border border-slate-200 bg-white text-ink shadow-sm hover:-translate-y-0.5 hover:border-sky-200 hover:text-ocean;
+  }
+
+  .btn-card {
+    @apply min-w-[8.75rem] shrink-0 px-5;
   }
 }
