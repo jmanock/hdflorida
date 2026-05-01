@@ -10,9 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoteldealsflorida.org"),
-  title: "Florida Hotel Deals | Beach Resorts, Family Stays & Weekend Getaways",
+  title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
   description:
-    "Find Florida hotel deals including beach resorts, family stays, weekend getaways, luxury hotels, and staycation discounts across Orlando, Miami, Tampa, Fort Lauderdale, and the Florida Keys.",
+    "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates across Orlando, Miami, Tampa, Fort Lauderdale, the Florida Keys, and more.",
   keywords: [
     "Florida hotel deals",
     "Florida resort deals",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Florida Hotel Deals | Beach Resorts, Family Stays & Weekend Getaways",
+    title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
     description:
-      "Curated Florida hotel deals for beach resorts, family stays, weekend escapes, luxury hotels, and staycations.",
+      "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates across Orlando, Miami, Tampa, Fort Lauderdale, the Florida Keys, and more.",
     url: "https://hoteldealsflorida.org",
     siteName: "Florida Hotel Deals",
     locale: "en_US",
@@ -53,9 +53,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Florida Hotel Deals | Beach Resorts, Family Stays & Weekend Getaways",
+    title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
     description:
-      "Find Florida beach resort, family hotel, weekend getaway, and staycation deals."
+      "Find Florida beach resort, family hotel, luxury stay, weekend getaway, and staycation rates."
   }
 };
 

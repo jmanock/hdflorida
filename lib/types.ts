@@ -4,7 +4,6 @@ export type DealBadge =
   | "Beach"
   | "Family"
   | "Luxury"
-  | "Limited Time"
   | "Resident Deal";
 
 export type HotelDeal = {
@@ -19,4 +18,6 @@ export type HotelDeal = {
   badge: DealBadge;
   booking_url: string;
   image: string;
+  image_alt: string;
+  cta_label: string;
 };

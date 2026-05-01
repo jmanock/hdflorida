@@ -9,7 +9,6 @@ const badgeClass: Record<HotelDeal["badge"], string> = {
   Beach: "bg-ocean-50 text-ocean-700 ring-ocean-100",
   Family: "bg-emerald-50 text-emerald-700 ring-emerald-200",
   Luxury: "bg-violet-50 text-violet-700 ring-violet-200",
-  "Limited Time": "bg-orange-50 text-orange-700 ring-orange-200",
   "Resident Deal": "bg-blue-50 text-blue-700 ring-blue-200"
 };
 
@@ -19,7 +18,7 @@ export function DealCard({ deal }: { deal: HotelDeal }) {
       <div className="relative min-h-56 overflow-hidden sm:min-h-full">
         <Image
           src={deal.image}
-          alt={`${deal.hotel_name} in ${deal.city}`}
+          alt={deal.image_alt}
           fill
           sizes="(min-width: 640px) 240px, 100vw"
           className="object-cover transition duration-500 group-hover:scale-105"
@@ -63,8 +62,10 @@ export function DealCard({ deal }: { deal: HotelDeal }) {
           <Link
             href={deal.booking_url}
             className="btn btn-primary btn-card w-full sm:w-auto"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            View Stay
+            {deal.cta_label}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>

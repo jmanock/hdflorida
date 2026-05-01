@@ -23,10 +23,10 @@ import { hotelDeals } from "@/data/hotelDeals";
 const featuredDeals = hotelDeals.slice(0, 3);
 
 const stats = [
-  { value: "30", label: "Latest Stay Deals" },
-  { value: "12", label: "Beach Resorts" },
-  { value: "9", label: "Family Stays" },
-  { value: "$99", label: "Lowest Nightly Rate" }
+  { value: "31", label: "Curated Stay Finds" },
+  { value: "10", label: "Florida Markets" },
+  { value: "4", label: "Search Partners" },
+  { value: "100%", label: "Current Searches" }
 ];
 
 const trustChips = ["Updated Often", "Florida Focused", "Free Deal Alerts"];
@@ -35,7 +35,7 @@ const whyItems = [
   {
     title: "Curated Florida Deals",
     description:
-      "Resort, hotel, inn, and staycation offers organized for Florida travel patterns, not generic booking noise.",
+      "Resort, hotel, inn, and staycation searches organized for Florida travel patterns, not generic booking noise.",
     icon: CheckCircle2
   },
   {
@@ -91,7 +91,7 @@ export default function Home() {
             name: "Florida Hotel Deals",
             url: "https://hoteldealsflorida.org",
             description:
-              "Find Florida hotel deals including beach resorts, family stays, weekend getaways, luxury hotels, and staycation discounts.",
+              "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates.",
             publisher: {
               "@type": "Organization",
               name: "Florida Deals Hub"
@@ -185,8 +185,8 @@ export default function Home() {
                 </div>
                 <div className="text-right">
                   <p className="text-xs font-black uppercase text-slate-400">From</p>
-                  <p className="text-4xl font-black text-gold">$119</p>
-                  <p className="text-xs font-black text-slate-500">per night</p>
+                  <p className="text-3xl font-black text-gold">Rates</p>
+                  <p className="text-xs font-black text-slate-500">vary by date</p>
                 </div>
               </div>
               <div className="mt-6 grid grid-cols-3 gap-3">
@@ -242,7 +242,7 @@ export default function Home() {
                 <div className="relative h-56 overflow-hidden">
                   <Image
                     src={deal.image}
-                    alt={`${deal.hotel_name} resort deal in ${deal.city}`}
+                    alt={deal.image_alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, 100vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
@@ -264,8 +264,10 @@ export default function Home() {
                     <Link
                       href={deal.booking_url}
                       className="btn btn-primary btn-card"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      View Stay
+                      {deal.cta_label}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>
