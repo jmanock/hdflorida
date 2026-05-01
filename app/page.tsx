@@ -2,22 +2,19 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
-  Bell,
-  Building2,
   CheckCircle2,
   Clock3,
   Hotel,
   MapPinned,
-  Plane,
-  Sailboat,
-  Sparkles,
-  Star,
-  TicketPercent,
-  Waves
+  Star
 } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { DealExplorer } from "@/components/DealExplorer";
-import { NewsletterForm } from "@/components/NewsletterForm";
+import { NewsletterSection } from "@/components/NewsletterSection";
+import { PopularHotelSearches } from "@/components/PopularHotelSearches";
+import { SisterSitesSection } from "@/components/SisterSitesSection";
+import { SiteFooter } from "@/components/SiteFooter";
+import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { hotelDeals } from "@/data/hotelDeals";
 
 const featuredDeals = hotelDeals.slice(0, 3);
@@ -49,33 +46,6 @@ const whyItems = [
     description:
       "Useful for beach weekends, family park trips, resident rates, event stays, and quiet Gulf Coast escapes.",
     icon: MapPinned
-  }
-];
-
-const sisterSites = [
-  {
-    title: "Florida Flight Deals",
-    description: "Cheap airfare alerts for Florida airports and warm-weather routes.",
-    href: "https://flightdealsflorida.org",
-    icon: Plane
-  },
-  {
-    title: "Florida Cruise Deals",
-    description: "Cruise savings from Miami, Port Canaveral, Tampa, Fort Lauderdale, and Jacksonville.",
-    href: "https://cruisedealsflorida.org",
-    icon: Sailboat
-  },
-  {
-    title: "Local Florida Deals",
-    description: "Restaurants, attractions, weekend plans, and local Florida finds.",
-    href: "https://localdealsflorida.org",
-    icon: Sparkles
-  },
-  {
-    title: "Florida Deals Hub",
-    description: "The parent network for Florida flights, hotels, cruises, and local savings.",
-    href: "https://floridadealshub.com",
-    icon: Building2
   }
 ];
 
@@ -261,15 +231,14 @@ export default function Home() {
                       <p className="text-2xl font-black text-gold">{deal.price}</p>
                       <p className="text-xs font-black uppercase text-slate-500">{deal.dates}</p>
                     </div>
-                    <Link
-                      href={deal.booking_url}
+                    <OutboundDealLink
+                      deal={deal}
+                      pageContext="homepage-featured"
                       className="btn btn-primary btn-card"
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
                       {deal.cta_label}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    </OutboundDealLink>
                   </div>
                 </div>
               </article>
@@ -279,31 +248,9 @@ export default function Home() {
 
         <DealExplorer />
 
-        <section id="alerts" className="relative overflow-hidden bg-ink">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_12%,rgba(14,165,233,0.24),transparent_26rem),radial-gradient(circle_at_80%_30%,rgba(245,158,11,0.18),transparent_24rem)]" />
-          <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-16 text-white sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
-            <div>
-              <p className="flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-gold">
-                <Bell className="h-4 w-4" aria-hidden="true" />
-                Hotel deal alerts
-              </p>
-              <h2 className="mt-3 text-3xl font-black tracking-normal sm:text-4xl">
-                Get Florida Hotel Deals Delivered
-              </h2>
-              <p className="mt-4 max-w-xl text-lg font-medium leading-8 text-white/74">
-                Join free alerts for beach resorts, family hotels, weekend getaways, and Florida
-                staycation deals.
-              </p>
-              <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black text-white ring-1 ring-white/15">
-                <TicketPercent className="h-4 w-4 text-gold" aria-hidden="true" />
-                No spam. 100% free alerts for fresh Florida hotel deals.
-              </p>
-            </div>
-            <div className="self-center rounded-3xl border border-white/10 bg-white/10 p-5 shadow-soft backdrop-blur">
-              <NewsletterForm />
-            </div>
-          </div>
-        </section>
+        <PopularHotelSearches />
+
+        <NewsletterSection />
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="grid gap-5 md:grid-cols-3">
@@ -326,70 +273,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="border-y border-slate-200 bg-sand">
-          <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-            <div className="max-w-2xl">
-              <p className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-ocean">
-                <Waves className="h-4 w-4" aria-hidden="true" />
-                Explore More Florida Deals
-              </p>
-              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
-                One trusted network for Florida travel and local savings.
-              </h2>
-            </div>
-            <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {sisterSites.map((site) => {
-                const Icon = site.icon;
-
-                return (
-                  <Link
-                    key={site.title}
-                    href={site.href}
-                    className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
-                  >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sand text-ink ring-1 ring-slate-200 transition group-hover:bg-skyline group-hover:text-ocean">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <h3 className="mt-5 text-lg font-black text-ink">{site.title}</h3>
-                    <p className="mt-2 text-sm font-medium leading-6 text-slateText">
-                      {site.description}
-                    </p>
-                    <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
-                      Explore
-                      <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
-                    </span>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <SisterSitesSection />
       </main>
 
-      <footer className="bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
-          <p className="text-sm font-medium text-slateText">
-            © 2026 Florida Hotel Deals. Part of Florida Deals Hub.
-          </p>
-          <nav
-            aria-label="Footer"
-            className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-slateText"
-          >
-            {[
-              ["About", "/about"],
-              ["Contact", "/contact"],
-              ["Privacy", "/privacy"],
-              ["Terms", "/terms"],
-              ["Sitemap", "/sitemap.xml"],
-              ["Sister Sites", "https://floridadealshub.com"]
-            ].map(([label, href]) => (
-              <Link key={label} href={href} className="hover:text-ocean">
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

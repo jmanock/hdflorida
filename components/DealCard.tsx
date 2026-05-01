@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight, CalendarDays, MapPin, Tag } from "lucide-react";
+import { OutboundDealLink } from "@/components/OutboundDealLink";
 import type { HotelDeal } from "@/lib/types";
 
 const badgeClass: Record<HotelDeal["badge"], string> = {
@@ -12,7 +12,7 @@ const badgeClass: Record<HotelDeal["badge"], string> = {
   "Resident Deal": "bg-blue-50 text-blue-700 ring-blue-200"
 };
 
-export function DealCard({ deal }: { deal: HotelDeal }) {
+export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; pageContext?: string }) {
   return (
     <article className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft sm:grid-cols-[15rem_1fr]">
       <div className="relative min-h-56 overflow-hidden sm:min-h-full">
@@ -59,15 +59,14 @@ export function DealCard({ deal }: { deal: HotelDeal }) {
             <p className="text-2xl font-black text-ink">{deal.price}</p>
             <p className="text-sm font-bold text-palm-600">{deal.savings}</p>
           </div>
-          <Link
-            href={deal.booking_url}
+          <OutboundDealLink
+            deal={deal}
+            pageContext={pageContext}
             className="btn btn-primary btn-card w-full sm:w-auto"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             {deal.cta_label}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </Link>
+          </OutboundDealLink>
         </div>
       </div>
     </article>
