@@ -2,10 +2,21 @@
 
 import { FormEvent, useState } from "react";
 import { MailCheck, Send } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 export function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [hasStarted, setHasStarted] = useState(false);
+
+  function trackSignupStarted() {
+    if (hasStarted) {
+      return;
+    }
+
+    setHasStarted(true);
+    trackEvent("newsletter_signup_started");
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,6 +40,7 @@ export function NewsletterForm() {
 
       setStatus("success");
       setEmail("");
+      trackEvent("newsletter_signup_success");
     } catch {
       setStatus("error");
     }
@@ -45,7 +57,11 @@ export function NewsletterForm() {
         type="email"
         required
         value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        onFocus={trackSignupStarted}
+        onChange={(event) => {
+          trackSignupStarted();
+          setEmail(event.target.value);
+        }}
         placeholder="you@example.com"
           className="min-h-12 flex-1 rounded-full border border-white/30 bg-white px-5 text-ink shadow-sm outline-none transition placeholder:text-slate-400 focus:border-gold focus:ring-4 focus:ring-amber-300/30"
       />

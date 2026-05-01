@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { RefreshCw, SlidersHorizontal } from "lucide-react";
 import { hotelDeals } from "@/data/hotelDeals";
 import { DealCard } from "@/components/DealCard";
+import { trackEvent } from "@/lib/analytics";
 
 const filters = [
   "All Stays",
@@ -38,6 +39,13 @@ export function DealExplorer() {
     return [...filtered.slice(rotation), ...filtered.slice(0, rotation)];
   }, [activeFilter, refreshCount]);
 
+  function handleFilterClick(filter: string) {
+    setActiveFilter(filter);
+    trackEvent("filter_click", {
+      filter
+    });
+  }
+
   return (
     <section id="deals" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
@@ -69,7 +77,7 @@ export function DealExplorer() {
           <button
             key={filter}
             type="button"
-            onClick={() => setActiveFilter(filter)}
+            onClick={() => handleFilterClick(filter)}
             className={`shrink-0 rounded-full px-4 py-2 text-sm font-black transition ${
               activeFilter === filter
                 ? "bg-ink text-white shadow-sm"

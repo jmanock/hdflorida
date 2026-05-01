@@ -2,14 +2,8 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { trackEvent } from "@/lib/analytics";
 import type { HotelDeal } from "@/lib/types";
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (event: "event", eventName: string, eventParams: Record<string, string>) => void;
-  }
-}
 
 export function OutboundDealLink({
   deal,
@@ -23,17 +17,11 @@ export function OutboundDealLink({
   children: ReactNode;
 }) {
   function trackDealClick() {
-    const eventParams = {
+    trackEvent("deal_click", {
       page: pageContext,
       destination: deal.city,
       category: deal.category,
       outbound_url: deal.booking_url
-    };
-
-    window.gtag?.("event", "deal_click", eventParams);
-    window.dataLayer?.push({
-      event: "deal_click",
-      ...eventParams
     });
   }
 
