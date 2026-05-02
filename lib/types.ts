@@ -20,4 +20,21 @@ export type HotelDeal = {
   image: string;
   image_alt: string;
   cta_label: string;
+  place?: HotelPlaceTrustData;
+};
+
+export type HotelPlaceTrustData = {
+  place_id?: string;
+  name?: string;
+  address?: string;
+  city?: string;
+  neighborhood?: string;
+  rating?: number;
+  review_count?: number;
+  latitude?: number;
+  longitude?: number;
+  official_website?: string;
+  photo_reference?: string;
+  source: "fallback" | "google_places";
+  updated_at?: string;
 };

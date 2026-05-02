@@ -66,9 +66,28 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Florida Deals Hub",
+    url: "https://floridadealshub.com",
+    sameAs: [
+      "https://hoteldealsflorida.org",
+      "https://flightdealsflorida.org",
+      "https://cruisedealsflorida.org",
+      "https://localdealsflorida.org"
+    ]
+  };
+
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema)
+          }}
+        />
         {children}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowRight, CalendarDays, MapPin, Tag } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin, Star, Tag } from "lucide-react";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import type { HotelDeal } from "@/lib/types";
 
@@ -54,10 +54,34 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
           </span>
         </div>
 
+        {deal.place ? (
+          <div className="rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-bold text-slateText">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              {deal.place.rating ? (
+                <span className="inline-flex items-center gap-1 text-ink">
+                  <Star className="h-4 w-4 fill-gold text-gold" aria-hidden="true" />
+                  {deal.place.rating.toFixed(1)}
+                  {deal.place.review_count ? (
+                    <span className="text-slate-500">({deal.place.review_count.toLocaleString()} reviews)</span>
+                  ) : null}
+                </span>
+              ) : null}
+              <span className="inline-flex items-center gap-1">
+                <MapPin className="h-4 w-4 text-ocean" aria-hidden="true" />
+                {deal.place.neighborhood ?? deal.place.city ?? deal.city}
+              </span>
+            </div>
+            {deal.place.address ? (
+              <p className="mt-2 text-xs font-bold leading-5 text-slate-500">{deal.place.address}</p>
+            ) : null}
+          </div>
+        ) : null}
+
         <div className="mt-auto flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-2xl font-black text-ink">{deal.price}</p>
             <p className="text-sm font-bold text-palm-600">{deal.savings}</p>
+            <p className="mt-1 text-xs font-bold text-slate-500">Rates may change before booking.</p>
           </div>
           <OutboundDealLink
             deal={deal}

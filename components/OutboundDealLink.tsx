@@ -20,6 +20,7 @@ export function OutboundDealLink({
     trackEvent("deal_click", {
       page: pageContext,
       destination: deal.city,
+      hotel_name: deal.hotel_name,
       category: deal.category,
       outbound_url: deal.booking_url
     });
