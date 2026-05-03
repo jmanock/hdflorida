@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Building2 } from "lucide-react";
+import { TrackedLink } from "@/components/TrackedLink";
 
 const sisterLinks = [
   { label: "Flights", href: "https://flightdealsflorida.org" },
@@ -36,18 +37,19 @@ export function SiteHeader() {
             const active = link.label === "Hotels";
 
             return (
-              <Link
+              <TrackedLink
                 key={link.label}
                 href={link.href}
+                label={`header:${link.label}`}
                 className={`rounded-full px-4 py-2 transition ${
                   active
                     ? "bg-white text-ink shadow-sm"
                     : "hover:bg-white hover:text-ocean"
                 }`}
-                aria-current={active ? "page" : undefined}
+                ariaCurrent={active ? "page" : undefined}
               >
                 {link.label}
-              </Link>
+              </TrackedLink>
             );
           })}
         </nav>

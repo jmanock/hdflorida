@@ -15,6 +15,7 @@ import { PopularHotelSearches } from "@/components/PopularHotelSearches";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
+import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { hotelDeals } from "@/data/hotelDeals";
 
 const featuredDeals = hotelDeals.slice(0, 3);
@@ -91,6 +92,9 @@ export default function Home() {
                 <Hotel className="h-4 w-4" aria-hidden="true" />
                 Florida Deals Hub hotel network
               </p>
+              <div className="mt-4">
+                <FreshnessBadge />
+              </div>
               <h1 className="mt-6 max-w-4xl text-balance text-5xl font-black tracking-normal text-ink sm:text-6xl lg:text-7xl">
                 Find the Best Hotel Deals in Florida
               </h1>
@@ -196,6 +200,9 @@ export default function Home() {
               <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
                 Featured Florida stays worth checking today.
               </h2>
+              <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
+                Updated regularly. Rates may change.
+              </p>
             </div>
             <Link href="#deals" className="inline-flex items-center gap-2 text-sm font-black text-ocean">
               Browse all stays

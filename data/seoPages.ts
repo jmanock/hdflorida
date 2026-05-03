@@ -12,6 +12,10 @@ export type SeoLandingPage = {
   imageAlt: string;
   dealIds: string[];
   related: string[];
+  faqs?: Array<{
+    question: string;
+    answer: string;
+  }>;
 };
 
 export const seoLandingPages: SeoLandingPage[] = [
@@ -40,6 +44,28 @@ export const seoLandingPages: SeoLandingPage[] = [
       "florida-family-hotel-deals",
       "florida-hotels-under-150",
       "florida-weekend-getaway-hotels"
+    ],
+    faqs: [
+      {
+        question: "Where should I stay in Orlando for theme parks?",
+        answer:
+          "Many visitors compare hotels around Lake Buena Vista, International Drive, Universal Orlando, and the theme park corridor because those areas can reduce drive time and make family logistics easier."
+      },
+      {
+        question: "Are Orlando hotel rates cheaper on weekdays?",
+        answer:
+          "Weekday rates can be lower than peak weekends, but school breaks, conventions, holidays, and park events can change pricing quickly. Check current rates before booking."
+      },
+      {
+        question: "What areas are best for family hotel stays?",
+        answer:
+          "Families often look for suite-style hotels, pool resorts, breakfast options, parking, and shuttle access near Disney, Universal, International Drive, or Lake Buena Vista."
+      },
+      {
+        question: "Do Orlando hotel rates change often?",
+        answer:
+          "Yes. Orlando hotel rates may change based on park demand, event calendars, room type, cancellation terms, and availability."
+      }
     ]
   },
   {
@@ -354,6 +380,28 @@ export const seoLandingPages: SeoLandingPage[] = [
       "florida-keys-hotel-deals",
       "clearwater-beach-hotel-deals",
       "florida-luxury-hotel-deals"
+    ],
+    faqs: [
+      {
+        question: "What are the best Florida beach areas for resort deals?",
+        answer:
+          "Miami Beach, Fort Lauderdale, Clearwater Beach, Sarasota, Daytona Beach, Naples, and the Florida Keys are strong starting points for beach resort searches."
+      },
+      {
+        question: "Are beach resort rates cheaper off-season?",
+        answer:
+          "Beach resort rates may be lower outside peak holiday and winter travel periods, but weather, events, and weekends can still move prices."
+      },
+      {
+        question: "Should I book directly or compare rates first?",
+        answer:
+          "Compare rates first so you can review room types, fees, cancellation policies, resort fees, and availability across booking sites and hotel websites."
+      },
+      {
+        question: "Do Florida beach resort deals change often?",
+        answer:
+          "Yes. Availability varies by beach area, season, weekend demand, and room type, so it is smart to check current rates before booking."
+      }
     ]
   },
   {
@@ -560,4 +608,32 @@ export function getDealsForSeoPage(page: SeoLandingPage) {
 export function getSeoPageLabel(slug: string) {
   const page = seoLandingPageMap.get(slug);
   return page?.h1 ?? slug.replace(/-/g, " ");
+}
+
+export function getFaqsForSeoPage(page: SeoLandingPage) {
+  if (page.faqs?.length) {
+    return page.faqs;
+  }
+
+  return [
+    {
+      question: `How should I use ${page.h1.toLowerCase()} searches?`,
+      answer:
+        "Start by comparing current hotel searches, then review the final rate, fees, cancellation terms, and location details directly on the booking site before reserving."
+    },
+    {
+      question: "Do hotel rates change often?",
+      answer:
+        "Yes. Florida hotel rates can change based on season, weekends, events, holidays, room type, and availability. Always check current rates before booking."
+    },
+    {
+      question: "Should I book directly or compare rates first?",
+      answer:
+        "Comparing rates first is useful because booking sites and hotel websites may show different room types, fees, policies, and availability for the same destination."
+    },
+    {
+      question: `What makes ${page.h1.toLowerCase()} useful?`,
+      answer: page.details
+    }
+  ];
 }

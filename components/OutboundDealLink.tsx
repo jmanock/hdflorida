@@ -22,7 +22,9 @@ export function OutboundDealLink({
       destination: deal.city,
       hotel_name: deal.hotel_name,
       category: deal.category,
-      outbound_url: deal.booking_url
+      price_text: deal.price,
+      outbound_url: deal.booking_url,
+      page_path: window.location.pathname
     });
   }
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { NETWORK_NAME, SITE_NAME, SITE_URL } from "@/lib/siteConstants";
 import "./globals.css";
 
 const inter = Inter({
@@ -69,7 +70,7 @@ export default function RootLayout({
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Florida Deals Hub",
+    name: NETWORK_NAME,
     url: "https://floridadealshub.com",
     sameAs: [
       "https://hoteldealsflorida.org",
@@ -78,16 +79,31 @@ export default function RootLayout({
       "https://localdealsflorida.org"
     ]
   };
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    description:
+      "Florida hotel deal searches for resorts, beach hotels, family stays, weekend getaways, and staycation rates.",
+    publisher: {
+      "@type": "Organization",
+      name: NETWORK_NAME
+    }
+  };
 
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema)
-          }}
-        />
+        {[organizationSchema, websiteSchema].map((schema) => (
+          <script
+            key={schema["@type"]}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(schema)
+            }}
+          />
+        ))}
         {children}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

@@ -61,6 +61,9 @@ export function DealExplorer() {
             Filter the latest curated stays for beaches, family trips, resort weekends, resident rates,
             and under-$150 value finds.
           </p>
+          <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
+            Updated regularly. Hotel availability and rates may change.
+          </p>
         </div>
         <button
           type="button"

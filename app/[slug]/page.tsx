@@ -4,16 +4,19 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { DealCard } from "@/components/DealCard";
+import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import {
   getDealsForSeoPage,
+  getFaqsForSeoPage,
   getSeoPageLabel,
   seoLandingPageMap,
   seoLandingPages
 } from "@/data/seoPages";
+import { SITE_URL } from "@/lib/siteConstants";
 
 type SeoPageParams = {
   slug: string;
@@ -81,6 +84,7 @@ export default async function SeoLandingPage({
   }
 
   const deals = getDealsForSeoPage(page);
+  const faqs = getFaqsForSeoPage(page);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -92,27 +96,68 @@ export default async function SeoLandingPage({
         "@type": "ListItem",
         position: 1,
         name: "Florida Hotel Deals",
-        item: "https://hoteldealsflorida.org"
+        item: SITE_URL
       },
       {
         "@type": "ListItem",
         position: 2,
         name: page.h1,
-        item: `https://hoteldealsflorida.org/${page.slug}`
+        item: `${SITE_URL}/${page.slug}`
       }
     ]
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  };
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${page.h1} featured hotel searches`,
+    itemListElement: deals.map((deal, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: deal.hotel_name,
+      url: deal.booking_url
+    }))
   };
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema)
-        }}
-      />
+      {[breadcrumbSchema, faqSchema, itemListSchema].map((schema) => (
+        <script
+          key={schema["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema)
+          }}
+        />
+      ))}
       <SiteHeader />
       <main>
+        <nav
+          aria-label="Breadcrumb"
+          className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 py-4 text-sm font-bold text-slateText sm:px-6 lg:px-8"
+        >
+          <Link href="/" className="hover:text-ocean">
+            Home
+          </Link>
+          <span aria-hidden="true">/</span>
+          <Link href="/" className="hover:text-ocean">
+            Florida Hotel Deals
+          </Link>
+          <span aria-hidden="true">/</span>
+          <span className="text-ink">{page.h1}</span>
+        </nav>
+
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
             <Image
@@ -139,6 +184,9 @@ export default async function SeoLandingPage({
               <p className="mt-6 text-sm font-black uppercase tracking-[0.14em] text-ocean">
                 {page.eyebrow}
               </p>
+              <div className="mt-4">
+                <FreshnessBadge />
+              </div>
               <h1 className="mt-3 max-w-4xl text-balance text-5xl font-black tracking-normal text-ink sm:text-6xl">
                 {page.h1}
               </h1>
@@ -183,6 +231,9 @@ export default async function SeoLandingPage({
               These cards link to real hotel search and booking pages where current rates,
               availability, fees, and booking terms can be reviewed directly.
             </p>
+            <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
+              Updated regularly. Rates may change.
+            </p>
           </div>
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {deals.map((deal) => (
@@ -194,7 +245,7 @@ export default async function SeoLandingPage({
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
-              Related hotel pages
+              Related Hotel Searches
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
               Keep comparing Florida hotel options.
@@ -216,6 +267,25 @@ export default async function SeoLandingPage({
                   {getSeoPageLabel(relatedPage.slug)}
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Hotel Deal FAQ
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              Quick answers before you compare rates.
+            </h2>
+            <div className="mt-6 grid gap-4 lg:grid-cols-2">
+              {faqs.map((faq) => (
+                <article key={faq.question} className="rounded-2xl border border-slate-200 bg-sand p-5">
+                  <h3 className="text-lg font-black text-ink">{faq.question}</h3>
+                  <p className="mt-3 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
+                </article>
               ))}
             </div>
           </div>

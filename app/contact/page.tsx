@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FreshnessBadge } from "@/components/FreshnessBadge";
 
 export const metadata = {
   title: "Contact | Florida Hotel Deals",
@@ -11,6 +12,9 @@ export default function ContactPage() {
       <Link href="/" className="text-sm font-black text-ocean">
         Florida Hotel Deals
       </Link>
+      <div className="mt-4">
+        <FreshnessBadge />
+      </div>
       <h1 className="mt-4 text-4xl font-black text-ink">Contact</h1>
       <p className="mt-5 text-lg font-medium leading-8 text-slateText">
         For partnerships, hotel deal submissions, or questions about Florida Hotel Deals, contact

@@ -30,15 +30,46 @@ export const hotelSearchLinks = {
 
 export type HotelBookingDestination = keyof typeof hotelSearchLinks;
 
+export type HotelSearchUrlInput = {
+  destination: HotelBookingDestination;
+  category?: string;
+  checkIn?: string;
+  checkOut?: string;
+  hotelName?: string;
+};
+
 // Affiliate-ready helper. Swap mapped URLs for tracked partner URLs when
 // Booking, Expedia Rapid, Hotels.com, or Tripadvisor programs are connected.
-export function getHotelBookingUrl(destination: HotelBookingDestination, hotelName?: string) {
+export function getHotelSearchUrl({ destination, category, checkIn, checkOut, hotelName }: HotelSearchUrlInput) {
   const baseUrl = hotelSearchLinks[destination];
+  const params = new URLSearchParams();
 
-  if (!hotelName) {
+  if (hotelName) {
+    params.set("label", hotelName.toLowerCase().replace(/\s+/g, "-"));
+  }
+
+  if (category) {
+    params.set("stay_type", category.toLowerCase().replace(/\s+/g, "-"));
+  }
+
+  if (checkIn) {
+    params.set("checkin", checkIn);
+  }
+
+  if (checkOut) {
+    params.set("checkout", checkOut);
+  }
+
+  const query = params.toString();
+
+  if (!query) {
     return baseUrl;
   }
 
   const separator = baseUrl.includes("?") ? "&" : "?";
-  return `${baseUrl}${separator}label=${encodeURIComponent(hotelName.toLowerCase().replace(/\s+/g, "-"))}`;
+  return `${baseUrl}${separator}${query}`;
+}
+
+export function getHotelBookingUrl(destination: HotelBookingDestination, hotelName?: string) {
+  return getHotelSearchUrl({ destination, hotelName });
 }

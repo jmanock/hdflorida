@@ -20,7 +20,7 @@ export function NewsletterSection() {
           </p>
           <p className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-black text-white ring-1 ring-white/15">
             <TicketPercent className="h-4 w-4 text-gold" aria-hidden="true" />
-            No spam. 100% free alerts for fresh Florida hotel deals.
+            Free alerts. No spam. Hotel rates may change fast.
           </p>
         </div>
         <div className="self-center rounded-3xl border border-white/10 bg-white/10 p-5 shadow-soft backdrop-blur">
