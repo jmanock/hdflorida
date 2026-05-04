@@ -82,6 +82,9 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
             <p className="text-2xl font-black text-ink">{deal.price}</p>
             <p className="text-sm font-bold text-palm-600">{deal.savings}</p>
             <p className="mt-1 text-xs font-bold text-slate-500">Rates may change before booking.</p>
+            <p className="mt-1 text-xs font-bold text-slate-500">
+              Free cancellation and no booking fees are available on many stays.
+            </p>
           </div>
           <OutboundDealLink
             deal={deal}

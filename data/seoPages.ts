@@ -21,7 +21,7 @@ export type SeoLandingPage = {
 export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "orlando-hotel-deals",
-    title: "Orlando Hotel Deals | Family Resorts, Theme Park Hotels & Weekend Stays",
+    title: "Orlando Hotel Deals | Check Current Rates & Family Stays",
     description:
       "Find Orlando hotel deals including family resorts, theme park area hotels, weekend stays, and Florida staycation options near Disney, Universal, and International Drive.",
     h1: "Orlando Hotel Deals",
@@ -70,7 +70,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "miami-hotel-deals",
-    title: "Miami Hotel Deals | Beach Hotels, Luxury Stays & Weekend Getaways",
+    title: "Miami Hotel Deals | Check Current Rates & Weekend Stays",
     description:
       "Find Miami hotel deals including beach hotels, luxury stays, weekend getaways, and current hotel rates across Miami and South Florida.",
     h1: "Miami Hotel Deals",
@@ -96,7 +96,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "miami-beach-hotel-deals",
-    title: "Miami Beach Hotel Deals | Oceanfront Hotels, Resorts & Weekend Stays",
+    title: "Miami Beach Hotel Deals | Beach Hotels & Weekend Stays",
     description:
       "Find Miami Beach hotel deals including oceanfront hotels, beach resorts, luxury stays, and weekend hotel searches near South Beach and Mid-Beach.",
     h1: "Miami Beach Hotel Deals",
@@ -122,7 +122,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "tampa-hotel-deals",
-    title: "Tampa Hotel Deals | Waterfront Hotels, Downtown Stays & Beach Trips",
+    title: "Tampa Hotel Deals | Check Current Rates & Waterfront Stays",
     description:
       "Find Tampa hotel deals including waterfront hotels, downtown stays, St. Pete getaways, Clearwater Beach hotels, and current Tampa Bay hotel rates.",
     h1: "Tampa Hotel Deals",
@@ -148,7 +148,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "fort-lauderdale-hotel-deals",
-    title: "Fort Lauderdale Hotel Deals | Beach Resorts, Marina Hotels & Weekend Stays",
+    title: "Fort Lauderdale Hotel Deals | Beach Hotels & Marina Stays",
     description:
       "Find Fort Lauderdale hotel deals including beach resorts, marina hotels, weekend stays, and current hotel searches near Las Olas and the ocean.",
     h1: "Fort Lauderdale Hotel Deals",
@@ -433,7 +433,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-weekend-getaway-hotels",
-    title: "Florida Weekend Getaway Hotels | Beach Trips, City Stays & Island Escapes",
+    title: "Florida Weekend Getaway Hotels | Beach Trips & Current Rates",
     description:
       "Find Florida weekend getaway hotels including beach trips, city stays, island escapes, and current weekend hotel searches across Florida.",
     h1: "Florida Weekend Getaway Hotels",
@@ -567,7 +567,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-hotels-under-150",
-    title: "Florida Hotels Under $150 | Value Hotel Searches & Affordable Stays",
+    title: "Florida Hotels Under $150 | Value Stays & Current Rates",
     description:
       "Find Florida hotels under $150 searches, value hotels, affordable stay options, and current budget hotel rates across popular Florida destinations.",
     h1: "Florida Hotels Under $150",

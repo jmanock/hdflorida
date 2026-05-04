@@ -50,14 +50,27 @@ No empty ratings, broken images, or API errors are shown in the UI.
 
 Booking/search links are centralized in `lib/hotelLinks.ts`.
 
-Use `getHotelBookingUrl(destination, hotelName)` when adding or replacing hotel links. Later affiliate integrations can swap the mapped URLs for:
+Use `getHotelBookingUrl(destination, hotelName)` when adding or replacing hotel links. All Booking.com URLs pass through `getBookingLink(url)` before they reach deal cards, SEO pages, or homepage featured cards.
+
+While Awin/Booking approval is pending, `getBookingLink(url)` returns the normal Booking.com search URL:
+
+```ts
+export function getBookingLink(url: string) {
+  return url;
+}
+```
+
+After Awin approval, replace that function with the Awin deep-link/decorator logic. Keep deal data using the same `booking_url` field so card components and analytics do not need to change.
+
+Future integrations can also swap or layer in:
 
 - Booking.com partner links
 - Expedia Rapid Lodging API links
 - Hotels.com / Expedia links
 - Tripadvisor links
+- direct hotel or resort partner links
 
-The deal data can keep the same `booking_url` field while the helper changes the underlying URL format.
+When adding a new destination page, add the page config in `data/seoPages.ts`, add or reuse relevant deal IDs from `data/hotelDeals.ts`, and add any new Booking destination key in `lib/hotelLinks.ts`.
 
 ## Analytics
 
@@ -65,10 +78,15 @@ GA4 is loaded globally in `app/layout.tsx`. Outbound hotel clicks are tracked as
 
 - `site`
 - `source`
+- `provider`
 - `destination`
 - `hotel_name`
 - `category`
+- `price_text`
 - `outbound_url`
+- `page_path`
+
+Booking clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
 
 ## Verification
 

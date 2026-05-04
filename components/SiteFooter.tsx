@@ -1,4 +1,5 @@
 import { TrackedLink } from "@/components/TrackedLink";
+import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 
 const topHotelLinks = [
   ["Orlando Hotel Deals", "/orlando-hotel-deals"],
@@ -34,9 +35,12 @@ export function SiteFooter() {
           </nav>
         </div>
         <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-sm font-medium text-slateText">
-            © 2026 Florida Hotel Deals. Part of Florida Deals Hub.
-          </p>
+          <div>
+            <p className="text-sm font-medium text-slateText">
+              © 2026 Florida Hotel Deals. Part of Florida Deals Hub.
+            </p>
+            <AffiliateDisclosure className="mt-2 max-w-xl" />
+          </div>
           <nav
             aria-label="Footer"
             className="flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-slateText"

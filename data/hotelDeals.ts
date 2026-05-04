@@ -28,10 +28,10 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Browse Miami Beach stays near the sand, dining, nightlife, and oceanfront resort areas.",
     dates: "Florida hotel deals may change",
     badge: "Beach",
-    booking_url: getHotelBookingUrl("miamiBooking"),
+    booking_url: getHotelBookingUrl("miamiBeachBooking"),
     image: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=900&q=80",
     image_alt: "Miami Beach skyline and waterfront hotel district",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "florida-keys-weekend-search",
@@ -46,7 +46,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("keysBooking"),
     image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
     image_alt: "Turquoise water and Florida Keys coastline near island hotels",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "tampa-waterfront-hotel-search",
@@ -106,7 +106,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("jacksonvilleBooking"),
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
     image_alt: "Modern city hotel exterior for a downtown Florida stay",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "daytona-oceanfront-search",
@@ -121,7 +121,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("daytonaBooking"),
     image: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=900&q=80",
     image_alt: "Wide Florida beach with oceanfront hotel stay atmosphere",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "naples-boutique-retreat-search",
@@ -151,7 +151,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("sarasotaBooking"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Resort pool and lounge area for a Sarasota beach hotel search",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "orlando-resident-suite-search",
@@ -163,10 +163,10 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Search suite hotels and staycation-friendly properties with room for families and longer stays.",
     dates: "Check current rate rules",
     badge: "Resident Deal",
-    booking_url: getHotelBookingUrl("orlandoExpedia"),
+    booking_url: getHotelBookingUrl("orlandoBooking"),
     image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
     image_alt: "Hotel exterior with pool for an Orlando staycation search",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "miami-brickell-weekend-search",
@@ -178,7 +178,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Browse city hotels with rooftop pools, dining access, and quick rides to Miami Beach.",
     dates: "Deals may vary by weekend",
     badge: "Weekend",
-    booking_url: getHotelBookingUrl("miamiExpedia"),
+    booking_url: getHotelBookingUrl("miamiBooking"),
     image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=900&q=80",
     image_alt: "Miami city skyline for a downtown hotel weekend search",
     cta_label: "Check Availability"
@@ -193,10 +193,10 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Search Clearwater Beach and Gulf-area hotels for family trips, sunsets, and sand access.",
     dates: "See availability by date",
     badge: "Family",
-    booking_url: getHotelBookingUrl("clearwaterHotels"),
+    booking_url: getHotelBookingUrl("clearwaterBooking"),
     image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80",
     image_alt: "Beach resort walkway with palms and waterfront hotel feel",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "key-west-inn-search",
@@ -208,7 +208,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Search boutique inns, guesthouses, and resort stays near Key West dining and waterfronts.",
     dates: "Florida hotel deals may change",
     badge: "Luxury",
-    booking_url: getHotelBookingUrl("keysTripadvisor"),
+    booking_url: getHotelBookingUrl("keysBooking"),
     image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
     image_alt: "Sunny tropical beach scene for Florida Keys hotel stays",
     cta_label: "View Stay"
@@ -223,7 +223,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Browse Amelia Island resorts and beach hotels north of Jacksonville for quiet coastal stays.",
     dates: "See current availability",
     badge: "Beach",
-    booking_url: getHotelBookingUrl("ameliaTripadvisor"),
+    booking_url: getHotelBookingUrl("ameliaIslandBooking"),
     image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?auto=format&fit=crop&w=900&q=80",
     image_alt: "Hotel room with ocean-facing balcony atmosphere",
     cta_label: "Check Availability"
@@ -238,10 +238,10 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Search downtown St. Pete hotels near murals, museums, waterfront parks, and restaurants.",
     dates: "Rates change by date",
     badge: "Hot Deal",
-    booking_url: getHotelBookingUrl("stPeteExpedia"),
+    booking_url: getHotelBookingUrl("stPeteBooking"),
     image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80",
     image_alt: "Modern hotel room for a St. Petersburg city stay",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "orlando-luxury-villas-search",
@@ -256,7 +256,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("orlandoBooking"),
     image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=900&q=80",
     image_alt: "Spacious resort villa patio and pool area",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "miami-airport-budget-search",
@@ -268,7 +268,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Find practical Miami airport hotels with shuttle options, breakfast, and overnight convenience.",
     dates: "Deals may vary by night",
     badge: "Hot Deal",
-    booking_url: getHotelBookingUrl("miamiExpedia"),
+    booking_url: getHotelBookingUrl("miamiBooking"),
     image: "https://images.unsplash.com/photo-1562790351-d273a961e0e9?auto=format&fit=crop&w=900&q=80",
     image_alt: "Clean hotel room for a practical Miami airport stay",
     cta_label: "Check Availability"
@@ -301,7 +301,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("stAugustineBooking"),
     image: "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80",
     image_alt: "Family-friendly hotel exterior with welcoming Florida lodge style",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "naples-resident-rate-search",
@@ -331,7 +331,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("sarasotaBooking"),
     image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=900&q=80",
     image_alt: "Comfortable hotel suite bedroom for a family Florida stay",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "daytona-weekend-search",
@@ -346,7 +346,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("daytonaBooking"),
     image: "https://images.unsplash.com/photo-1521783988139-893ce8f97ab4?auto=format&fit=crop&w=900&q=80",
     image_alt: "Beachfront hotel pool area for a Daytona weekend stay",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "jacksonville-budget-search",
@@ -391,7 +391,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("orlandoBooking"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Resort pool area used for Orlando value hotel searches",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "miami-luxury-spa-search",
@@ -403,7 +403,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     description: "Browse luxury Miami hotels with spa amenities, pools, dining, and beach or city access.",
     dates: "Florida hotel deals may change",
     badge: "Luxury",
-    booking_url: getHotelBookingUrl("miamiBooking"),
+    booking_url: getHotelBookingUrl("miamiBeachBooking"),
     image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80",
     image_alt: "Luxury hotel suite and spa-style room with warm lighting",
     cta_label: "Check Availability"
@@ -421,7 +421,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("fortLauderdaleBooking"),
     image: "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?auto=format&fit=crop&w=900&q=80",
     image_alt: "Resort balcony and coastal hotel setting for a South Florida staycation",
-    cta_label: "View Hotel Deal"
+    cta_label: "View on Booking"
   },
   {
     id: "tampa-budget-search",
@@ -436,7 +436,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("tampaBooking"),
     image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Clean hotel room for a practical Tampa value stay",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   },
   {
     id: "st-augustine-luxury-search",
@@ -466,7 +466,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelBookingUrl("sarasotaBooking"),
     image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80",
     image_alt: "Bright hotel room for a Sarasota value stay search",
-    cta_label: "See Current Rates"
+    cta_label: "Check Current Rates"
   }
 ];
 

@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { DealCard } from "@/components/DealCard";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
+import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
+import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -234,6 +236,7 @@ export default async function SeoLandingPage({
             <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
               Updated regularly. Rates may change.
             </p>
+            <AffiliateDisclosure className="mt-3 max-w-2xl" />
           </div>
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {deals.map((deal) => (
@@ -291,6 +294,7 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
+        <CompleteTripSection />
         <NewsletterSection />
         <SisterSitesSection />
       </main>

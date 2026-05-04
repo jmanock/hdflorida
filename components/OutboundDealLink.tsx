@@ -17,15 +17,19 @@ export function OutboundDealLink({
   children: ReactNode;
 }) {
   function trackDealClick() {
-    trackEvent("deal_click", {
+    const eventMetadata = {
       page: pageContext,
+      provider: "booking",
       destination: deal.city,
       hotel_name: deal.hotel_name,
       category: deal.category,
       price_text: deal.price,
       outbound_url: deal.booking_url,
       page_path: window.location.pathname
-    });
+    };
+
+    trackEvent("deal_click", eventMetadata);
+    trackEvent("hotel_booking_click", eventMetadata);
   }
 
   return (

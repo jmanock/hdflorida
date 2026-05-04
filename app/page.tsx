@@ -16,6 +16,7 @@ import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
+import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { hotelDeals } from "@/data/hotelDeals";
 
 const featuredDeals = hotelDeals.slice(0, 3);
@@ -23,7 +24,7 @@ const featuredDeals = hotelDeals.slice(0, 3);
 const stats = [
   { value: "31", label: "Curated Stay Finds" },
   { value: "10", label: "Florida Markets" },
-  { value: "4", label: "Search Partners" },
+  { value: "Booking.com", label: "Primary Hotel Search" },
   { value: "100%", label: "Current Searches" }
 ];
 
@@ -53,23 +54,6 @@ const whyItems = [
 export default function Home() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "Florida Hotel Deals",
-            url: "https://hoteldealsflorida.org",
-            description:
-              "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates.",
-            publisher: {
-              "@type": "Organization",
-              name: "Florida Deals Hub"
-            }
-          })
-        }}
-      />
       <SiteHeader />
       <main>
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
@@ -203,6 +187,7 @@ export default function Home() {
               <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
                 Updated regularly. Rates may change.
               </p>
+              <AffiliateDisclosure className="mt-3 max-w-2xl" />
             </div>
             <Link href="#deals" className="inline-flex items-center gap-2 text-sm font-black text-ocean">
               Browse all stays
@@ -237,6 +222,7 @@ export default function Home() {
                     <div>
                       <p className="text-2xl font-black text-gold">{deal.price}</p>
                       <p className="text-xs font-black uppercase text-slate-500">{deal.dates}</p>
+                      <p className="mt-1 text-xs font-bold text-slate-500">Check current availability.</p>
                     </div>
                     <OutboundDealLink
                       deal={deal}

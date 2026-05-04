@@ -1,31 +1,18 @@
 export const hotelSearchLinks = {
-  orlandoBooking:
-    "https://www.booking.com/searchresults.html?ss=Orlando%2C+Florida%2C+United+States",
-  orlandoExpedia: "https://www.expedia.com/Hotel-Search?destination=Orlando%2C%20Florida",
-  miamiBooking:
-    "https://www.booking.com/searchresults.html?ss=Miami+Beach%2C+Florida%2C+United+States",
-  miamiExpedia: "https://www.expedia.com/Hotel-Search?destination=Miami%2C%20Florida",
-  keysBooking:
-    "https://www.booking.com/searchresults.html?ss=Florida+Keys%2C+Florida%2C+United+States",
-  keysTripadvisor: "https://www.tripadvisor.com/Search?q=Florida%20Keys%20hotels",
-  tampaBooking:
-    "https://www.booking.com/searchresults.html?ss=Tampa%2C+Florida%2C+United+States",
-  stPeteExpedia: "https://www.expedia.com/Hotel-Search?destination=St.%20Petersburg%2C%20Florida",
-  fortLauderdaleBooking:
-    "https://www.booking.com/searchresults.html?ss=Fort+Lauderdale%2C+Florida%2C+United+States",
-  jacksonvilleBooking:
-    "https://www.booking.com/searchresults.html?ss=Jacksonville%2C+Florida%2C+United+States",
-  daytonaBooking:
-    "https://www.booking.com/searchresults.html?ss=Daytona+Beach%2C+Florida%2C+United+States",
-  stAugustineBooking:
-    "https://www.booking.com/searchresults.html?ss=St.+Augustine%2C+Florida%2C+United+States",
-  sarasotaBooking:
-    "https://www.booking.com/searchresults.html?ss=Sarasota%2C+Florida%2C+United+States",
-  naplesBooking:
-    "https://www.booking.com/searchresults.html?ss=Naples%2C+Florida%2C+United+States",
-  clearwaterHotels:
-    "https://www.hotels.com/Hotel-Search?destination=Clearwater%20Beach%2C%20Florida",
-  ameliaTripadvisor: "https://www.tripadvisor.com/Search?q=Amelia%20Island%20hotels"
+  orlandoBooking: "https://www.booking.com/searchresults.html?ss=Orlando",
+  miamiBooking: "https://www.booking.com/searchresults.html?ss=Miami",
+  miamiBeachBooking: "https://www.booking.com/searchresults.html?ss=Miami+Beach",
+  keysBooking: "https://www.booking.com/searchresults.html?ss=Florida+Keys",
+  tampaBooking: "https://www.booking.com/searchresults.html?ss=Tampa",
+  stPeteBooking: "https://www.booking.com/searchresults.html?ss=St+Pete+Beach",
+  fortLauderdaleBooking: "https://www.booking.com/searchresults.html?ss=Fort+Lauderdale",
+  jacksonvilleBooking: "https://www.booking.com/searchresults.html?ss=Jacksonville+Florida",
+  daytonaBooking: "https://www.booking.com/searchresults.html?ss=Daytona+Beach",
+  stAugustineBooking: "https://www.booking.com/searchresults.html?ss=St+Augustine",
+  sarasotaBooking: "https://www.booking.com/searchresults.html?ss=Sarasota",
+  naplesBooking: "https://www.booking.com/searchresults.html?ss=Naples+Florida",
+  clearwaterBooking: "https://www.booking.com/searchresults.html?ss=Clearwater+Beach",
+  ameliaIslandBooking: "https://www.booking.com/searchresults.html?ss=Amelia+Island"
 };
 
 export type HotelBookingDestination = keyof typeof hotelSearchLinks;
@@ -38,10 +25,17 @@ export type HotelSearchUrlInput = {
   hotelName?: string;
 };
 
-// Affiliate-ready helper. Swap mapped URLs for tracked partner URLs when
-// Booking, Expedia Rapid, Hotels.com, or Tripadvisor programs are connected.
+// Booking/Awin-ready helper. Keep every Booking URL passing through this
+// function so Awin deep links can be swapped in here after approval.
+export function getBookingLink(url: string) {
+  return url;
+}
+
+// Affiliate-ready search helper. Future Booking.com/Awin, Expedia Rapid,
+// Hotels.com, Tripadvisor, or direct hotel partner URLs should be adapted here,
+// not scattered across cards or page components.
 export function getHotelSearchUrl({ destination, category, checkIn, checkOut, hotelName }: HotelSearchUrlInput) {
-  const baseUrl = hotelSearchLinks[destination];
+  const baseUrl = getBookingLink(hotelSearchLinks[destination]);
   const params = new URLSearchParams();
 
   if (hotelName) {
