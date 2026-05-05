@@ -1,24 +1,24 @@
 export const hotelSearchLinks = {
-  orlandoBooking: "https://www.expedia.com/Hotel-Search?destination=Orlando",
-  miamiBooking: "https://www.expedia.com/Hotel-Search?destination=Miami",
-  miamiBeachBooking: "https://www.expedia.com/Hotel-Search?destination=Miami%20Beach",
-  keysBooking: "https://www.expedia.com/Hotel-Search?destination=Florida%20Keys",
-  tampaBooking: "https://www.expedia.com/Hotel-Search?destination=Tampa",
-  stPeteBooking: "https://www.expedia.com/Hotel-Search?destination=St.%20Pete%20Beach",
-  fortLauderdaleBooking: "https://www.expedia.com/Hotel-Search?destination=Fort%20Lauderdale",
-  jacksonvilleBooking: "https://www.expedia.com/Hotel-Search?destination=Jacksonville%2C%20Florida",
-  daytonaBooking: "https://www.expedia.com/Hotel-Search?destination=Daytona%20Beach",
-  stAugustineBooking: "https://www.expedia.com/Hotel-Search?destination=St.%20Augustine",
-  sarasotaBooking: "https://www.expedia.com/Hotel-Search?destination=Sarasota",
-  naplesBooking: "https://www.expedia.com/Hotel-Search?destination=Naples%2C%20Florida",
-  clearwaterBooking: "https://www.expedia.com/Hotel-Search?destination=Clearwater%20Beach",
-  ameliaIslandBooking: "https://www.expedia.com/Hotel-Search?destination=Amelia%20Island"
+  orlando: "https://www.expedia.com/Hotel-Search?destination=Orlando",
+  miami: "https://www.expedia.com/Hotel-Search?destination=Miami",
+  miamiBeach: "https://www.expedia.com/Hotel-Search?destination=Miami%20Beach",
+  floridaKeys: "https://www.expedia.com/Hotel-Search?destination=Florida%20Keys",
+  tampa: "https://www.expedia.com/Hotel-Search?destination=Tampa",
+  stPete: "https://www.expedia.com/Hotel-Search?destination=St.%20Pete%20Beach",
+  fortLauderdale: "https://www.expedia.com/Hotel-Search?destination=Fort%20Lauderdale",
+  jacksonville: "https://www.expedia.com/Hotel-Search?destination=Jacksonville%2C%20Florida",
+  daytonaBeach: "https://www.expedia.com/Hotel-Search?destination=Daytona%20Beach",
+  stAugustine: "https://www.expedia.com/Hotel-Search?destination=St.%20Augustine",
+  sarasota: "https://www.expedia.com/Hotel-Search?destination=Sarasota",
+  naples: "https://www.expedia.com/Hotel-Search?destination=Naples%2C%20Florida",
+  clearwater: "https://www.expedia.com/Hotel-Search?destination=Clearwater%20Beach",
+  ameliaIsland: "https://www.expedia.com/Hotel-Search?destination=Amelia%20Island"
 };
 
-export type HotelBookingDestination = keyof typeof hotelSearchLinks;
+export type HotelAffiliateDestination = keyof typeof hotelSearchLinks;
 
 export type HotelSearchUrlInput = {
-  destination: HotelBookingDestination;
+  destination: HotelAffiliateDestination;
   category?: string;
   checkIn?: string;
   checkOut?: string;
@@ -40,6 +40,6 @@ export function getHotelSearchUrl({ destination }: HotelSearchUrlInput) {
   return getExpediaLink(hotelSearchLinks[destination]);
 }
 
-export function getHotelBookingUrl(destination: HotelBookingDestination, hotelName?: string) {
+export function getHotelAffiliateUrl(destination: HotelAffiliateDestination, hotelName?: string) {
   return getHotelSearchUrl({ destination, hotelName });
 }

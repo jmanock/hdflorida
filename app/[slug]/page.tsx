@@ -238,8 +238,8 @@ export default async function SeoLandingPage({
               Useful Florida stay deals to check today.
             </h2>
             <p className="mt-4 font-medium leading-7 text-slateText">
-              These cards link to real hotel search and booking pages where current rates,
-              availability, fees, and booking terms can be reviewed directly.
+              These cards link through Expedia where current rates, availability, fees, and
+              booking terms can be reviewed directly.
             </p>
             <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
               Updated regularly. Rates may change.

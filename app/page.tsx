@@ -235,7 +235,7 @@ export default function Home() {
                       <p className="text-2xl font-black text-gold">{deal.price}</p>
                       <p className="text-xs font-black uppercase text-slate-500">{deal.dates}</p>
                       <p className="mt-1 text-xs font-bold text-slate-500">
-                        Prices may change. Free cancellation is available on many hotels.
+                        Prices may change. Free cancellation and no booking fees are available on many stays.
                       </p>
                     </div>
                     <OutboundDealLink

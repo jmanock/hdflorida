@@ -50,7 +50,7 @@ No empty ratings, broken images, or API errors are shown in the UI.
 
 Expedia affiliate links are centralized in `lib/hotelLinks.ts`.
 
-Use `getHotelBookingUrl(destination, hotelName)` when adding or replacing hotel links. The deal data can keep the same `booking_url` field, but every active hotel CTA now resolves through `getExpediaLink(url)`.
+Use `getHotelAffiliateUrl(destination, hotelName)` when adding or replacing hotel links. The deal data can keep the same `booking_url` field, but every active hotel CTA now resolves through `getExpediaLink(url)`.
 
 For now, `getExpediaLink(url)` returns the provided Expedia affiliate URL directly:
 
