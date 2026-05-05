@@ -46,39 +46,42 @@ Hotel cards and SEO pages do not depend on API responses to render. They use cur
 
 No empty ratings, broken images, or API errors are shown in the UI.
 
-## Affiliate Link Readiness
+## Expedia Affiliate Link Readiness
 
-Booking/search links are centralized in `lib/hotelLinks.ts`.
+Expedia affiliate links are centralized in `lib/hotelLinks.ts`.
 
-Use `getHotelBookingUrl(destination, hotelName)` when adding or replacing hotel links. All Booking.com URLs pass through `getBookingLink(url)` before they reach deal cards, SEO pages, or homepage featured cards.
+Use `getHotelBookingUrl(destination, hotelName)` when adding or replacing hotel links. The deal data can keep the same `booking_url` field, but every active hotel CTA now resolves through `getExpediaLink(url)`.
 
-While Awin/Booking approval is pending, `getBookingLink(url)` returns the normal Booking.com search URL:
+For now, `getExpediaLink(url)` returns the provided Expedia affiliate URL directly:
 
 ```ts
-export function getBookingLink(url: string) {
-  return url;
+export function getExpediaLink(url: string) {
+  const baseAffiliate = "https://expedia.com/affiliate/2Wbjdi2";
+  return baseAffiliate;
 }
 ```
 
-After Awin approval, replace that function with the Awin deep-link/decorator logic. Keep deal data using the same `booking_url` field so card components and analytics do not need to change.
+When Expedia deep links are ready, update `getExpediaLink(url)` to decorate or transform the destination URL. Card components, SEO pages, and analytics should not need to change.
 
 Future integrations can also swap or layer in:
 
-- Booking.com partner links
 - Expedia Rapid Lodging API links
+- Booking.com partner links
 - Hotels.com / Expedia links
 - Tripadvisor links
 - direct hotel or resort partner links
 
-When adding a new destination page, add the page config in `data/seoPages.ts`, add or reuse relevant deal IDs from `data/hotelDeals.ts`, and add any new Booking destination key in `lib/hotelLinks.ts`.
+When adding a new destination page, add the page config in `data/seoPages.ts`, add or reuse relevant deal IDs from `data/hotelDeals.ts`, and add any new hotel destination key in `lib/hotelLinks.ts`.
 
 ## Analytics
 
-GA4 is loaded globally in `app/layout.tsx`. Outbound hotel clicks are tracked as `deal_click` with:
+GA4 is loaded globally in `app/layout.tsx`. Outbound Expedia hotel clicks are tracked as `deal_click` with:
 
 - `site`
 - `source`
+- `type`
 - `provider`
+- `location`
 - `destination`
 - `hotel_name`
 - `category`
@@ -86,7 +89,7 @@ GA4 is loaded globally in `app/layout.tsx`. Outbound hotel clicks are tracked as
 - `outbound_url`
 - `page_path`
 
-Booking clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
+Expedia hotel clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
 
 ## Verification
 

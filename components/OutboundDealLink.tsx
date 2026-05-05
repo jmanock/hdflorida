@@ -19,7 +19,9 @@ export function OutboundDealLink({
   function trackDealClick() {
     const eventMetadata = {
       page: pageContext,
-      provider: "booking",
+      type: "hotel",
+      provider: "expedia",
+      location: deal.city,
       destination: deal.city,
       hotel_name: deal.hotel_name,
       category: deal.category,

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { DealCard } from "@/components/DealCard";
+import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
@@ -196,9 +197,16 @@ export default async function SeoLandingPage({
                 {page.intro}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="#featured-stays" className="btn btn-primary px-6">
-                  View Current Hotel Deals
+                <OutboundDealLink
+                  deal={deals[0]}
+                  pageContext={`${page.slug}-hero`}
+                  className="btn btn-primary px-6"
+                >
+                  Compare Hotel Rates
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </OutboundDealLink>
+                <Link href="#featured-stays" className="btn btn-secondary px-6">
+                  View Hotel Options
                 </Link>
                 <Link href="#alerts" className="btn btn-secondary px-6">
                   Get Alerts

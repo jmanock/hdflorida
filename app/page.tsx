@@ -19,12 +19,24 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { hotelDeals } from "@/data/hotelDeals";
 
-const featuredDeals = hotelDeals.slice(0, 3);
+const featuredHotelCards = [
+  { id: "orlando-family-resort-search", title: "Orlando Hotels" },
+  { id: "miami-beach-hotel-search", title: "Miami Hotels" },
+  { id: "tampa-waterfront-hotel-search", title: "Tampa Hotels" },
+  { id: "fort-lauderdale-beach-resort-search", title: "Fort Lauderdale Hotels" }
+]
+  .map((card) => {
+    const deal = hotelDeals.find((hotelDeal) => hotelDeal.id === card.id);
+    return deal ? { ...card, deal } : null;
+  })
+  .filter((card): card is { id: string; title: string; deal: (typeof hotelDeals)[number] } =>
+    Boolean(card)
+  );
 
 const stats = [
   { value: "31", label: "Curated Stay Finds" },
   { value: "10", label: "Florida Markets" },
-  { value: "Booking.com", label: "Primary Hotel Search" },
+  { value: "Expedia", label: "Affiliate Hotel Search" },
   { value: "100%", label: "Current Searches" }
 ];
 
@@ -179,10 +191,10 @@ export default function Home() {
             <div>
               <p className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-ocean">
                 <Star className="h-4 w-4" aria-hidden="true" />
-                Featured stays
+                Featured hotels
               </p>
               <h2 className="mt-3 max-w-3xl text-3xl font-black tracking-normal text-ink sm:text-4xl">
-                Featured Florida stays worth checking today.
+                Featured Florida hotels worth comparing today.
               </h2>
               <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
                 Updated regularly. Rates may change.
@@ -195,8 +207,8 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {featuredDeals.map((deal) => (
+          <div className="mt-8 grid gap-5 lg:grid-cols-4">
+            {featuredHotelCards.map(({ deal, title }) => (
               <article
                 key={deal.id}
                 className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
@@ -216,13 +228,15 @@ export default function Home() {
                 </div>
                 <div className="p-5">
                   <p className="text-sm font-black text-ocean">{deal.city}</p>
-                  <h3 className="mt-1 text-xl font-black text-ink">{deal.hotel_name}</h3>
+                  <h3 className="mt-1 text-xl font-black text-ink">{title}</h3>
                   <p className="mt-2 text-sm font-medium leading-6 text-slateText">{deal.description}</p>
                   <div className="mt-5 flex items-end justify-between gap-4 border-t border-slate-100 pt-4">
                     <div>
                       <p className="text-2xl font-black text-gold">{deal.price}</p>
                       <p className="text-xs font-black uppercase text-slate-500">{deal.dates}</p>
-                      <p className="mt-1 text-xs font-bold text-slate-500">Check current availability.</p>
+                      <p className="mt-1 text-xs font-bold text-slate-500">
+                        Prices may change. Free cancellation is available on many hotels.
+                      </p>
                     </div>
                     <OutboundDealLink
                       deal={deal}
