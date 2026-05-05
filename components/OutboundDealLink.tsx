@@ -24,6 +24,7 @@ export function OutboundDealLink({
       destination: deal.city,
       hotel_name: deal.hotel_name,
       category: deal.category,
+      cta_text: deal.cta_label,
       price_text: deal.price,
       outbound_url: deal.booking_url,
       page_path: window.location.pathname

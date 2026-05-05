@@ -20,6 +20,9 @@ export type HotelDeal = {
   image: string;
   image_alt: string;
   cta_label: string;
+  value_label: string;
+  why_this_stay: string;
+  best_for: string[];
   place?: HotelPlaceTrustData;
 };
 

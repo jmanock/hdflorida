@@ -56,6 +56,27 @@ const popularExpediaSearches = [
   { label: "Fort Lauderdale Hotels", destination: "fortLauderdale" }
 ];
 
+function getPageHeroCta(slug: string, destinationLabel: string) {
+  const ctas: Record<string, string> = {
+    "orlando-hotel-deals": "Compare Orlando Hotels",
+    "orlando-family-resort-deals": "Compare Orlando Family Resorts",
+    "miami-hotel-deals": "Compare Miami Hotels",
+    "miami-beach-hotel-deals": "View Miami Beach Stays",
+    "tampa-hotel-deals": "Find Tampa Hotels",
+    "fort-lauderdale-hotel-deals": "Browse Fort Lauderdale Hotels",
+    "florida-keys-hotel-deals": "Browse Florida Keys Stays",
+    "clearwater-beach-hotel-deals": "View Clearwater Beach Stays",
+    "florida-beach-resort-deals": "Compare Beach Resorts",
+    "florida-family-hotel-deals": "Find Family-Friendly Hotels",
+    "florida-weekend-getaway-hotels": "Browse Weekend Stays",
+    "florida-luxury-hotel-deals": "Compare Luxury Hotels",
+    "florida-budget-hotel-deals": "View Budget Hotels",
+    "florida-hotels-under-150": "Search Hotels Under $150"
+  };
+
+  return ctas[slug] ?? `Compare ${destinationLabel} Hotels`;
+}
+
 export function generateStaticParams(): SeoPageParams[] {
   return seoLandingPages.map((page) => ({
     slug: page.slug
@@ -122,6 +143,7 @@ export default async function SeoLandingPage({
   const destinationKey = seoPageDestinationMap[page.slug] ?? "orlando";
   const destinationLink = getExpediaHotelLink(destinationKey);
   const destinationLabel = page.h1.replace(" Deals", "");
+  const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -234,11 +256,11 @@ export default async function SeoLandingPage({
                 <ExpediaHotelCta
                   href={destinationLink}
                   destination={destinationLabel}
-                  label={`hero:${page.slug}`}
+                  label={heroCtaLabel}
                   pageContext={`${page.slug}-hero`}
                   className="btn btn-primary px-6"
                 >
-                  Check {destinationLabel} Availability
+                  {heroCtaLabel}
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </ExpediaHotelCta>
                 <Link href="#featured-stays" className="btn btn-secondary px-6">
@@ -265,7 +287,34 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
-        <section id="featured-stays" className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Compare before booking
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                How to find the right {destinationLabel.toLowerCase()}.
+              </h2>
+            </div>
+            <div className="space-y-4 font-medium leading-7 text-slateText">
+              <p>
+                Start by comparing the stay style, neighborhood, cancellation policy, and final
+                taxes or fees for each hotel search. Rates can shift by season, event weekends,
+                beach weather, school breaks, and day of week, so checking a few nearby options is
+                often more useful than relying on one listed rate.
+              </p>
+              <p>
+                Use these curated Florida hotel searches to narrow the trip quickly, then confirm
+                current availability with the booking source. Families may want pools, suites, and
+                attraction access, while weekend travelers often compare walkable areas, waterfront
+                locations, resort fees, and parking before choosing a stay.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="featured-stays" className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
               Featured hotel searches
@@ -281,6 +330,10 @@ export default async function SeoLandingPage({
               Updated regularly. Rates may change.
             </p>
             <AffiliateDisclosure className="mt-3 max-w-2xl" />
+          </div>
+          <div className="mt-6 rounded-2xl border border-slate-200 bg-sand px-5 py-4 text-sm font-bold leading-6 text-slateText">
+            Hotel rates can change quickly. Compare options, check cancellation policies, and
+            confirm taxes or fees with the booking source before booking.
           </div>
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {deals.map((deal) => (
@@ -306,8 +359,9 @@ export default async function SeoLandingPage({
               <ExpediaHotelCta
                 href={destinationLink}
                 destination={destinationLabel}
-                label={`compare-hotels:${page.slug}`}
+                label="Compare Hotel Prices"
                 pageContext={page.slug}
+                category="Hotel Search"
                 className="btn btn-primary px-6"
               >
                 Compare Hotel Prices
@@ -316,11 +370,12 @@ export default async function SeoLandingPage({
               <ExpediaHotelCta
                 href={destinationLink}
                 destination={destinationLabel}
-                label={`current-rates:${page.slug}`}
+                label={heroCtaLabel}
                 pageContext={page.slug}
+                category="Hotel Search"
                 className="btn btn-secondary px-6"
               >
-                See Current Rates
+                {heroCtaLabel}
               </ExpediaHotelCta>
             </div>
             <p className="mt-3 text-xs font-bold text-slate-500">
@@ -392,8 +447,9 @@ export default async function SeoLandingPage({
                   key={search.destination}
                   href={getExpediaHotelLink(search.destination)}
                   destination={search.label}
-                  label={`bottom-search:${search.destination}`}
+                  label={`Compare ${search.label}`}
                   pageContext={page.slug}
+                  category="Hotel Search"
                   className="btn btn-secondary justify-center px-5"
                 >
                   {search.label}

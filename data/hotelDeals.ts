@@ -2,7 +2,9 @@ import type { HotelDeal } from "@/lib/types";
 import { getFallbackPlaceData } from "@/data/hotelPlaceData";
 import { getHotelAffiliateUrl } from "@/lib/hotelLinks";
 
-const hotelDealEntries: Omit<HotelDeal, "place">[] = [
+type HotelDealEntry = Omit<HotelDeal, "place" | "value_label" | "why_this_stay" | "best_for">;
+
+const hotelDealEntries: HotelDealEntry[] = [
   {
     id: "orlando-family-resort-search",
     hotel_name: "Orlando Family Resort Search",
@@ -23,7 +25,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Miami Beach Hotel Search",
     city: "Miami",
     category: "Beach Resorts",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Browse Miami Beach stays near the sand, dining, nightlife, and oceanfront resort areas.",
     dates: "Florida hotel deals may change",
@@ -83,7 +85,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Fort Lauderdale Beach Resorts",
     city: "Fort Lauderdale",
     category: "Beach Resorts",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Deals may vary",
     description: "Search beach resorts, marina hotels, and oceanfront stays near Las Olas and the coast.",
     dates: "Check availability by date",
@@ -128,7 +130,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Naples Boutique Retreats",
     city: "Naples",
     category: "Luxury",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Search Gulf Coast boutique hotels, polished resorts, and quiet Naples getaway stays.",
     dates: "Deals may vary by night",
@@ -188,7 +190,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Clearwater Gulf Hotel Search",
     city: "Tampa Bay",
     category: "Beach Resorts",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Search Clearwater Beach and Gulf-area hotels for family trips, sunsets, and sand access.",
     dates: "See availability by date",
@@ -218,7 +220,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Amelia Island Beach Hotels",
     city: "Jacksonville",
     category: "Beach Resorts",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Browse Amelia Island resorts and beach hotels north of Jacksonville for quiet coastal stays.",
     dates: "See current availability",
@@ -293,7 +295,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "St. Augustine Family Hotels",
     city: "St. Augustine",
     category: "Family Hotels",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Browse family-friendly hotels near historic sites, beaches, parking, and easy sightseeing.",
     dates: "See current availability",
@@ -398,7 +400,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "Miami Luxury Spa Hotels",
     city: "Miami",
     category: "Luxury",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Browse luxury Miami hotels with spa amenities, pools, dining, and beach or city access.",
     dates: "Florida hotel deals may change",
@@ -443,7 +445,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     hotel_name: "St. Augustine Luxury Hotels",
     city: "St. Augustine",
     category: "Luxury",
-    price: "See current rates",
+    price: "Compare current rates",
     savings: "Current offers",
     description: "Browse upscale historic stays, courtyard hotels, and polished inns in St. Augustine.",
     dates: "See current availability",
@@ -470,7 +472,115 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
   }
 ];
 
+function getValueLabel(deal: HotelDealEntry) {
+  if (deal.category === "Under $150") {
+    return "Search stays under $150";
+  }
+
+  if (deal.category === "Weekend Getaways") {
+    return "Weekend stays available";
+  }
+
+  if (deal.category === "Beach Resorts") {
+    return deal.city === "Miami" ? "Beach hotels from search partners" : "Compare beach hotel rates";
+  }
+
+  if (deal.category === "Family Hotels") {
+    return "Compare family-friendly stays";
+  }
+
+  if (deal.category === "Luxury") {
+    return "Compare resort and luxury rates";
+  }
+
+  if (deal.category === "Budget") {
+    return "Compare value hotel rates";
+  }
+
+  if (deal.category === "Florida Resident Deals") {
+    return "Check staycation offers";
+  }
+
+  return deal.price || "Compare current rates";
+}
+
+function getWhyThisStay(deal: HotelDealEntry) {
+  if (deal.city === "Orlando") {
+    return "Good for theme park weekends and family trips";
+  }
+
+  if (deal.city === "Miami") {
+    return deal.category === "Weekend Getaways"
+      ? "Good area for restaurants and nightlife"
+      : "Popular beach stay area with city access";
+  }
+
+  if (deal.city === "Florida Keys") {
+    return "Useful for island getaways and waterfront stays";
+  }
+
+  if (deal.city === "Tampa Bay") {
+    return "Close to waterfront, beaches, and attractions";
+  }
+
+  if (deal.city === "Fort Lauderdale") {
+    return "Strong option for beach and marina stays";
+  }
+
+  if (deal.city === "St. Augustine") {
+    return "Good for historic weekends and boutique inns";
+  }
+
+  if (deal.city === "Naples" || deal.city === "Sarasota") {
+    return "Good for Gulf Coast resort and beach trips";
+  }
+
+  if (deal.city === "Daytona Beach") {
+    return "Useful for beach weekends and event stays";
+  }
+
+  return "Curated hotel search for comparing available stays";
+}
+
+function getBestForTags(deal: HotelDealEntry) {
+  const tags = new Set<string>();
+
+  if (deal.category.includes("Family")) tags.add("Family");
+  if (deal.category.includes("Beach")) tags.add("Beach");
+  if (deal.category.includes("Weekend")) tags.add("Weekend");
+  if (deal.category.includes("Budget")) tags.add("Budget");
+  if (deal.category.includes("Luxury")) tags.add("Luxury");
+  if (deal.category.includes("Under $150")) tags.add("Under $150");
+  if (deal.city === "Orlando") tags.add("Theme Parks");
+  if (["Tampa Bay", "Fort Lauderdale", "Florida Keys"].includes(deal.city)) tags.add("Waterfront");
+
+  return Array.from(tags).slice(0, 3);
+}
+
+function getCtaLabel(deal: HotelDealEntry) {
+  if (deal.city === "Orlando") return "Compare Orlando Hotels";
+  if (deal.city === "Miami") return deal.category === "Beach Resorts" ? "View Miami Beach Stays" : "View Miami Stays";
+  if (deal.city === "Tampa Bay") return "Find Tampa Hotels";
+  if (deal.city === "Fort Lauderdale") return "Browse Fort Lauderdale Hotels";
+  if (deal.city === "Florida Keys") return "Browse Florida Keys Stays";
+  if (deal.city === "St. Augustine") return "View St. Augustine Inns";
+  if (deal.city === "Daytona Beach") return "Browse Daytona Beach Hotels";
+  if (deal.city === "Naples") return "Compare Naples Hotels";
+  if (deal.city === "Sarasota") return "Compare Sarasota Hotels";
+
+  if (deal.category === "Beach Resorts") return "Compare Beach Resorts";
+  if (deal.category === "Family Hotels") return "Find Family-Friendly Hotels";
+  if (deal.category === "Weekend Getaways") return "Browse Weekend Stays";
+  if (deal.category === "Under $150" || deal.category === "Budget") return "View Budget Hotels";
+
+  return "Compare Hotel Options";
+}
+
 export const hotelDeals: HotelDeal[] = hotelDealEntries.map((deal) => ({
   ...deal,
+  cta_label: getCtaLabel(deal),
+  value_label: getValueLabel(deal),
+  why_this_stay: getWhyThisStay(deal),
+  best_for: getBestForTags(deal),
   place: getFallbackPlaceData(deal.id, deal.city)
 }));

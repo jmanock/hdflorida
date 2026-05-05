@@ -93,6 +93,11 @@ export function DealExplorer() {
         ))}
       </div>
 
+      <div className="mt-5 rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold leading-6 text-slateText shadow-card">
+        Hotel rates can change quickly. Compare options, check cancellation policies, and confirm
+        taxes or fees with the booking source before booking.
+      </div>
+
       <div className="mt-8 grid gap-5 lg:grid-cols-2" aria-live="polite">
         {visibleDeals.map((deal) => (
           <DealCard key={deal.id} deal={deal} />

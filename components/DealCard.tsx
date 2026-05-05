@@ -77,23 +77,44 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
           </div>
         ) : null}
 
-        <div className="mt-auto flex flex-col gap-3 border-t border-slate-100 pt-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-2xl font-black text-ink">{deal.price}</p>
-            <p className="text-sm font-bold text-palm-600">{deal.savings}</p>
-            <p className="mt-1 text-xs font-bold text-slate-500">Prices may change before booking.</p>
-            <p className="mt-1 text-xs font-bold text-slate-500">
-              Free cancellation and no booking fees are available on many stays.
-            </p>
+        <div className="mt-auto space-y-4 border-t border-slate-100 pt-4">
+          {deal.best_for.length ? (
+            <div className="flex flex-wrap gap-2">
+              {deal.best_for.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-black text-ink"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          ) : null}
+
+          <div className="grid gap-4 rounded-2xl border border-slate-200 bg-sand p-4 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div className="min-w-0">
+              <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                Rate guidance
+              </p>
+              <p className="mt-1 text-xl font-black leading-7 text-ink">{deal.value_label}</p>
+              <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                Why this stay?
+              </p>
+              <p className="mt-1 text-sm font-bold leading-6 text-slateText">{deal.why_this_stay}</p>
+              <p className="mt-3 text-xs font-bold leading-5 text-slate-500">
+                Rates may change. Availability varies by date.
+              </p>
+            </div>
+
+            <OutboundDealLink
+              deal={deal}
+              pageContext={pageContext}
+              className="btn btn-primary min-h-12 w-full px-5 sm:w-64"
+            >
+              {deal.cta_label}
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </OutboundDealLink>
           </div>
-          <OutboundDealLink
-            deal={deal}
-            pageContext={pageContext}
-            className="btn btn-primary btn-card w-full sm:w-auto"
-          >
-            {deal.cta_label}
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </OutboundDealLink>
         </div>
       </div>
     </article>

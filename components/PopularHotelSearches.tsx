@@ -5,8 +5,10 @@ const popularSearches = [
   ["Orlando Hotel Deals", "/orlando-hotel-deals"],
   ["Miami Beach Hotel Deals", "/miami-beach-hotel-deals"],
   ["Florida Keys Hotel Deals", "/florida-keys-hotel-deals"],
-  ["Beach Resort Deals", "/florida-beach-resort-deals"],
-  ["Family Hotel Deals", "/florida-family-hotel-deals"],
+  ["Clearwater Beach Hotel Deals", "/clearwater-beach-hotel-deals"],
+  ["Florida Beach Resort Deals", "/florida-beach-resort-deals"],
+  ["Florida Family Hotel Deals", "/florida-family-hotel-deals"],
+  ["Florida Hotels Under $150", "/florida-hotels-under-150"],
   ["Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"]
 ];
 
@@ -29,7 +31,7 @@ export function PopularHotelSearches() {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {popularSearches.map(([label, href]) => (
             <Link
               key={href}

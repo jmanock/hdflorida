@@ -8,6 +8,8 @@ export function ExpediaHotelCta({
   destination,
   label,
   pageContext,
+  category,
+  priceText,
   className,
   children
 }: {
@@ -15,6 +17,8 @@ export function ExpediaHotelCta({
   destination: string;
   label: string;
   pageContext: string;
+  category?: string;
+  priceText?: string;
   className: string;
   children: ReactNode;
 }) {
@@ -24,7 +28,9 @@ export function ExpediaHotelCta({
       type: "hotel",
       provider: "expedia",
       destination,
-      label,
+      category,
+      cta_text: label,
+      price_text: priceText,
       outbound_url: href,
       page_path: window.location.pathname
     };

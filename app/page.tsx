@@ -239,18 +239,36 @@ export default function Home() {
                   <p className="text-sm font-black text-ocean">{deal.city}</p>
                   <h3 className="mt-1 text-xl font-black text-ink">{title}</h3>
                   <p className="mt-2 text-sm font-medium leading-6 text-slateText">{deal.description}</p>
-                  <div className="mt-5 flex items-end justify-between gap-4 border-t border-slate-100 pt-4">
-                    <div>
-                      <p className="text-2xl font-black text-gold">{deal.price}</p>
-                      <p className="text-xs font-black uppercase text-slate-500">{deal.dates}</p>
-                      <p className="mt-1 text-xs font-bold text-slate-500">
-                        Prices may change. Free cancellation and no booking fees are available on many stays.
+                  <div className="mt-5 space-y-4 border-t border-slate-100 pt-4">
+                    <div className="flex flex-wrap gap-2">
+                      {deal.best_for.map((tag) => (
+                        <span
+                          key={tag}
+                          className="rounded-full border border-slate-200 bg-sand px-3 py-1 text-xs font-black text-ink"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="rounded-2xl border border-slate-200 bg-sand p-4">
+                      <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                        Rate guidance
+                      </p>
+                      <p className="mt-1 text-lg font-black leading-7 text-ink">{deal.value_label}</p>
+                      <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                        Why this stay?
+                      </p>
+                      <p className="mt-1 text-sm font-bold leading-6 text-slateText">
+                        {deal.why_this_stay}
+                      </p>
+                      <p className="mt-3 text-xs font-bold leading-5 text-slate-500">
+                        Rates may change. Availability varies by date.
                       </p>
                     </div>
                     <OutboundDealLink
                       deal={deal}
                       pageContext="homepage-featured"
-                      className="btn btn-primary btn-card"
+                      className="btn btn-primary w-full px-5"
                     >
                       {deal.cta_label}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -265,7 +283,7 @@ export default function Home() {
         <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
-              Popular Florida Hotel Searches
+              Compare Popular Hotel Destinations
             </p>
             <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
               Jump straight to current Expedia hotel options.
@@ -276,8 +294,9 @@ export default function Home() {
                   key={search.destination}
                   href={getExpediaHotelLink(search.destination)}
                   destination={search.label}
-                  label={`homepage-popular:${search.destination}`}
+                  label={`Compare ${search.label}`}
                   pageContext="homepage"
+                  category="Hotel Search"
                   className="btn btn-primary justify-center px-5"
                 >
                   {search.label}
