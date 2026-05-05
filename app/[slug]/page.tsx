@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
 import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
+import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
@@ -19,11 +20,41 @@ import {
   seoLandingPageMap,
   seoLandingPages
 } from "@/data/seoPages";
+import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { SITE_URL } from "@/lib/siteConstants";
 
 type SeoPageParams = {
   slug: string;
 };
+
+const seoPageDestinationMap: Record<string, string> = {
+  "orlando-hotel-deals": "orlando",
+  "miami-hotel-deals": "miami",
+  "miami-beach-hotel-deals": "miamiBeach",
+  "tampa-hotel-deals": "tampa",
+  "fort-lauderdale-hotel-deals": "fortLauderdale",
+  "florida-keys-hotel-deals": "floridaKeys",
+  "daytona-beach-hotel-deals": "daytonaBeach",
+  "st-augustine-hotel-deals": "stAugustine",
+  "sarasota-hotel-deals": "sarasota",
+  "naples-hotel-deals": "naples",
+  "clearwater-beach-hotel-deals": "clearwater",
+  "florida-beach-resort-deals": "miamiBeach",
+  "florida-family-hotel-deals": "orlando",
+  "florida-weekend-getaway-hotels": "miamiBeach",
+  "florida-luxury-hotel-deals": "naples",
+  "florida-budget-hotel-deals": "orlando",
+  "florida-resident-hotel-deals": "orlando",
+  "orlando-family-resort-deals": "orlando",
+  "florida-hotels-under-150": "orlando"
+};
+
+const popularExpediaSearches = [
+  { label: "Orlando Hotels", destination: "orlando" },
+  { label: "Miami Beach Hotels", destination: "miamiBeach" },
+  { label: "Tampa Hotels", destination: "tampa" },
+  { label: "Fort Lauderdale Hotels", destination: "fortLauderdale" }
+];
 
 export function generateStaticParams(): SeoPageParams[] {
   return seoLandingPages.map((page) => ({
@@ -88,6 +119,9 @@ export default async function SeoLandingPage({
 
   const deals = getDealsForSeoPage(page);
   const faqs = getFaqsForSeoPage(page);
+  const destinationKey = seoPageDestinationMap[page.slug] ?? "orlando";
+  const destinationLink = getExpediaHotelLink(destinationKey);
+  const destinationLabel = page.h1.replace(" Deals", "");
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -197,14 +231,16 @@ export default async function SeoLandingPage({
                 {page.intro}
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <OutboundDealLink
-                  deal={deals[0]}
+                <ExpediaHotelCta
+                  href={destinationLink}
+                  destination={destinationLabel}
+                  label={`hero:${page.slug}`}
                   pageContext={`${page.slug}-hero`}
                   className="btn btn-primary px-6"
                 >
-                  Compare Hotel Rates
+                  Check {destinationLabel} Availability
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </OutboundDealLink>
+                </ExpediaHotelCta>
                 <Link href="#featured-stays" className="btn btn-secondary px-6">
                   View Hotel Options
                 </Link>
@@ -254,6 +290,46 @@ export default async function SeoLandingPage({
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Compare Hotels Before You Book
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              Check current {destinationLabel.toLowerCase()} prices on Expedia.
+            </h2>
+            <p className="mt-3 max-w-3xl font-medium leading-7 text-slateText">
+              Compare multiple hotels instantly, review current availability, and confirm the final
+              price before booking. Prices may change by date, room type, and demand.
+            </p>
+            <AffiliateDisclosure className="mt-3 max-w-2xl" />
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <ExpediaHotelCta
+                href={destinationLink}
+                destination={destinationLabel}
+                label={`compare-hotels:${page.slug}`}
+                pageContext={page.slug}
+                className="btn btn-primary px-6"
+              >
+                Compare Hotel Prices
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </ExpediaHotelCta>
+              <ExpediaHotelCta
+                href={destinationLink}
+                destination={destinationLabel}
+                label={`current-rates:${page.slug}`}
+                pageContext={page.slug}
+                className="btn btn-secondary px-6"
+              >
+                See Current Rates
+              </ExpediaHotelCta>
+            </div>
+            <p className="mt-3 text-xs font-bold text-slate-500">
+              Free cancellation and no booking fees are available on many stays.
+            </p>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
               Related Hotel Searches
@@ -299,6 +375,34 @@ export default async function SeoLandingPage({
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Find Your Stay in Florida
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              Popular Florida hotel searches on Expedia.
+            </h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {popularExpediaSearches.map((search) => (
+                <ExpediaHotelCta
+                  key={search.destination}
+                  href={getExpediaHotelLink(search.destination)}
+                  destination={search.label}
+                  label={`bottom-search:${search.destination}`}
+                  pageContext={page.slug}
+                  className="btn btn-secondary justify-center px-5"
+                >
+                  {search.label}
+                </ExpediaHotelCta>
+              ))}
+            </div>
+            <p className="mt-4 text-xs font-bold text-slate-500">
+              Compare multiple hotels instantly. Prices and availability may change.
+            </p>
           </div>
         </section>
 

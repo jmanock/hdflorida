@@ -46,7 +46,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("floridaKeys"),
     image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
     image_alt: "Turquoise water and Florida Keys coastline near island hotels",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "tampa-waterfront-hotel-search",
@@ -106,7 +106,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("jacksonville"),
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
     image_alt: "Modern city hotel exterior for a downtown Florida stay",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "daytona-oceanfront-search",
@@ -151,7 +151,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("sarasota"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Resort pool and lounge area for a Sarasota beach hotel search",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "orlando-resident-suite-search",
@@ -196,7 +196,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("clearwater"),
     image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80",
     image_alt: "Beach resort walkway with palms and waterfront hotel feel",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "key-west-inn-search",
@@ -241,7 +241,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("stPete"),
     image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80",
     image_alt: "Modern hotel room for a St. Petersburg city stay",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "orlando-luxury-villas-search",
@@ -301,7 +301,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("stAugustine"),
     image: "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80",
     image_alt: "Family-friendly hotel exterior with welcoming Florida lodge style",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "naples-resident-rate-search",
@@ -346,7 +346,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("daytonaBeach"),
     image: "https://images.unsplash.com/photo-1521783988139-893ce8f97ab4?auto=format&fit=crop&w=900&q=80",
     image_alt: "Beachfront hotel pool area for a Daytona weekend stay",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "jacksonville-budget-search",
@@ -391,7 +391,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("orlando"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Resort pool area used for Orlando value hotel searches",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "miami-luxury-spa-search",
@@ -436,7 +436,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("tampa"),
     image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80",
     image_alt: "Clean hotel room for a practical Tampa value stay",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   },
   {
     id: "st-augustine-luxury-search",
@@ -466,7 +466,7 @@ const hotelDealEntries: Omit<HotelDeal, "place">[] = [
     booking_url: getHotelAffiliateUrl("sarasota"),
     image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80",
     image_alt: "Bright hotel room for a Sarasota value stay search",
-    cta_label: "Compare Hotel Rates"
+    cta_label: "Compare Hotel Prices"
   }
 ];
 

@@ -48,20 +48,25 @@ No empty ratings, broken images, or API errors are shown in the UI.
 
 ## Expedia Affiliate Link Readiness
 
-Expedia affiliate links are centralized in `lib/hotelLinks.ts`.
+Expedia affiliate links are centralized in `lib/affiliateLinks.ts`, with compatibility helpers in `lib/hotelLinks.ts`.
 
-Use `getHotelAffiliateUrl(destination, hotelName)` when adding or replacing hotel links. The deal data can keep the same `booking_url` field, but every active hotel CTA now resolves through `getExpediaLink(url)`.
+Use `getExpediaHotelLink(destination)` for page-level CTAs and `getHotelAffiliateUrl(destination, hotelName)` for hotel deal data. The deal data can keep the same `booking_url` field, but every active hotel CTA now resolves through the centralized Expedia destination map.
 
-For now, `getExpediaLink(url)` returns the provided Expedia affiliate URL directly:
+Destination links live in `expediaHotelLinks`:
 
 ```ts
-export function getExpediaLink(url: string) {
-  const baseAffiliate = "https://expedia.com/affiliate/2Wbjdi2";
-  return baseAffiliate;
+export const expediaHotelLinks = {
+  orlando: "https://www.expedia.com/Hotel-Search?destination=Orlando",
+  miamiBeach: "https://www.expedia.com/Hotel-Search?destination=Miami%20Beach",
+  default: "https://expedia.com/affiliate/2Wbjdi2"
+};
+
+export function getExpediaHotelLink(destination: string) {
+  return expediaHotelLinks[destination] || expediaHotelLinks.default;
 }
 ```
 
-When Expedia deep links are ready, update `getExpediaLink(url)` to decorate or transform the destination URL. Card components, SEO pages, and analytics should not need to change.
+When Expedia affiliate deep links are ready, replace the destination values inside `expediaHotelLinks`. Card components, SEO pages, and analytics should not need to change.
 
 Future integrations can also swap or layer in:
 
@@ -71,7 +76,7 @@ Future integrations can also swap or layer in:
 - Tripadvisor links
 - direct hotel or resort partner links
 
-When adding a new destination page, add the page config in `data/seoPages.ts`, add or reuse relevant deal IDs from `data/hotelDeals.ts`, and add any new hotel destination key in `lib/hotelLinks.ts`.
+When adding a new destination page, add the page config in `data/seoPages.ts`, add or reuse relevant deal IDs from `data/hotelDeals.ts`, and add any new hotel destination key in `lib/affiliateLinks.ts`. If the page needs a page-level CTA, add its slug mapping in `app/[slug]/page.tsx`.
 
 ## Analytics
 

@@ -15,9 +15,11 @@ import { PopularHotelSearches } from "@/components/PopularHotelSearches";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
+import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { hotelDeals } from "@/data/hotelDeals";
+import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 
 const featuredHotelCards = [
   { id: "orlando-family-resort-search", title: "Orlando Hotels" },
@@ -32,6 +34,13 @@ const featuredHotelCards = [
   .filter((card): card is { id: string; title: string; deal: (typeof hotelDeals)[number] } =>
     Boolean(card)
   );
+
+const popularExpediaSearches = [
+  { label: "Orlando Hotels", destination: "orlando" },
+  { label: "Miami Beach Hotels", destination: "miamiBeach" },
+  { label: "Tampa Hotels", destination: "tampa" },
+  { label: "Fort Lauderdale Hotels", destination: "fortLauderdale" }
+];
 
 const stats = [
   { value: "31", label: "Curated Stay Finds" },
@@ -250,6 +259,34 @@ export default function Home() {
                 </div>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Popular Florida Hotel Searches
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              Jump straight to current Expedia hotel options.
+            </h2>
+            <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {popularExpediaSearches.map((search) => (
+                <ExpediaHotelCta
+                  key={search.destination}
+                  href={getExpediaHotelLink(search.destination)}
+                  destination={search.label}
+                  label={`homepage-popular:${search.destination}`}
+                  pageContext="homepage"
+                  className="btn btn-primary justify-center px-5"
+                >
+                  {search.label}
+                </ExpediaHotelCta>
+              ))}
+            </div>
+            <p className="mt-4 text-xs font-bold text-slate-500">
+              Prices may change. Free cancellation and no booking fees are available on many stays.
+            </p>
           </div>
         </section>
 
