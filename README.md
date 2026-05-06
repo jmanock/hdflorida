@@ -55,10 +55,13 @@ Use `getExpediaHotelLink(destination)` for page-level CTAs and `getHotelAffiliat
 Destination links live in `expediaHotelLinks`:
 
 ```ts
+export const EXPEDIA_AFFILIATE_BASE = "https://expedia.com/affiliate/2Wbjdi2";
+
 export const expediaHotelLinks = {
-  orlando: "https://www.expedia.com/Hotel-Search?destination=Orlando",
-  miamiBeach: "https://www.expedia.com/Hotel-Search?destination=Miami%20Beach",
-  default: "https://expedia.com/affiliate/2Wbjdi2"
+  // Paste destination-specific Expedia/Awin hotel deep links here when available.
+  orlando: EXPEDIA_AFFILIATE_BASE,
+  miamiBeach: EXPEDIA_AFFILIATE_BASE,
+  default: EXPEDIA_AFFILIATE_BASE
 };
 
 export function getExpediaHotelLink(destination: string) {
@@ -86,11 +89,11 @@ GA4 is loaded globally in `app/layout.tsx`. Outbound Expedia hotel clicks are tr
 - `source`
 - `type`
 - `provider`
-- `location`
 - `destination`
 - `hotel_name`
 - `category`
 - `price_text`
+- `cta_text`
 - `outbound_url`
 - `page_path`
 

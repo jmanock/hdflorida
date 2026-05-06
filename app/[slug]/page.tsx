@@ -69,9 +69,9 @@ function getPageHeroCta(slug: string, destinationLabel: string) {
     "florida-beach-resort-deals": "Compare Beach Resorts",
     "florida-family-hotel-deals": "Find Family-Friendly Hotels",
     "florida-weekend-getaway-hotels": "Browse Weekend Stays",
-    "florida-luxury-hotel-deals": "Compare Luxury Hotels",
+    "florida-luxury-hotel-deals": "Compare Luxury Stays",
     "florida-budget-hotel-deals": "View Budget Hotels",
-    "florida-hotels-under-150": "Search Hotels Under $150"
+    "florida-hotels-under-150": "Browse Budget Hotel Searches"
   };
 
   return ctas[slug] ?? `Compare ${destinationLabel} Hotels`;
@@ -277,7 +277,7 @@ export default async function SeoLandingPage({
               <h2 className="mt-5 text-2xl font-black text-ink">Current stay options</h2>
               <p className="mt-3 font-medium leading-7 text-slateText">{page.details}</p>
               <div className="mt-5 grid gap-3 text-sm font-black text-ink">
-                {["Check current rates", "See availability", "Hotel rates may change"].map((item) => (
+                {["Compare hotel options", "See availability", "Hotel rates may change"].map((item) => (
                   <span key={item} className="rounded-2xl border border-slate-200 bg-sand px-4 py-3">
                     {item}
                   </span>
@@ -299,16 +299,30 @@ export default async function SeoLandingPage({
             </div>
             <div className="space-y-4 font-medium leading-7 text-slateText">
               <p>
-                Start by comparing the stay style, neighborhood, cancellation policy, and final
-                taxes or fees for each hotel search. Rates can shift by season, event weekends,
-                beach weather, school breaks, and day of week, so checking a few nearby options is
+                Start by comparing stay style, neighborhood, cancellation policy, and final taxes
+                or fees for each hotel search. Rates can shift by season, event weekends, beach
+                weather, school breaks, and day of week, so checking several nearby options is
                 often more useful than relying on one listed rate.
               </p>
               <p>
                 Use these curated Florida hotel searches to narrow the trip quickly, then confirm
-                current availability with the booking source. Families may want pools, suites, and
-                attraction access, while weekend travelers often compare walkable areas, waterfront
-                locations, resort fees, and parking before choosing a stay.
+                current availability with the booking source. Families may care most about pools,
+                suites, breakfast, parking, and attraction access, while weekend travelers often
+                compare walkable areas, waterfront locations, nightlife, beach access, and resort
+                fees before choosing a stay.
+              </p>
+              <p>
+                For {destinationLabel.toLowerCase()}, it helps to think about the trip first:
+                theme park days, beach time, restaurant weekends, airport convenience, family room
+                layouts, or a quiet staycation can point you toward very different hotel areas.
+                Nearby attractions and event calendars can also affect availability, especially
+                during holidays, school breaks, festivals, conventions, and peak beach weekends.
+              </p>
+              <p>
+                Before booking, compare the room type, cancellation window, taxes, resort or
+                parking fees, check-in policies, and distance from the places you plan to visit.
+                Hotel rates may change quickly, but a clear comparison makes it easier to choose a
+                stay that fits the trip instead of clicking the first result.
               </p>
             </div>
           </div>

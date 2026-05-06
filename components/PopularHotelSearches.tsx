@@ -3,13 +3,16 @@ import { ArrowRight, Search } from "lucide-react";
 
 const popularSearches = [
   ["Orlando Hotel Deals", "/orlando-hotel-deals"],
+  ["Miami Hotel Deals", "/miami-hotel-deals"],
   ["Miami Beach Hotel Deals", "/miami-beach-hotel-deals"],
+  ["Tampa Hotel Deals", "/tampa-hotel-deals"],
+  ["Fort Lauderdale Hotel Deals", "/fort-lauderdale-hotel-deals"],
   ["Florida Keys Hotel Deals", "/florida-keys-hotel-deals"],
   ["Clearwater Beach Hotel Deals", "/clearwater-beach-hotel-deals"],
   ["Florida Beach Resort Deals", "/florida-beach-resort-deals"],
   ["Florida Family Hotel Deals", "/florida-family-hotel-deals"],
   ["Florida Hotels Under $150", "/florida-hotels-under-150"],
-  ["Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"]
+  ["Florida Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"]
 ];
 
 export function PopularHotelSearches() {

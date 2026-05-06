@@ -80,7 +80,7 @@ export function NewsletterForm() {
       </div>
       {status === "success" ? (
         <p className="mt-3 text-sm font-bold text-white">
-          You&apos;re in! Florida hotel deals are on the way.
+          You&apos;re in! Hotel deals are on the way.
         </p>
       ) : null}
       {status === "error" ? (

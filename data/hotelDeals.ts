@@ -2,7 +2,7 @@ import type { HotelDeal } from "@/lib/types";
 import { getFallbackPlaceData } from "@/data/hotelPlaceData";
 import { getHotelAffiliateUrl } from "@/lib/hotelLinks";
 
-type HotelDealEntry = Omit<HotelDeal, "place" | "value_label" | "why_this_stay" | "best_for">;
+type HotelDealEntry = Omit<HotelDeal, "place" | "cta_label" | "value_label" | "why_this_stay" | "best_for">;
 
 const hotelDealEntries: HotelDealEntry[] = [
   {
@@ -17,8 +17,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Family",
     booking_url: getHotelAffiliateUrl("orlando"),
     image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Family resort pool area with palm trees and hotel balconies",
-    cta_label: "Check Availability"
+    image_alt: "Family resort pool area with palm trees and hotel balconies"
   },
   {
     id: "miami-beach-hotel-search",
@@ -32,8 +31,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Beach",
     booking_url: getHotelAffiliateUrl("miamiBeach"),
     image: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Miami Beach skyline and waterfront hotel district",
-    cta_label: "View on Expedia"
+    image_alt: "Miami Beach skyline and waterfront hotel district"
   },
   {
     id: "florida-keys-weekend-search",
@@ -47,8 +45,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Weekend",
     booking_url: getHotelAffiliateUrl("floridaKeys"),
     image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Turquoise water and Florida Keys coastline near island hotels",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Turquoise water and Florida Keys coastline near island hotels"
   },
   {
     id: "tampa-waterfront-hotel-search",
@@ -62,8 +59,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("tampa"),
     image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Premium hotel lobby and lounge for a waterfront city stay",
-    cta_label: "Check Availability"
+    image_alt: "Premium hotel lobby and lounge for a waterfront city stay"
   },
   {
     id: "st-augustine-historic-inn-search",
@@ -77,8 +73,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("stAugustine"),
     image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Boutique inn bedroom suited for a historic Florida stay",
-    cta_label: "View on Expedia"
+    image_alt: "Boutique inn bedroom suited for a historic Florida stay"
   },
   {
     id: "fort-lauderdale-beach-resort-search",
@@ -92,8 +87,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Beach",
     booking_url: getHotelAffiliateUrl("fortLauderdale"),
     image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Beach resort pool and palm trees near the ocean",
-    cta_label: "Check Availability"
+    image_alt: "Beach resort pool and palm trees near the ocean"
   },
   {
     id: "jacksonville-riverfront-search",
@@ -107,8 +101,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("jacksonville"),
     image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Modern city hotel exterior for a downtown Florida stay",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Modern city hotel exterior for a downtown Florida stay"
   },
   {
     id: "daytona-oceanfront-search",
@@ -122,8 +115,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Beach",
     booking_url: getHotelAffiliateUrl("daytonaBeach"),
     image: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Wide Florida beach with oceanfront hotel stay atmosphere",
-    cta_label: "View on Expedia"
+    image_alt: "Wide Florida beach with oceanfront hotel stay atmosphere"
   },
   {
     id: "naples-boutique-retreat-search",
@@ -137,8 +129,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("naples"),
     image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Luxury resort pool with lounge chairs and palm trees",
-    cta_label: "Check Availability"
+    image_alt: "Luxury resort pool with lounge chairs and palm trees"
   },
   {
     id: "sarasota-lido-resort-search",
@@ -152,8 +143,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Beach",
     booking_url: getHotelAffiliateUrl("sarasota"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Resort pool and lounge area for a Sarasota beach hotel search",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Resort pool and lounge area for a Sarasota beach hotel search"
   },
   {
     id: "orlando-resident-suite-search",
@@ -167,8 +157,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Resident Deal",
     booking_url: getHotelAffiliateUrl("orlando"),
     image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Hotel exterior with pool for an Orlando staycation search",
-    cta_label: "View on Expedia"
+    image_alt: "Hotel exterior with pool for an Orlando staycation search"
   },
   {
     id: "miami-brickell-weekend-search",
@@ -182,8 +171,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Weekend",
     booking_url: getHotelAffiliateUrl("miami"),
     image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Miami city skyline for a downtown hotel weekend search",
-    cta_label: "Check Availability"
+    image_alt: "Miami city skyline for a downtown hotel weekend search"
   },
   {
     id: "clearwater-gulf-search",
@@ -197,8 +185,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Family",
     booking_url: getHotelAffiliateUrl("clearwater"),
     image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Beach resort walkway with palms and waterfront hotel feel",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Beach resort walkway with palms and waterfront hotel feel"
   },
   {
     id: "key-west-inn-search",
@@ -212,8 +199,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("floridaKeys"),
     image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Sunny tropical beach scene for Florida Keys hotel stays",
-    cta_label: "View on Expedia"
+    image_alt: "Sunny tropical beach scene for Florida Keys hotel stays"
   },
   {
     id: "amelia-island-beach-search",
@@ -227,8 +213,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Beach",
     booking_url: getHotelAffiliateUrl("ameliaIsland"),
     image: "https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Hotel room with ocean-facing balcony atmosphere",
-    cta_label: "Check Availability"
+    image_alt: "Hotel room with ocean-facing balcony atmosphere"
   },
   {
     id: "st-pete-art-hotel-search",
@@ -242,8 +227,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("stPete"),
     image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Modern hotel room for a St. Petersburg city stay",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Modern hotel room for a St. Petersburg city stay"
   },
   {
     id: "orlando-luxury-villas-search",
@@ -257,8 +241,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("orlando"),
     image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Spacious resort villa patio and pool area",
-    cta_label: "View on Expedia"
+    image_alt: "Spacious resort villa patio and pool area"
   },
   {
     id: "miami-airport-budget-search",
@@ -272,8 +255,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("miami"),
     image: "https://images.unsplash.com/photo-1562790351-d273a961e0e9?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Clean hotel room for a practical Miami airport stay",
-    cta_label: "Check Availability"
+    image_alt: "Clean hotel room for a practical Miami airport stay"
   },
   {
     id: "fort-lauderdale-marina-search",
@@ -287,8 +269,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Weekend",
     booking_url: getHotelAffiliateUrl("fortLauderdale"),
     image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Hotel room with a polished marina or waterfront stay feel",
-    cta_label: "View on Expedia"
+    image_alt: "Hotel room with a polished marina or waterfront stay feel"
   },
   {
     id: "st-augustine-family-lodge-search",
@@ -302,8 +283,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Family",
     booking_url: getHotelAffiliateUrl("stAugustine"),
     image: "https://images.unsplash.com/photo-1455587734955-081b22074882?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Family-friendly hotel exterior with welcoming Florida lodge style",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Family-friendly hotel exterior with welcoming Florida lodge style"
   },
   {
     id: "naples-resident-rate-search",
@@ -317,8 +297,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Resident Deal",
     booking_url: getHotelAffiliateUrl("naples"),
     image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Resort hotel room with warm lighting and premium stay details",
-    cta_label: "Check Availability"
+    image_alt: "Resort hotel room with warm lighting and premium stay details"
   },
   {
     id: "sarasota-family-suite-search",
@@ -332,8 +311,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Family",
     booking_url: getHotelAffiliateUrl("sarasota"),
     image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Comfortable hotel suite bedroom for a family Florida stay",
-    cta_label: "View on Expedia"
+    image_alt: "Comfortable hotel suite bedroom for a family Florida stay"
   },
   {
     id: "daytona-weekend-search",
@@ -347,8 +325,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Weekend",
     booking_url: getHotelAffiliateUrl("daytonaBeach"),
     image: "https://images.unsplash.com/photo-1521783988139-893ce8f97ab4?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Beachfront hotel pool area for a Daytona weekend stay",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Beachfront hotel pool area for a Daytona weekend stay"
   },
   {
     id: "jacksonville-budget-search",
@@ -362,8 +339,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("jacksonville"),
     image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Simple modern hotel room for a value Florida hotel search",
-    cta_label: "Check Availability"
+    image_alt: "Simple modern hotel room for a value Florida hotel search"
   },
   {
     id: "keys-family-resort-search",
@@ -377,8 +353,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Family",
     booking_url: getHotelAffiliateUrl("floridaKeys"),
     image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Family resort pool and tropical hotel setting in the Florida Keys",
-    cta_label: "View on Expedia"
+    image_alt: "Family resort pool and tropical hotel setting in the Florida Keys"
   },
   {
     id: "orlando-under-150-search",
@@ -392,8 +367,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("orlando"),
     image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Resort pool area used for Orlando value hotel searches",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Resort pool area used for Orlando value hotel searches"
   },
   {
     id: "miami-luxury-spa-search",
@@ -407,8 +381,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("miamiBeach"),
     image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Luxury hotel suite and spa-style room with warm lighting",
-    cta_label: "Check Availability"
+    image_alt: "Luxury hotel suite and spa-style room with warm lighting"
   },
   {
     id: "fort-lauderdale-resident-search",
@@ -422,8 +395,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Resident Deal",
     booking_url: getHotelAffiliateUrl("fortLauderdale"),
     image: "https://images.unsplash.com/photo-1535827841776-24afc1e255ac?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Resort balcony and coastal hotel setting for a South Florida staycation",
-    cta_label: "View on Expedia"
+    image_alt: "Resort balcony and coastal hotel setting for a South Florida staycation"
   },
   {
     id: "tampa-budget-search",
@@ -437,8 +409,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("tampa"),
     image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Clean hotel room for a practical Tampa value stay",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Clean hotel room for a practical Tampa value stay"
   },
   {
     id: "st-augustine-luxury-search",
@@ -452,8 +423,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Luxury",
     booking_url: getHotelAffiliateUrl("stAugustine"),
     image: "https://images.unsplash.com/photo-1559599189-fe84dea4eb79?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Elegant hotel courtyard and boutique inn atmosphere",
-    cta_label: "Check Availability"
+    image_alt: "Elegant hotel courtyard and boutique inn atmosphere"
   },
   {
     id: "sarasota-under-150-search",
@@ -467,8 +437,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     badge: "Hot Deal",
     booking_url: getHotelAffiliateUrl("sarasota"),
     image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Bright hotel room for a Sarasota value stay search",
-    cta_label: "Compare Hotel Prices"
+    image_alt: "Bright hotel room for a Sarasota value stay search"
   }
 ];
 
@@ -562,7 +531,7 @@ function getCtaLabel(deal: HotelDealEntry) {
   if (deal.city === "Miami") return deal.category === "Beach Resorts" ? "View Miami Beach Stays" : "View Miami Stays";
   if (deal.city === "Tampa Bay") return "Find Tampa Hotels";
   if (deal.city === "Fort Lauderdale") return "Browse Fort Lauderdale Hotels";
-  if (deal.city === "Florida Keys") return "Browse Florida Keys Stays";
+  if (deal.city === "Florida Keys") return "Compare Florida Keys Stays";
   if (deal.city === "St. Augustine") return "View St. Augustine Inns";
   if (deal.city === "Daytona Beach") return "Browse Daytona Beach Hotels";
   if (deal.city === "Naples") return "Compare Naples Hotels";
@@ -572,6 +541,8 @@ function getCtaLabel(deal: HotelDealEntry) {
   if (deal.category === "Family Hotels") return "Find Family-Friendly Hotels";
   if (deal.category === "Weekend Getaways") return "Browse Weekend Stays";
   if (deal.category === "Under $150" || deal.category === "Budget") return "View Budget Hotels";
+
+  if (deal.category === "Luxury") return "Compare Luxury Stays";
 
   return "Compare Hotel Options";
 }
