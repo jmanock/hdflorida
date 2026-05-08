@@ -56,6 +56,124 @@ const popularExpediaSearches = [
   { label: "Fort Lauderdale Hotels", destination: "fortLauderdale" }
 ];
 
+type HotelGuideProfile = {
+  stayTypes: string;
+  bestFor: string;
+  areas: string;
+  attractions: string;
+  rateDrivers: string;
+  confirm: string;
+};
+
+const hotelGuideProfiles: Record<string, HotelGuideProfile> = {
+  "orlando-hotel-deals": {
+    stayTypes: "family resorts, suite hotels, theme park area stays, and practical weekend hotels",
+    bestFor: "families planning Disney or Universal days, road trippers, convention travelers, and Florida locals looking for a Central Florida staycation",
+    areas: "Lake Buena Vista, International Drive, the Universal area, Disney-area corridors, and airport hotels for quick arrivals",
+    attractions: "Walt Disney World, Universal Orlando, SeaWorld, ICON Park, outlet shopping, and major convention venues",
+    rateDrivers: "school breaks, park events, holiday weekends, conventions, and room types with shuttles or resort amenities",
+    confirm: "parking fees, shuttle schedules, breakfast details, cancellation windows, resort fees, and drive times to the parks"
+  },
+  "miami-hotel-deals": {
+    stayTypes: "downtown hotels, airport stays, luxury towers, beach-adjacent hotels, and weekend city stays",
+    bestFor: "travelers comparing nightlife, restaurants, cruise connections, beaches, airport convenience, and South Florida staycations",
+    areas: "Brickell, Downtown Miami, Wynwood, Coconut Grove, Miami International Airport, and nearby Miami Beach",
+    attractions: "Biscayne Bay, museums, nightlife districts, shopping, cruise terminals, beaches, and major South Florida events",
+    rateDrivers: "cruise weekends, Art Week, holidays, winter travel, festivals, and proximity to the beach or bay",
+    confirm: "resort or destination fees, valet costs, neighborhood fit, commute times, cancellation terms, and final taxes"
+  },
+  "miami-beach-hotel-deals": {
+    stayTypes: "oceanfront hotels, boutique stays, resort-style properties, and weekend beach hotels",
+    bestFor: "beach travelers, couples, nightlife trips, warm-weather weekends, and visitors who want to compare resort-style amenities before booking",
+    areas: "South Beach, Mid-Beach, North Beach, Collins Avenue, Ocean Drive, and quieter blocks near the water",
+    attractions: "the beach, Art Deco Historic District, Lincoln Road, nightlife, restaurants, spas, and waterfront paths",
+    rateDrivers: "winter demand, holidays, major events, room view, beach access, resort fees, and weekend travel patterns",
+    confirm: "resort fees, beach chair policies, parking, cancellation terms, taxes, and whether the room is truly oceanfront or nearby"
+  },
+  "tampa-hotel-deals": {
+    stayTypes: "downtown hotels, waterfront stays, airport hotels, St. Pete-area options, and Clearwater Beach searches",
+    bestFor: "event weekends, business trips, beach add-ons, family visits, cruise travelers, and Tampa Bay staycations",
+    areas: "Downtown Tampa, Water Street, Ybor City, Westshore, St. Pete, and Clearwater Beach",
+    attractions: "Amalie Arena, Busch Gardens, the Riverwalk, cruise terminals, museums, Gulf beaches, and dining districts",
+    rateDrivers: "concerts, sports, conventions, Gasparilla season, cruise dates, beach weekends, and waterfront demand",
+    confirm: "parking costs, bridge travel times, cancellation terms, resort fees, beach distance, and whether the stay is closer to Tampa or the Gulf"
+  },
+  "fort-lauderdale-hotel-deals": {
+    stayTypes: "beach resorts, marina hotels, Las Olas stays, airport hotels, and weekend getaway properties",
+    bestFor: "travelers who want beach access, boating, cruise connections, nightlife, and a slightly calmer South Florida base",
+    areas: "Fort Lauderdale Beach, Las Olas, the marina district, Port Everglades, Hollywood, and airport corridors",
+    attractions: "the beach, water taxis, Las Olas Boulevard, Port Everglades, boating, restaurants, and nearby arts venues",
+    rateDrivers: "cruise departures, boat shows, winter travel, spring weekends, beachfront location, and room view",
+    confirm: "parking, beach access, resort fees, airport or port distance, cancellation rules, and taxes before checkout"
+  },
+  "florida-keys-hotel-deals": {
+    stayTypes: "island resorts, waterfront inns, boutique stays, marina hotels, and family-friendly Keys properties",
+    bestFor: "long weekends, couples trips, fishing or boating trips, family island stays, and relaxed Florida road trips",
+    areas: "Key Largo, Islamorada, Marathon, Duck Key, Big Pine Key, and Key West",
+    attractions: "waterfront dining, snorkeling, marinas, state parks, fishing, sunset spots, and the Overseas Highway",
+    rateDrivers: "winter travel, holidays, island events, waterfront access, parking, minimum stays, and limited room supply",
+    confirm: "island location, parking, resort or marina fees, cancellation rules, pet policies, and whether the stay fits your driving route"
+  },
+  "clearwater-beach-hotel-deals": {
+    stayTypes: "Gulf resorts, family beach hotels, waterfront stays, and Tampa Bay vacation hotels",
+    bestFor: "families, beach weekends, sunset trips, spring breaks, and travelers comparing Gulf Coast access",
+    areas: "Clearwater Beach, Sand Key, nearby Dunedin, St. Pete Beach, and Tampa Bay approaches",
+    attractions: "Pier 60, Gulf beaches, boat tours, waterfront dining, aquariums, parks, and sunset spots",
+    rateDrivers: "spring travel, holidays, weather, beach proximity, resort amenities, and weekend demand",
+    confirm: "parking, resort fees, beach walk time, cancellation rules, taxes, and whether the property is on the island or nearby"
+  },
+  "florida-beach-resort-deals": {
+    stayTypes: "oceanfront resorts, Gulf Coast hotels, Atlantic beach stays, family resorts, and luxury coastal properties",
+    bestFor: "travelers comparing beaches across Florida instead of committing to one city too early",
+    areas: "Miami Beach, Fort Lauderdale, Clearwater Beach, Sarasota, Naples, Daytona Beach, Amelia Island, and the Florida Keys",
+    attractions: "beaches, waterfront dining, marinas, spas, family attractions, state parks, and coastal downtowns",
+    rateDrivers: "season, weather, holidays, beach access, resort fees, room views, and event weekends",
+    confirm: "final taxes, resort fees, cancellation terms, parking, beach services, and whether the rate includes the amenities you expect"
+  },
+  "florida-family-hotel-deals": {
+    stayTypes: "suite hotels, pool resorts, kid-friendly beach stays, theme park hotels, and practical family lodging",
+    bestFor: "families comparing room layouts, pools, breakfast, parking, attraction access, and flexible dates",
+    areas: "Orlando, Clearwater Beach, Sarasota, St. Augustine, the Florida Keys, and other family-friendly Florida markets",
+    attractions: "theme parks, beaches, aquariums, museums, historic districts, water activities, and walkable dining areas",
+    rateDrivers: "school breaks, holiday travel, weekends, room size, resort amenities, and proximity to attractions",
+    confirm: "occupancy limits, bed setup, parking, breakfast, cancellation rules, resort fees, and distance to the main family activities"
+  },
+  "florida-weekend-getaway-hotels": {
+    stayTypes: "beach hotels, city stays, island inns, waterfront properties, and quick staycation hotels",
+    bestFor: "travelers planning short trips, flexible weekends, local escapes, and easy Florida drive-to getaways",
+    areas: "Miami, Fort Lauderdale, Tampa Bay, Daytona Beach, the Florida Keys, Clearwater Beach, and Gulf Coast towns",
+    attractions: "beaches, restaurants, nightlife, marinas, museums, historic districts, festivals, and waterfront parks",
+    rateDrivers: "Friday and Saturday demand, events, weather, holiday weekends, cancellation flexibility, and last-minute availability",
+    confirm: "check-in times, parking, weekend minimums, taxes, cancellation rules, and how close the hotel is to the main reason for the trip"
+  },
+  "florida-hotels-under-150": {
+    stayTypes: "value hotels, practical road trip stays, budget beach options, airport hotels, and affordable family searches",
+    bestFor: "travelers who want to compare lower-rate options while still checking location, policies, and total trip cost",
+    areas: "Orlando, Jacksonville, Daytona Beach, Tampa Bay, Sarasota, airport corridors, and inland alternatives near beach markets",
+    attractions: "theme parks, beaches, event venues, universities, airports, road trip stops, and family attractions",
+    rateDrivers: "weekday demand, local events, seasonality, distance from the beach, cancellation flexibility, and room type",
+    confirm: "taxes, parking, breakfast, cancellation terms, neighborhood fit, fees, and whether the final price still fits the budget"
+  }
+};
+
+function getHotelGuideCopy(pageSlug: string, destinationLabel: string) {
+  const profile = hotelGuideProfiles[pageSlug] ?? {
+    stayTypes: "curated hotel searches, resort options, weekend stays, and practical Florida lodging",
+    bestFor: "travelers comparing current hotel options by destination, trip style, budget, and flexible dates",
+    areas: "nearby hotel districts, beach areas, downtown corridors, attraction zones, and convenient airport or road trip routes",
+    attractions: "beaches, restaurants, events, family attractions, waterfront areas, and local Florida experiences",
+    rateDrivers: "season, weekends, events, holidays, room type, location, and cancellation flexibility",
+    confirm: "final taxes, fees, parking, cancellation terms, location, and current availability with the booking source"
+  };
+
+  return [
+    `${destinationLabel} helps travelers compare ${profile.stayTypes}. The goal is to give you a practical starting point for current hotel searches, not a fixed-price claim that may be stale by the time you book.`,
+    `This page is especially useful for ${profile.bestFor}. Compare areas such as ${profile.areas}, then weigh the hotel location against the places you expect to spend the most time.`,
+    `Nearby trip drivers can include ${profile.attractions}. Rates may move around ${profile.rateDrivers}, so flexible dates and nearby neighborhoods can make a meaningful difference when comparing hotels.`,
+    `Before booking, confirm ${profile.confirm}. Hotel rates and availability may change quickly, but a clearer comparison makes it easier to choose a stay that fits the trip.`
+  ];
+}
+
 function getPageHeroCta(slug: string, destinationLabel: string) {
   const ctas: Record<string, string> = {
     "orlando-hotel-deals": "Compare Orlando Hotels",
@@ -121,7 +239,13 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: page.title,
-      description: page.description
+      description: page.description,
+      images: [
+        {
+          url: page.image,
+          alt: page.imageAlt
+        }
+      ]
     }
   };
 }
@@ -144,6 +268,7 @@ export default async function SeoLandingPage({
   const destinationLink = getExpediaHotelLink(destinationKey);
   const destinationLabel = page.h1.replace(" Deals", "");
   const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
+  const guideCopy = getHotelGuideCopy(page.slug, destinationLabel);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -298,32 +423,9 @@ export default async function SeoLandingPage({
               </h2>
             </div>
             <div className="space-y-4 font-medium leading-7 text-slateText">
-              <p>
-                Start by comparing stay style, neighborhood, cancellation policy, and final taxes
-                or fees for each hotel search. Rates can shift by season, event weekends, beach
-                weather, school breaks, and day of week, so checking several nearby options is
-                often more useful than relying on one listed rate.
-              </p>
-              <p>
-                Use these curated Florida hotel searches to narrow the trip quickly, then confirm
-                current availability with the booking source. Families may care most about pools,
-                suites, breakfast, parking, and attraction access, while weekend travelers often
-                compare walkable areas, waterfront locations, nightlife, beach access, and resort
-                fees before choosing a stay.
-              </p>
-              <p>
-                For {destinationLabel.toLowerCase()}, it helps to think about the trip first:
-                theme park days, beach time, restaurant weekends, airport convenience, family room
-                layouts, or a quiet staycation can point you toward very different hotel areas.
-                Nearby attractions and event calendars can also affect availability, especially
-                during holidays, school breaks, festivals, conventions, and peak beach weekends.
-              </p>
-              <p>
-                Before booking, compare the room type, cancellation window, taxes, resort or
-                parking fees, check-in policies, and distance from the places you plan to visit.
-                Hotel rates may change quickly, but a clear comparison makes it easier to choose a
-                stay that fits the trip instead of clicking the first result.
-              </p>
+              {guideCopy.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
           </div>
         </section>

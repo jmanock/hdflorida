@@ -58,7 +58,13 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
     description:
-      "Find Florida beach resort, family hotel, luxury stay, weekend getaway, and staycation rates."
+      "Find Florida beach resort, family hotel, luxury stay, weekend getaway, and staycation rates.",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+        alt: "Florida beach with clear blue water"
+      }
+    ]
   }
 };
 
