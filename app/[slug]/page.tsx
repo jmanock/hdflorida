@@ -34,6 +34,7 @@ const seoPageDestinationMap: Record<string, string> = {
   "tampa-hotel-deals": "tampa",
   "fort-lauderdale-hotel-deals": "fortLauderdale",
   "florida-keys-hotel-deals": "floridaKeys",
+  "key-west-hotel-deals": "keyWest",
   "daytona-beach-hotel-deals": "daytonaBeach",
   "st-augustine-hotel-deals": "stAugustine",
   "sarasota-hotel-deals": "sarasota",
@@ -44,9 +45,25 @@ const seoPageDestinationMap: Record<string, string> = {
   "florida-weekend-getaway-hotels": "miamiBeach",
   "florida-luxury-hotel-deals": "naples",
   "florida-budget-hotel-deals": "orlando",
+  "florida-romantic-hotels": "naples",
+  "florida-budget-hotels": "orlando",
+  "florida-pet-friendly-hotels": "sarasota",
+  "florida-hotels-near-theme-parks": "orlando",
+  "florida-oceanfront-hotels": "miamiBeach",
+  "florida-resorts-with-pools": "orlando",
   "florida-resident-hotel-deals": "orlando",
   "orlando-family-resort-deals": "orlando",
-  "florida-hotels-under-150": "orlando"
+  "florida-hotels-under-150": "orlando",
+  "best-areas-to-stay-in-orlando": "orlando",
+  "where-to-stay-in-miami-beach": "miamiBeach",
+  "best-florida-beach-hotels-guide": "miamiBeach",
+  "orlando-resort-guide": "orlando",
+  "florida-family-resort-guide": "orlando",
+  "how-to-find-cheap-hotels-in-florida": "orlando",
+  "best-time-to-book-florida-hotels": "miamiBeach",
+  "florida-resort-fees-guide": "miamiBeach",
+  "hotel-vs-resort-florida": "orlando",
+  "best-weekend-hotel-getaways-florida": "miamiBeach"
 };
 
 const popularExpediaSearches = [
@@ -153,6 +170,94 @@ const hotelGuideProfiles: Record<string, HotelGuideProfile> = {
     attractions: "theme parks, beaches, event venues, universities, airports, road trip stops, and family attractions",
     rateDrivers: "weekday demand, local events, seasonality, distance from the beach, cancellation flexibility, and room type",
     confirm: "taxes, parking, breakfast, cancellation terms, neighborhood fit, fees, and whether the final price still fits the budget"
+  },
+  "jacksonville-hotel-deals": {
+    stayTypes: "riverfront hotels, beach-area stays, airport hotels, Amelia Island options, and value-focused Northeast Florida lodging",
+    bestFor: "road trippers, event travelers, beach visitors, families, and guests comparing downtown access with quieter coastal routes",
+    areas: "Downtown Jacksonville, the riverfront, Jacksonville Beach, airport corridors, Southside, and Amelia Island alternatives",
+    attractions: "riverfront events, beaches, museums, shopping, sports venues, universities, and Northeast Florida road trip stops",
+    rateDrivers: "sports weekends, concerts, university events, beach demand, holidays, and airport or interstate convenience",
+    confirm: "parking, neighborhood fit, beach distance, cancellation terms, taxes, and whether the stay is closer to downtown or the coast"
+  },
+  "daytona-beach-hotel-deals": {
+    stayTypes: "oceanfront hotels, boardwalk stays, event weekend hotels, family beach options, and practical value stays",
+    bestFor: "beach weekends, racing events, road trips, family getaways, and travelers comparing Atlantic Coast hotel value",
+    areas: "Daytona Beach oceanfront, the boardwalk area, Speedway corridors, Ormond Beach, and nearby inland value routes",
+    attractions: "Daytona International Speedway, the beach, boardwalk, concerts, water activities, and Atlantic Coast road trip stops",
+    rateDrivers: "race weekends, concerts, holidays, beach weather, oceanfront location, and room view",
+    confirm: "parking, beach access, event proximity, taxes, cancellation rules, and whether the rate fits the final trip cost"
+  },
+  "st-augustine-hotel-deals": {
+    stayTypes: "historic inns, boutique hotels, family stays, beach-side lodging, and walkable old-city hotels",
+    bestFor: "couples, history-focused weekends, family road trips, boutique hotel shoppers, and travelers comparing old-city access",
+    areas: "the historic district, Anastasia Island, St. Augustine Beach, Vilano Beach, and nearby road trip corridors",
+    attractions: "historic sites, old-city streets, beaches, museums, restaurants, waterfront areas, and seasonal festivals",
+    rateDrivers: "holiday weekends, festivals, school breaks, historic district proximity, beach access, and boutique inventory",
+    confirm: "parking, walkability, cancellation terms, taxes, beach distance, and whether the property style fits the trip"
+  },
+  "naples-hotel-deals": {
+    stayTypes: "luxury resorts, boutique retreats, Gulf Coast hotels, staycation properties, and polished beach-area stays",
+    bestFor: "couples, spa weekends, Gulf Coast beach travelers, premium staycation searches, and quieter resort trips",
+    areas: "downtown Naples, beach corridors, Fifth Avenue South, North Naples, and nearby Gulf Coast resort areas",
+    attractions: "Gulf beaches, dining, shopping, golf, spas, nature areas, and calm coastal weekend plans",
+    rateDrivers: "winter season, holidays, beach proximity, resort amenities, room type, and premium weekend demand",
+    confirm: "resort fees, parking, beach distance, cancellation terms, taxes, and whether amenities are included"
+  },
+  "key-west-hotel-deals": {
+    stayTypes: "Key West guesthouses, boutique inns, island resorts, waterfront stays, and walkable old-town hotels",
+    bestFor: "couples trips, island weekends, nightlife visits, waterfront escapes, and travelers comparing limited Key West inventory",
+    areas: "Old Town, Duval Street, the waterfront, Truman Annex, Stock Island, and nearby Lower Keys alternatives",
+    attractions: "sunset spots, waterfront dining, Duval Street, marinas, historic sites, beaches, and island tours",
+    rateDrivers: "winter demand, festivals, holidays, minimum stays, waterfront location, parking, and limited room supply",
+    confirm: "parking, island location, resort fees, cancellation rules, taxes, and whether the hotel is walkable to your plans"
+  },
+  "florida-romantic-hotels": {
+    stayTypes: "boutique inns, beach resorts, spa hotels, waterfront rooms, and couples-friendly weekend stays",
+    bestFor: "anniversary trips, quiet beach weekends, spa stays, walkable dining, and couples comparing property atmosphere",
+    areas: "Naples, Miami Beach, Key West, St. Augustine, Sarasota, Fort Lauderdale, and the Florida Keys",
+    attractions: "sunsets, beaches, restaurants, spas, historic districts, waterfront areas, and scenic island drives",
+    rateDrivers: "weekends, holidays, room view, resort amenities, beach proximity, and limited boutique inventory",
+    confirm: "resort fees, parking, cancellation terms, room type, taxes, and whether the location matches the trip mood"
+  },
+  "florida-budget-hotels": {
+    stayTypes: "value hotels, airport stays, road trip lodging, budget beach alternatives, and practical family hotel searches",
+    bestFor: "travelers prioritizing total trip cost, flexible dates, simple amenities, and useful locations over resort extras",
+    areas: "Orlando, Jacksonville, Tampa Bay, Daytona Beach, Sarasota, Miami airport corridors, and inland routes near beaches",
+    attractions: "theme parks, beaches, airports, sports venues, universities, event centers, and road trip stops",
+    rateDrivers: "weekday timing, events, distance from beaches or parks, breakfast, cancellation flexibility, and parking",
+    confirm: "taxes, fees, parking, breakfast, neighborhood fit, cancellation rules, and final checkout total"
+  },
+  "florida-pet-friendly-hotels": {
+    stayTypes: "pet-friendly city hotels, beach-area stays, extended-stay hotels, road trip lodging, and family-friendly options",
+    bestFor: "travelers bringing pets on Florida road trips, beach weekends, longer visits, or flexible staycations",
+    areas: "Sarasota, Jacksonville, Orlando, Daytona Beach, Tampa Bay, St. Augustine, and pet-friendly coastal corridors",
+    attractions: "walkable districts, parks, beaches with pet rules, road trip stops, outdoor dining, and family attractions",
+    rateDrivers: "pet room availability, cleaning fees, season, weekend demand, and location near parks or beaches",
+    confirm: "pet fees, size limits, breed rules, deposits, room availability, parking, taxes, and cancellation terms"
+  },
+  "florida-hotels-near-theme-parks": {
+    stayTypes: "theme park area hotels, Orlando resorts, family suites, pool hotels, and attraction-focused lodging",
+    bestFor: "families planning Disney, Universal, SeaWorld, or multi-attraction Central Florida trips",
+    areas: "Lake Buena Vista, International Drive, Universal Orlando corridors, Disney-area hotels, and Orlando resort zones",
+    attractions: "Walt Disney World, Universal Orlando, SeaWorld, ICON Park, outlet shopping, and family dining areas",
+    rateDrivers: "school breaks, park events, holidays, shuttle access, room size, and proximity to attractions",
+    confirm: "parking, shuttle details, resort fees, breakfast, cancellation terms, taxes, and drive times"
+  },
+  "florida-oceanfront-hotels": {
+    stayTypes: "oceanfront hotels, waterfront resorts, beach-view rooms, coastal inns, and family beach properties",
+    bestFor: "travelers who want the beach to be central to the trip and need to compare true oceanfront access",
+    areas: "Miami Beach, Fort Lauderdale, Clearwater Beach, Daytona Beach, Amelia Island, Sarasota, Naples, and the Keys",
+    attractions: "beaches, waterfront dining, marinas, boardwalks, spas, sunset spots, and coastal parks",
+    rateDrivers: "view type, beach access, resort fees, holiday demand, winter season, and premium weekends",
+    confirm: "whether the hotel is truly oceanfront, beach fees, parking, taxes, cancellation rules, and included amenities"
+  },
+  "florida-resorts-with-pools": {
+    stayTypes: "pool resorts, family hotels, beach resorts, Orlando villa properties, and staycation-friendly hotels",
+    bestFor: "families, resort weekends, warm-weather getaways, and travelers who plan to spend time at the property",
+    areas: "Orlando, Clearwater Beach, Sarasota, Naples, Fort Lauderdale, the Florida Keys, and Tampa Bay",
+    attractions: "theme parks, beaches, waterfront dining, resort amenities, family activities, and local attractions",
+    rateDrivers: "pool amenities, season, resort fees, school breaks, weekend demand, and room type",
+    confirm: "pool hours, resort fees, parking, cancellation rules, taxes, occupancy limits, and whether amenities are open during your stay"
   }
 };
 
@@ -183,13 +288,30 @@ function getPageHeroCta(slug: string, destinationLabel: string) {
     "tampa-hotel-deals": "Find Tampa Hotels",
     "fort-lauderdale-hotel-deals": "Browse Fort Lauderdale Hotels",
     "florida-keys-hotel-deals": "Browse Florida Keys Stays",
+    "key-west-hotel-deals": "Compare Key West Hotels",
     "clearwater-beach-hotel-deals": "View Clearwater Beach Stays",
     "florida-beach-resort-deals": "Compare Beach Resorts",
     "florida-family-hotel-deals": "Find Family-Friendly Hotels",
     "florida-weekend-getaway-hotels": "Browse Weekend Stays",
     "florida-luxury-hotel-deals": "Compare Luxury Stays",
     "florida-budget-hotel-deals": "View Budget Hotels",
-    "florida-hotels-under-150": "Browse Budget Hotel Searches"
+    "florida-romantic-hotels": "Compare Romantic Hotels",
+    "florida-budget-hotels": "View Budget Hotels",
+    "florida-pet-friendly-hotels": "Compare Pet-Friendly Hotels",
+    "florida-hotels-near-theme-parks": "Compare Theme Park Hotels",
+    "florida-oceanfront-hotels": "Compare Oceanfront Hotels",
+    "florida-resorts-with-pools": "Compare Pool Resorts",
+    "florida-hotels-under-150": "Browse Budget Hotel Searches",
+    "best-areas-to-stay-in-orlando": "Compare Orlando Hotels",
+    "where-to-stay-in-miami-beach": "View Miami Beach Stays",
+    "best-florida-beach-hotels-guide": "Compare Beach Hotels",
+    "orlando-resort-guide": "Compare Orlando Resorts",
+    "florida-family-resort-guide": "Find Family Resorts",
+    "how-to-find-cheap-hotels-in-florida": "Browse Budget Hotel Searches",
+    "best-time-to-book-florida-hotels": "Compare Florida Hotels",
+    "florida-resort-fees-guide": "Compare Resort Hotels",
+    "hotel-vs-resort-florida": "Compare Hotels and Resorts",
+    "best-weekend-hotel-getaways-florida": "Browse Weekend Stays"
   };
 
   return ctas[slug] ?? `Compare ${destinationLabel} Hotels`;
@@ -425,6 +547,12 @@ export default async function SeoLandingPage({
             <div className="space-y-4 font-medium leading-7 text-slateText">
               {guideCopy.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
+              ))}
+              {page.guideSections?.map((section) => (
+                <div key={section.heading} className="pt-2">
+                  <h3 className="text-lg font-black leading-7 text-ink">{section.heading}</h3>
+                  <p className="mt-2">{section.body}</p>
+                </div>
               ))}
             </div>
           </div>

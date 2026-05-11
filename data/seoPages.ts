@@ -6,12 +6,17 @@ export type SeoLandingPage = {
   description: string;
   h1: string;
   eyebrow: string;
+  pageKind?: "deals" | "guide";
   intro: string;
   details: string;
   image: string;
   imageAlt: string;
   dealIds: string[];
   related: string[];
+  guideSections?: Array<{
+    heading: string;
+    body: string;
+  }>;
   faqs?: Array<{
     question: string;
     answer: string;
@@ -21,9 +26,9 @@ export type SeoLandingPage = {
 export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "orlando-hotel-deals",
-    title: "Orlando Hotel Deals | Check Current Rates & Family Stays",
+    title: "Orlando Hotel Deals | Resorts, Family Stays & Theme Park Hotels",
     description:
-      "Find Orlando hotel deals including family resorts, theme park area hotels, weekend stays, and Florida staycation options near Disney, Universal, and International Drive.",
+      "Compare Orlando hotel deals, family resorts, theme park stays, weekend hotels, and updated Florida lodging ideas.",
     h1: "Orlando Hotel Deals",
     eyebrow: "Central Florida stays",
     intro:
@@ -70,9 +75,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "miami-hotel-deals",
-    title: "Miami Hotel Deals | Check Current Rates & Weekend Stays",
+    title: "Miami Hotel Deals | Beach Hotels, Downtown Stays & Weekend Rates",
     description:
-      "Find Miami hotel deals including beach hotels, luxury stays, weekend getaways, and current hotel rates across Miami and South Florida.",
+      "Compare Miami hotel deals, beach-adjacent stays, downtown hotels, airport options, and flexible South Florida lodging ideas.",
     h1: "Miami Hotel Deals",
     eyebrow: "South Florida stays",
     intro:
@@ -96,9 +101,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "miami-beach-hotel-deals",
-    title: "Miami Beach Hotel Deals | Beach Hotels & Weekend Stays",
+    title: "Miami Beach Hotel Deals | Oceanfront Stays & Weekend Hotels",
     description:
-      "Find Miami Beach hotel deals including oceanfront hotels, beach resorts, luxury stays, and weekend hotel searches near South Beach and Mid-Beach.",
+      "Explore Miami Beach hotel deals, oceanfront stays, resort searches, nightlife areas, and flexible-date lodging ideas.",
     h1: "Miami Beach Hotel Deals",
     eyebrow: "Beach hotel searches",
     intro:
@@ -356,9 +361,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-beach-resort-deals",
-    title: "Florida Beach Resort Deals | Oceanfront Hotels & Coastal Getaways",
+    title: "Florida Beach Resort Deals | Oceanfront Hotels & Coastal Stays",
     description:
-      "Find Florida beach resort deals including oceanfront hotels, coastal weekend stays, family resorts, and luxury beach getaways.",
+      "Compare Florida beach resort deals, oceanfront hotels, family beach stays, and coastal getaway ideas across the state.",
     h1: "Florida Beach Resort Deals",
     eyebrow: "Oceanfront hotel searches",
     intro:
@@ -591,6 +596,635 @@ export const seoLandingPages: SeoLandingPage[] = [
       "orlando-hotel-deals",
       "daytona-beach-hotel-deals",
       "jacksonville-hotel-deals"
+    ]
+  },
+  {
+    slug: "key-west-hotel-deals",
+    title: "Key West Hotel Deals | Island Inns, Resorts & Waterfront Stays",
+    description:
+      "Compare Key West hotel deals, boutique inns, waterfront resorts, guesthouses, and flexible island lodging ideas.",
+    h1: "Key West Hotel Deals",
+    eyebrow: "Island hotel searches",
+    intro:
+      "Compare Key West hotel deals for boutique inns, waterfront resorts, guesthouses, and relaxed island weekends. Use these hotel searches to check availability before choosing dates.",
+    details:
+      "Key West rates can move quickly around winter travel, holidays, festivals, and limited island inventory. Compare location, parking, resort fees, and cancellation terms before booking.",
+    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Sunny tropical beach near Key West hotels and island inns",
+    dealIds: [
+      "key-west-inn-search",
+      "florida-keys-weekend-search",
+      "keys-family-resort-search",
+      "miami-beach-hotel-search"
+    ],
+    related: [
+      "florida-keys-hotel-deals",
+      "florida-weekend-getaway-hotels",
+      "florida-beach-resort-deals",
+      "miami-beach-hotel-deals"
+    ]
+  },
+  {
+    slug: "florida-romantic-hotels",
+    title: "Florida Romantic Hotels | Beach Weekends & Couples Getaways",
+    description:
+      "Compare Florida romantic hotels, beach resorts, boutique inns, spa stays, and couples getaway ideas across the state.",
+    h1: "Florida Romantic Hotels",
+    eyebrow: "Couples stay searches",
+    intro:
+      "Compare Florida romantic hotels for beach weekends, boutique inns, spa stays, waterfront dining, and easy couples getaways. Check current availability by destination and travel dates.",
+    details:
+      "Romantic hotel value depends on the setting, room type, walkability, cancellation terms, and total fees. These searches help couples compare options without relying on unsupported discount claims.",
+    image: "https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Warm resort hotel room for romantic Florida hotel getaways",
+    dealIds: [
+      "naples-boutique-retreat-search",
+      "key-west-inn-search",
+      "miami-luxury-spa-search",
+      "st-augustine-luxury-search"
+    ],
+    related: [
+      "florida-luxury-hotel-deals",
+      "florida-beach-resort-deals",
+      "key-west-hotel-deals",
+      "naples-hotel-deals"
+    ]
+  },
+  {
+    slug: "florida-budget-hotels",
+    title: "Florida Budget Hotels | Value Stays & Affordable Hotel Searches",
+    description:
+      "Compare Florida budget hotels, value stays, airport hotels, road trip lodging, and affordable beach-area hotel searches.",
+    h1: "Florida Budget Hotels",
+    eyebrow: "Affordable stay searches",
+    intro:
+      "Compare Florida budget hotels for road trips, airport overnights, event weekends, beach-area alternatives, and affordable family travel.",
+    details:
+      "Budget hotel searches should still account for parking, breakfast, taxes, cancellation terms, and location. A lower nightly rate is only useful if the final stay fits the trip.",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Simple modern hotel room for Florida budget hotel searches",
+    dealIds: [
+      "jacksonville-budget-search",
+      "tampa-budget-search",
+      "miami-airport-budget-search",
+      "orlando-under-150-search",
+      "sarasota-under-150-search"
+    ],
+    related: [
+      "florida-hotels-under-150",
+      "florida-budget-hotel-deals",
+      "jacksonville-hotel-deals",
+      "daytona-beach-hotel-deals"
+    ]
+  },
+  {
+    slug: "florida-pet-friendly-hotels",
+    title: "Florida Pet-Friendly Hotels | Beach, City & Road Trip Stays",
+    description:
+      "Compare Florida pet-friendly hotels, beach stays, city hotels, road trip lodging, and current hotel searches for travelers with pets.",
+    h1: "Florida Pet-Friendly Hotels",
+    eyebrow: "Pet-friendly stay searches",
+    intro:
+      "Compare Florida pet-friendly hotels for beach trips, road trips, city weekends, and longer stays where pet policies matter as much as the nightly rate.",
+    details:
+      "Always confirm pet fees, size limits, breed rules, cleaning deposits, and whether pet-friendly rooms are available for your dates before booking.",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Clean Florida hotel room for pet-friendly stay searches",
+    dealIds: [
+      "jacksonville-riverfront-search",
+      "sarasota-family-suite-search",
+      "daytona-weekend-search",
+      "orlando-resident-suite-search"
+    ],
+    related: [
+      "florida-family-hotel-deals",
+      "florida-budget-hotels",
+      "florida-weekend-getaway-hotels",
+      "sarasota-hotel-deals"
+    ]
+  },
+  {
+    slug: "florida-hotels-near-theme-parks",
+    title: "Florida Hotels Near Theme Parks | Orlando Family Stays",
+    description:
+      "Compare Florida hotels near theme parks, Orlando resorts, family suites, pool hotels, and lodging ideas near major attractions.",
+    h1: "Florida Hotels Near Theme Parks",
+    eyebrow: "Theme park hotel searches",
+    intro:
+      "Compare Florida hotels near theme parks for Orlando family trips, pool resorts, suite-style stays, and practical lodging near major attractions.",
+    details:
+      "Theme park hotel searches should consider shuttle options, parking, breakfast, room layout, resort fees, and drive time before booking.",
+    image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Orlando resort villa and pool near theme park hotel areas",
+    dealIds: [
+      "orlando-family-resort-search",
+      "orlando-luxury-villas-search",
+      "orlando-under-150-search",
+      "orlando-resident-suite-search"
+    ],
+    related: [
+      "orlando-hotel-deals",
+      "orlando-family-resort-deals",
+      "florida-family-hotel-deals",
+      "florida-hotels-under-150"
+    ]
+  },
+  {
+    slug: "florida-oceanfront-hotels",
+    title: "Florida Oceanfront Hotels | Beach Resorts & Waterfront Stays",
+    description:
+      "Compare Florida oceanfront hotels, beach resorts, waterfront stays, and coastal lodging ideas from Miami Beach to the Gulf Coast.",
+    h1: "Florida Oceanfront Hotels",
+    eyebrow: "Oceanfront stay searches",
+    intro:
+      "Compare Florida oceanfront hotels for beach access, waterfront rooms, resort amenities, family trips, and coastal weekend getaways.",
+    details:
+      "Oceanfront rates can vary by view, beach access, resort fees, parking, and season. Confirm whether the property is directly on the beach before booking.",
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida oceanfront beach resort pool and palm trees",
+    dealIds: [
+      "miami-beach-hotel-search",
+      "fort-lauderdale-beach-resort-search",
+      "clearwater-gulf-search",
+      "daytona-oceanfront-search",
+      "amelia-island-beach-search"
+    ],
+    related: [
+      "florida-beach-resort-deals",
+      "miami-beach-hotel-deals",
+      "clearwater-beach-hotel-deals",
+      "florida-keys-hotel-deals"
+    ]
+  },
+  {
+    slug: "florida-resorts-with-pools",
+    title: "Florida Resorts with Pools | Family Resorts & Weekend Stays",
+    description:
+      "Compare Florida resorts with pools, family-friendly hotels, beach resorts, Orlando stays, and weekend resort searches.",
+    h1: "Florida Resorts with Pools",
+    eyebrow: "Pool resort searches",
+    intro:
+      "Compare Florida resorts with pools for family trips, beach weekends, Orlando vacations, and easy staycations where the property matters.",
+    details:
+      "Pool amenities can vary widely by property, from simple outdoor pools to resort complexes. Confirm hours, fees, room type, and current availability before booking.",
+    image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Family-friendly Florida resort pool for hotels with pools",
+    dealIds: [
+      "orlando-family-resort-search",
+      "clearwater-gulf-search",
+      "keys-family-resort-search",
+      "sarasota-family-suite-search",
+      "naples-boutique-retreat-search"
+    ],
+    related: [
+      "florida-family-hotel-deals",
+      "orlando-family-resort-deals",
+      "florida-beach-resort-deals",
+      "florida-weekend-getaway-hotels"
+    ]
+  },
+  {
+    slug: "best-areas-to-stay-in-orlando",
+    pageKind: "guide",
+    title: "Best Areas to Stay in Orlando | Theme Parks, Families & Hotels",
+    description:
+      "Compare the best areas to stay in Orlando for Disney, Universal, International Drive, families, weekend trips, and hotel searches.",
+    h1: "Best Areas to Stay in Orlando",
+    eyebrow: "Orlando hotel guide",
+    intro:
+      "Use this Orlando hotel guide to compare the best areas for theme park trips, family stays, convention travel, and Central Florida weekends.",
+    details:
+      "The right Orlando area depends on the parks, attractions, budget, transportation, and room style you need. Compare neighborhoods before booking.",
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Orlando family resort pool for choosing where to stay",
+    dealIds: [
+      "orlando-family-resort-search",
+      "orlando-luxury-villas-search",
+      "orlando-under-150-search",
+      "orlando-resident-suite-search"
+    ],
+    related: [
+      "orlando-hotel-deals",
+      "orlando-family-resort-deals",
+      "florida-hotels-near-theme-parks",
+      "florida-family-hotel-deals"
+    ],
+    guideSections: [
+      {
+        heading: "Lake Buena Vista and Disney-area stays",
+        body:
+          "Lake Buena Vista and the Disney-area hotel corridors are useful for travelers who want shorter drives to Walt Disney World, resort-style pools, family rooms, and shuttle options. Rates can rise around school breaks and holiday weeks, so compare cancellation terms and parking before booking."
+      },
+      {
+        heading: "International Drive and Universal areas",
+        body:
+          "International Drive works well for visitors who want restaurants, attractions, convention access, and a central base. Universal-area hotels can be convenient for park-focused trips, but travelers should compare shuttle schedules, resort fees, and walking or rideshare distances."
+      },
+      {
+        heading: "Airport and value hotel corridors",
+        body:
+          "Airport-area and value corridors may fit short stays, late arrivals, road trips, or budget-conscious families. The tradeoff is often extra drive time, so compare the final rate against parking costs, tolls, breakfast, and the time needed to reach the parks."
+      }
+    ]
+  },
+  {
+    slug: "where-to-stay-in-miami-beach",
+    pageKind: "guide",
+    title: "Where to Stay in Miami Beach | South Beach, Mid-Beach & Hotels",
+    description:
+      "Compare where to stay in Miami Beach, including South Beach, Mid-Beach, North Beach, oceanfront hotels, nightlife areas, and resort fee tips.",
+    h1: "Where to Stay in Miami Beach",
+    eyebrow: "Miami Beach hotel guide",
+    intro:
+      "Miami Beach hotel areas can feel very different from block to block. Use this guide to compare beach access, nightlife, quieter stays, and resort-style hotel searches.",
+    details:
+      "The best Miami Beach area depends on whether you want nightlife, sand, restaurants, quiet evenings, or a resort-style stay.",
+    image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Miami Beach skyline and oceanfront hotel district",
+    dealIds: [
+      "miami-beach-hotel-search",
+      "miami-luxury-spa-search",
+      "miami-brickell-weekend-search",
+      "fort-lauderdale-beach-resort-search"
+    ],
+    related: [
+      "miami-beach-hotel-deals",
+      "miami-hotel-deals",
+      "florida-oceanfront-hotels",
+      "florida-romantic-hotels"
+    ],
+    guideSections: [
+      {
+        heading: "South Beach for nightlife and walkability",
+        body:
+          "South Beach is useful for travelers who want restaurants, nightlife, Art Deco hotels, and quick beach access. Compare resort fees, parking, room size, and noise expectations because the most convenient blocks can also be the busiest."
+      },
+      {
+        heading: "Mid-Beach for resort-style stays",
+        body:
+          "Mid-Beach often fits travelers looking for larger hotels, pools, beach clubs, and a slightly calmer base. It can be a strong option for couples, resort weekends, and visitors who plan to spend more time at the property."
+      },
+      {
+        heading: "North Beach and nearby alternatives",
+        body:
+          "North Beach and nearby mainland areas may offer quieter stays or better value depending on dates. Compare rideshare costs, beach distance, fees, and cancellation policies before deciding whether to stay directly on Miami Beach."
+      }
+    ]
+  },
+  {
+    slug: "best-florida-beach-hotels-guide",
+    pageKind: "guide",
+    title: "Best Florida Beach Hotels Guide | Coastal Areas & Resort Tips",
+    description:
+      "Compare Florida beach hotel areas, oceanfront resorts, Gulf Coast stays, Atlantic beaches, family trips, and booking tips.",
+    h1: "Best Florida Beach Hotels Guide",
+    eyebrow: "Beach hotel planning",
+    intro:
+      "Florida beach hotels vary by coast, city, season, resort style, and traveler type. Use this guide to compare coastal areas before choosing dates.",
+    details:
+      "The best beach hotel is not always the lowest listed rate. Location, fees, parking, beach services, and cancellation terms can change the total value.",
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida beach resort pool and palm trees for beach hotel guide",
+    dealIds: [
+      "miami-beach-hotel-search",
+      "fort-lauderdale-beach-resort-search",
+      "clearwater-gulf-search",
+      "sarasota-lido-resort-search",
+      "daytona-oceanfront-search"
+    ],
+    related: [
+      "florida-beach-resort-deals",
+      "florida-oceanfront-hotels",
+      "clearwater-beach-hotel-deals",
+      "miami-beach-hotel-deals"
+    ],
+    guideSections: [
+      {
+        heading: "Atlantic beaches versus Gulf Coast stays",
+        body:
+          "Atlantic beach hotels around Miami Beach, Fort Lauderdale, Daytona Beach, and Amelia Island can be strong for nightlife, events, road trips, and oceanfront energy. Gulf Coast stays around Clearwater, Sarasota, and Naples often feel more relaxed and can work well for sunsets and family beach trips."
+      },
+      {
+        heading: "What to compare before booking",
+        body:
+          "Compare whether the hotel is oceanfront, across the street, or a short drive from the beach. Resort fees, parking, chair rentals, breakfast, and cancellation rules can change the final cost more than the headline rate suggests."
+      },
+      {
+        heading: "When beach hotels may be better value",
+        body:
+          "Flexible weekday dates, shoulder seasons, and nearby beach towns can improve value. Holiday weeks, winter demand, spring breaks, event weekends, and premium ocean views can push rates higher even when nearby inland hotels remain reasonable."
+      }
+    ]
+  },
+  {
+    slug: "orlando-resort-guide",
+    pageKind: "guide",
+    title: "Orlando Resort Guide | Pools, Villas, Theme Parks & Family Stays",
+    description:
+      "Compare Orlando resorts, pool hotels, villa-style stays, family suites, theme park areas, and practical resort booking tips.",
+    h1: "Orlando Resort Guide",
+    eyebrow: "Orlando resort planning",
+    intro:
+      "Orlando resorts can work well for families who want pools, space, shuttle options, and downtime between park days. Compare the property experience before booking.",
+    details:
+      "A resort-style stay may be worth it when amenities reduce stress, but fees, parking, and location can change the value.",
+    image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Orlando villa resort pool and patio for resort guide",
+    dealIds: [
+      "orlando-family-resort-search",
+      "orlando-luxury-villas-search",
+      "orlando-resident-suite-search",
+      "orlando-under-150-search"
+    ],
+    related: [
+      "orlando-family-resort-deals",
+      "orlando-hotel-deals",
+      "florida-resorts-with-pools",
+      "florida-hotels-near-theme-parks"
+    ],
+    guideSections: [
+      {
+        heading: "Pool resorts and family downtime",
+        body:
+          "Pool resorts can be useful when the hotel is part of the vacation, not just a place to sleep. Families may want splash areas, larger rooms, kitchens, laundry access, and easy meals after long theme park days."
+      },
+      {
+        heading: "Villa-style and suite resorts",
+        body:
+          "Villa-style resorts and suites can help larger families spread out, but compare cleaning fees, parking, resort fees, and distance to the parks. A lower nightly rate outside the main corridors may still cost more in time and transportation."
+      },
+      {
+        heading: "Theme park convenience",
+        body:
+          "If theme parks are the priority, compare shuttle reliability, early entry perks where applicable, drive times, and cancellation flexibility. Orlando rates can change quickly around school breaks, park events, and conventions."
+      }
+    ]
+  },
+  {
+    slug: "florida-family-resort-guide",
+    pageKind: "guide",
+    title: "Florida Family Resort Guide | Pools, Beaches & Kid-Friendly Stays",
+    description:
+      "Compare Florida family resorts, kid-friendly hotels, beach resorts, Orlando pool stays, suites, and practical family booking tips.",
+    h1: "Florida Family Resort Guide",
+    eyebrow: "Family hotel planning",
+    intro:
+      "Family resort searches in Florida should compare more than price. Room layout, pools, breakfast, parking, and attraction access can matter just as much.",
+    details:
+      "Use this guide to compare family-friendly destinations and confirm the practical details before booking.",
+    image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Family-friendly Florida resort pool for resort planning",
+    dealIds: [
+      "orlando-family-resort-search",
+      "clearwater-gulf-search",
+      "sarasota-family-suite-search",
+      "keys-family-resort-search",
+      "st-augustine-family-lodge-search"
+    ],
+    related: [
+      "florida-family-hotel-deals",
+      "florida-resorts-with-pools",
+      "orlando-family-resort-deals",
+      "florida-beach-resort-deals"
+    ],
+    guideSections: [
+      {
+        heading: "Orlando for theme park families",
+        body:
+          "Orlando is often the first family resort search because pools, suites, shuttles, and kitchens can make park days easier. Compare resort fees and transportation before assuming the lowest nightly rate is the best fit."
+      },
+      {
+        heading: "Beach resorts for slower trips",
+        body:
+          "Clearwater Beach, Sarasota, Fort Lauderdale, the Florida Keys, and Naples can work well when the beach or pool is the main activity. Families should compare beach distance, parking, room setup, and cancellation rules."
+      },
+      {
+        heading: "Practical family booking checks",
+        body:
+          "Before booking, confirm occupancy limits, bed types, breakfast, parking, resort fees, pool access, and whether flexible cancellation is available. These details can change the real value of a family hotel stay."
+      }
+    ]
+  },
+  {
+    slug: "how-to-find-cheap-hotels-in-florida",
+    pageKind: "guide",
+    title: "How to Find Cheap Hotels in Florida | Value Stay Tips",
+    description:
+      "Learn how to find cheap hotels in Florida by comparing dates, areas, fees, cancellation policies, and value hotel searches.",
+    h1: "How to Find Cheap Hotels in Florida",
+    eyebrow: "Hotel savings guide",
+    intro:
+      "Finding cheaper Florida hotels usually means comparing dates, nearby areas, fees, and cancellation terms instead of chasing one advertised rate.",
+    details:
+      "This guide explains practical ways to compare value stays while avoiding unsupported savings claims.",
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Simple modern hotel room for finding cheap hotels in Florida",
+    dealIds: [
+      "orlando-under-150-search",
+      "jacksonville-budget-search",
+      "tampa-budget-search",
+      "sarasota-under-150-search",
+      "daytona-oceanfront-search"
+    ],
+    related: [
+      "florida-hotels-under-150",
+      "florida-budget-hotels",
+      "florida-budget-hotel-deals",
+      "best-time-to-book-florida-hotels"
+    ],
+    guideSections: [
+      {
+        heading: "Compare flexible dates",
+        body:
+          "Florida hotel rates can change sharply between weekdays, weekends, holidays, and event dates. If your trip is flexible, compare nearby dates before booking and watch how taxes, fees, and cancellation rules affect the final total."
+      },
+      {
+        heading: "Look near, not only in, the main destination",
+        body:
+          "Nearby neighborhoods, airport corridors, inland routes, and smaller beach towns can sometimes offer better value than the most searched hotel district. Balance the lower rate against drive time, parking, and transportation costs."
+      },
+      {
+        heading: "Check the full stay cost",
+        body:
+          "A cheap hotel is only useful if the total trip cost still works. Confirm parking, breakfast, resort fees, taxes, cancellation terms, and whether the location adds extra rideshare or rental car costs."
+      }
+    ]
+  },
+  {
+    slug: "best-time-to-book-florida-hotels",
+    pageKind: "guide",
+    title: "Best Time to Book Florida Hotels | Seasons, Rates & Tips",
+    description:
+      "Learn when to compare Florida hotels, how seasonality affects rates, and what travelers should check before booking.",
+    h1: "Best Time to Book Florida Hotels",
+    eyebrow: "Hotel timing guide",
+    intro:
+      "The best time to book Florida hotels depends on destination, season, event calendars, school breaks, and how flexible your travel dates are.",
+    details:
+      "Use this guide to understand when hotel rates may move and why comparing current availability matters.",
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Clean hotel room for Florida hotel booking timing guide",
+    dealIds: [
+      "orlando-family-resort-search",
+      "miami-beach-hotel-search",
+      "clearwater-gulf-search",
+      "daytona-weekend-search"
+    ],
+    related: [
+      "florida-weekend-getaway-hotels",
+      "florida-hotels-under-150",
+      "how-to-find-cheap-hotels-in-florida",
+      "florida-beach-resort-deals"
+    ],
+    guideSections: [
+      {
+        heading: "Seasonality matters by region",
+        body:
+          "South Florida and the Keys often see stronger winter demand, while Orlando can spike around school breaks, holidays, park events, and conventions. Beach destinations may also move around weather, weekends, and local events."
+      },
+      {
+        heading: "Flexible dates can help",
+        body:
+          "If you can shift dates, compare weekday stays, shoulder seasons, and nearby areas. A small change in check-in day can sometimes affect availability, room type, cancellation flexibility, and total fees."
+      },
+      {
+        heading: "Book when the terms fit",
+        body:
+          "There is no universal best booking day. Compare current rates, cancellation policies, taxes, resort fees, and location. A flexible booking can be more useful than a slightly lower rate with strict terms."
+      }
+    ]
+  },
+  {
+    slug: "florida-resort-fees-guide",
+    pageKind: "guide",
+    title: "Florida Resort Fees Guide | What Hotel Guests Should Check",
+    description:
+      "Learn how Florida resort fees, parking, taxes, beach services, and hotel policies can affect the total cost of a stay.",
+    h1: "Florida Resort Fees Guide",
+    eyebrow: "Hotel fee guide",
+    intro:
+      "Florida resort fees and hotel fees can affect the real cost of a stay, especially at beach resorts, city hotels, and amenity-heavy properties.",
+    details:
+      "Use this guide to compare hotel fees before booking so the checkout total is less surprising.",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Luxury Florida hotel room for resort fee guide",
+    dealIds: [
+      "miami-luxury-spa-search",
+      "fort-lauderdale-beach-resort-search",
+      "naples-boutique-retreat-search",
+      "tampa-waterfront-hotel-search"
+    ],
+    related: [
+      "florida-luxury-hotel-deals",
+      "florida-beach-resort-deals",
+      "florida-oceanfront-hotels",
+      "miami-beach-hotel-deals"
+    ],
+    guideSections: [
+      {
+        heading: "What resort fees may cover",
+        body:
+          "Resort fees may be associated with amenities such as pools, fitness centers, Wi-Fi, beach chairs, towels, local calls, or property activities. The exact inclusions vary, so confirm details with the booking source."
+      },
+      {
+        heading: "Fees that affect beach and city stays",
+        body:
+          "Beach hotels may have parking, beach service, destination, or resort fees. City hotels may add valet or amenity fees. Compare the final checkout total instead of only the nightly rate."
+      },
+      {
+        heading: "How to compare fairly",
+        body:
+          "When comparing hotels, include taxes, mandatory fees, parking, cancellation terms, and included amenities. A property with a higher nightly rate may be a better value if fewer extra fees apply."
+      }
+    ]
+  },
+  {
+    slug: "hotel-vs-resort-florida",
+    pageKind: "guide",
+    title: "Hotel vs Resort in Florida | Which Stay Fits Your Trip?",
+    description:
+      "Compare Florida hotels and resorts, including amenities, fees, family trips, beach stays, weekend getaways, and when each option makes sense.",
+    h1: "Hotel vs Resort in Florida",
+    eyebrow: "Stay type guide",
+    intro:
+      "Choosing between a hotel and resort in Florida depends on whether the property is simply a base or a major part of the trip.",
+    details:
+      "Use this guide to compare amenities, fees, location, and traveler needs before booking.",
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida resort pool and lounge chairs for hotel versus resort guide",
+    dealIds: [
+      "orlando-family-resort-search",
+      "tampa-waterfront-hotel-search",
+      "naples-boutique-retreat-search",
+      "jacksonville-budget-search"
+    ],
+    related: [
+      "florida-resorts-with-pools",
+      "florida-beach-resort-deals",
+      "florida-budget-hotels",
+      "florida-family-hotel-deals"
+    ],
+    guideSections: [
+      {
+        heading: "When a hotel may be enough",
+        body:
+          "A standard hotel can be the better fit for road trips, airport stays, event weekends, business travel, or trips where most time is spent outside the property. Compare location, parking, breakfast, and cancellation terms."
+      },
+      {
+        heading: "When a resort can make sense",
+        body:
+          "A resort may be worth comparing when pools, beach access, dining, spas, kids activities, or property amenities are central to the trip. The tradeoff is often higher fees or a higher nightly rate."
+      },
+      {
+        heading: "Compare the final value",
+        body:
+          "The best choice depends on total cost, trip purpose, and included amenities. Always compare taxes, resort fees, parking, room type, cancellation rules, and how much time you expect to spend at the property."
+      }
+    ]
+  },
+  {
+    slug: "best-weekend-hotel-getaways-florida",
+    pageKind: "guide",
+    title: "Best Weekend Hotel Getaways in Florida | Beach, City & Island Stays",
+    description:
+      "Compare weekend hotel getaways in Florida including beach trips, Miami weekends, Keys escapes, Tampa Bay stays, and family-friendly ideas.",
+    h1: "Best Weekend Hotel Getaways in Florida",
+    eyebrow: "Weekend hotel guide",
+    intro:
+      "Florida weekend hotel getaways can be beach-focused, city-driven, family-friendly, romantic, or built around events and dining.",
+    details:
+      "Use this guide to compare quick hotel getaway ideas and confirm rates, fees, and availability before booking.",
+    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Sunny Florida beach for weekend hotel getaway ideas",
+    dealIds: [
+      "florida-keys-weekend-search",
+      "miami-brickell-weekend-search",
+      "fort-lauderdale-marina-search",
+      "daytona-weekend-search",
+      "clearwater-gulf-search"
+    ],
+    related: [
+      "florida-weekend-getaway-hotels",
+      "florida-romantic-hotels",
+      "florida-beach-resort-deals",
+      "key-west-hotel-deals"
+    ],
+    guideSections: [
+      {
+        heading: "Beach weekends",
+        body:
+          "Miami Beach, Fort Lauderdale, Clearwater Beach, Daytona Beach, Sarasota, and the Florida Keys are strong beach weekend searches. Compare beach distance, parking, fees, cancellation rules, and whether the location matches the pace you want."
+      },
+      {
+        heading: "City and dining weekends",
+        body:
+          "Miami, Tampa, Fort Lauderdale, St. Pete, and St. Augustine can work well for restaurants, nightlife, museums, and walkable districts. City hotel value often depends on parking, neighborhood fit, and event calendars."
+      },
+      {
+        heading: "Flexible weekend planning",
+        body:
+          "Weekend rates can rise quickly around holidays, concerts, festivals, sports, cruise departures, and great beach weather. Compare current options, nearby areas, and cancellation terms before booking."
+      }
     ]
   }
 ];

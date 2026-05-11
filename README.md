@@ -61,6 +61,7 @@ export const expediaHotelLinks = {
   // Paste destination-specific Expedia/Awin hotel deep links here when available.
   orlando: EXPEDIA_AFFILIATE_BASE,
   miamiBeach: EXPEDIA_AFFILIATE_BASE,
+  keyWest: EXPEDIA_AFFILIATE_BASE,
   default: EXPEDIA_AFFILIATE_BASE
 };
 
@@ -119,6 +120,14 @@ SEO pages follow this structure:
 - FAQ section with FAQ schema
 - cross-network links to Florida Flight Deals, Florida Cruise Deals, Local Florida Deals, and Florida Deals Hub
 - newsletter and shared footer
+
+Hotel page strategy:
+
+- destination pages target high-intent market searches such as Orlando, Miami Beach, Tampa, Fort Lauderdale, Jacksonville, Clearwater Beach, Florida Keys, Key West, Naples, Daytona Beach, and St. Augustine
+- category pages target traveler intent such as beach resorts, family hotels, hotels under $150, weekend getaways, romantic hotels, pet-friendly hotels, oceanfront hotels, theme park hotels, and resorts with pools
+- informational guide pages build topical authority with practical planning content such as where to stay, resort fees, booking timing, cheap hotel tactics, and hotel-versus-resort comparisons
+- new SEO pages should be added to `data/seoPages.ts`; sitemap, static generation, metadata, FAQ schema, breadcrumb schema, and ItemList schema are generated from that registry
+- if a new page needs destination-specific booking intent, add its slug to `seoPageDestinationMap` and `getPageHeroCta` in `app/[slug]/page.tsx`
 
 When adding a new hotel card:
 

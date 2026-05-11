@@ -1,4 +1,4 @@
-import { ArrowRight, MapPinned, Plane, Sailboat } from "lucide-react";
+import { ArrowRight, Building2, MapPinned, Plane, Sailboat } from "lucide-react";
 import { TrackedLink } from "@/components/TrackedLink";
 
 const tripLinks = [
@@ -19,6 +19,12 @@ const tripLinks = [
     href: "https://localdealsflorida.org",
     description: "Add restaurants, attractions, and local savings to your trip.",
     icon: MapPinned
+  },
+  {
+    title: "Explore Florida Deals Hub",
+    href: "https://floridadealshub.com",
+    description: "See the full network for Florida flights, hotels, cruises, and local savings.",
+    icon: Building2
   }
 ];
 
@@ -32,7 +38,7 @@ export function CompleteTripSection() {
         <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
           Pair your stay with the rest of the Florida Deals Hub network.
         </h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {tripLinks.map((link) => {
             const Icon = link.icon;
 

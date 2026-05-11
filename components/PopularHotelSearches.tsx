@@ -8,11 +8,14 @@ const popularSearches = [
   ["Tampa Hotel Deals", "/tampa-hotel-deals"],
   ["Fort Lauderdale Hotel Deals", "/fort-lauderdale-hotel-deals"],
   ["Florida Keys Hotel Deals", "/florida-keys-hotel-deals"],
+  ["Key West Hotel Deals", "/key-west-hotel-deals"],
   ["Clearwater Beach Hotel Deals", "/clearwater-beach-hotel-deals"],
   ["Florida Beach Resort Deals", "/florida-beach-resort-deals"],
   ["Florida Family Hotel Deals", "/florida-family-hotel-deals"],
   ["Florida Hotels Under $150", "/florida-hotels-under-150"],
-  ["Florida Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"]
+  ["Florida Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"],
+  ["Florida Oceanfront Hotels", "/florida-oceanfront-hotels"],
+  ["Florida Theme Park Hotels", "/florida-hotels-near-theme-parks"]
 ];
 
 export function PopularHotelSearches() {

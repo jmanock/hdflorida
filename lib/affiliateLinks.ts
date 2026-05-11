@@ -11,6 +11,7 @@ export const expediaHotelLinks = {
   floridaKeys: EXPEDIA_AFFILIATE_BASE,
   clearwater: EXPEDIA_AFFILIATE_BASE,
   stAugustine: EXPEDIA_AFFILIATE_BASE,
+  keyWest: EXPEDIA_AFFILIATE_BASE,
   naples: EXPEDIA_AFFILIATE_BASE,
   jacksonville: EXPEDIA_AFFILIATE_BASE,
   daytonaBeach: EXPEDIA_AFFILIATE_BASE,
