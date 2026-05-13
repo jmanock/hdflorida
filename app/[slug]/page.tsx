@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
@@ -13,6 +12,7 @@ import { NewsletterSection } from "@/components/NewsletterSection";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { SafeImage } from "@/components/SafeImage";
 import {
   getDealsForSeoPage,
   getFaqsForSeoPage,
@@ -25,6 +25,11 @@ import { SITE_URL } from "@/lib/siteConstants";
 
 type SeoPageParams = {
   slug: string;
+};
+
+type JsonLdSchema = {
+  "@type": string;
+  [key: string]: unknown;
 };
 
 const seoPageDestinationMap: Record<string, string> = {
@@ -63,7 +68,12 @@ const seoPageDestinationMap: Record<string, string> = {
   "best-time-to-book-florida-hotels": "miamiBeach",
   "florida-resort-fees-guide": "miamiBeach",
   "hotel-vs-resort-florida": "orlando",
-  "best-weekend-hotel-getaways-florida": "miamiBeach"
+  "best-weekend-hotel-getaways-florida": "miamiBeach",
+  "miami-vs-miami-beach-hotels": "miamiBeach",
+  "orlando-resorts-vs-international-drive-hotels": "orlando",
+  "beach-resorts-vs-budget-hotels-florida": "miamiBeach",
+  "family-hotels-vs-romantic-hotels-florida": "orlando",
+  "miami-vs-fort-lauderdale-hotels": "fortLauderdale"
 };
 
 const popularExpediaSearches = [
@@ -71,6 +81,19 @@ const popularExpediaSearches = [
   { label: "Miami Beach Hotels", destination: "miamiBeach" },
   { label: "Tampa Hotels", destination: "tampa" },
   { label: "Fort Lauderdale Hotels", destination: "fortLauderdale" }
+];
+
+const globalRelatedHotelSearches = [
+  "orlando-hotel-deals",
+  "miami-beach-hotel-deals",
+  "tampa-hotel-deals",
+  "fort-lauderdale-hotel-deals",
+  "florida-keys-hotel-deals",
+  "florida-beach-resort-deals",
+  "florida-family-hotel-deals",
+  "florida-hotels-under-150",
+  "florida-weekend-getaway-hotels",
+  "florida-oceanfront-hotels"
 ];
 
 type HotelGuideProfile = {
@@ -311,7 +334,12 @@ function getPageHeroCta(slug: string, destinationLabel: string) {
     "best-time-to-book-florida-hotels": "Compare Florida Hotels",
     "florida-resort-fees-guide": "Compare Resort Hotels",
     "hotel-vs-resort-florida": "Compare Hotels and Resorts",
-    "best-weekend-hotel-getaways-florida": "Browse Weekend Stays"
+    "best-weekend-hotel-getaways-florida": "Browse Weekend Stays",
+    "miami-vs-miami-beach-hotels": "Compare Miami Beach Hotels",
+    "orlando-resorts-vs-international-drive-hotels": "Compare Orlando Hotels",
+    "beach-resorts-vs-budget-hotels-florida": "Compare Beach Resorts",
+    "family-hotels-vs-romantic-hotels-florida": "Compare Family Hotels",
+    "miami-vs-fort-lauderdale-hotels": "Compare Fort Lauderdale Hotels"
   };
 
   return ctas[slug] ?? `Compare ${destinationLabel} Hotels`;
@@ -394,6 +422,19 @@ export default async function SeoLandingPage({
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
+  const relatedSearchLinks = [
+    { label: "Hotel Deals Home", href: "/" },
+    ...relatedPages.map((relatedPage) => ({
+      label: getSeoPageLabel(relatedPage.slug),
+      href: `/${relatedPage.slug}`
+    })),
+    ...globalRelatedHotelSearches
+      .filter((slug) => slug !== page.slug && !page.related.includes(slug))
+      .map((slug) => ({
+        label: getSeoPageLabel(slug),
+        href: `/${slug}`
+      }))
+  ].slice(0, 10);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -435,12 +476,34 @@ export default async function SeoLandingPage({
       url: deal.booking_url
     }))
   };
+  const articleSchema =
+    page.pageKind === "guide"
+      ? {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: page.title,
+          description: page.description,
+          image: page.image,
+          author: {
+            "@type": "Organization",
+            name: "Florida Deals Hub"
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "Florida Deals Hub"
+          },
+          mainEntityOfPage: `${SITE_URL}/${page.slug}`
+        }
+      : null;
+  const pageSchemas = ([breadcrumbSchema, faqSchema, itemListSchema, articleSchema] as Array<JsonLdSchema | null>).filter(
+    (schema): schema is JsonLdSchema => Boolean(schema)
+  );
 
   return (
     <>
-      {[breadcrumbSchema, faqSchema, itemListSchema].map((schema) => (
+      {pageSchemas.map((schema) => (
         <script
-          key={schema["@type"]}
+          key={String(schema["@type"])}
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(schema)
@@ -466,7 +529,7 @@ export default async function SeoLandingPage({
 
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
-            <Image
+            <SafeImage
               src={page.image}
               alt={page.imageAlt}
               fill
@@ -558,6 +621,43 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
+        {page.comparisonRows?.length ? (
+          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+            <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+              <div className="border-b border-slate-200 bg-sand p-6 sm:p-8">
+                <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                  Hotel comparison
+                </p>
+                <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                  Quick comparison before you book.
+                </h2>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[44rem] border-collapse text-left">
+                  <thead className="bg-white text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                    <tr>
+                      <th className="border-b border-slate-200 px-5 py-4">Factor</th>
+                      <th className="border-b border-slate-200 px-5 py-4">Option A</th>
+                      <th className="border-b border-slate-200 px-5 py-4">Option B</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-sm font-medium leading-6 text-slateText">
+                    {page.comparisonRows.map((row) => (
+                      <tr key={row.factor} className="odd:bg-sand/50">
+                        <th className="border-b border-slate-200 px-5 py-4 font-black text-ink">
+                          {row.factor}
+                        </th>
+                        <td className="border-b border-slate-200 px-5 py-4">{row.optionA}</td>
+                        <td className="border-b border-slate-200 px-5 py-4">{row.optionB}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        ) : null}
+
         <section id="featured-stays" className="mx-auto max-w-7xl px-4 pb-16 pt-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
@@ -637,20 +737,13 @@ export default async function SeoLandingPage({
               Keep comparing Florida hotel options.
             </h2>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              <Link
-                href="/"
-                className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
-              >
-                Hotel Deals Home
-                <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
-              </Link>
-              {relatedPages.map((relatedPage) => (
+              {relatedSearchLinks.map((relatedLink) => (
                 <Link
-                  key={relatedPage.slug}
-                  href={`/${relatedPage.slug}`}
+                  key={relatedLink.href}
+                  href={relatedLink.href}
                   className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
                 >
-                  {getSeoPageLabel(relatedPage.slug)}
+                  {relatedLink.label}
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
               ))}

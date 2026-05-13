@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Florida Hotel Deals fallback resort image</title>
+  <desc id="desc">A branded coastal resort scene with palm trees, hotel windows, water, and a warm Florida sky.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe"/>
+      <stop offset="52%" stop-color="#fafaf7"/>
+      <stop offset="100%" stop-color="#fde68a"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#sky)"/>
+  <circle cx="945" cy="170" r="86" fill="#f59e0b" opacity="0.82"/>
+  <path d="M0 570c135-45 260-40 375 13s246 61 392 18 289-50 433-2v201H0z" fill="url(#water)" opacity="0.92"/>
+  <path d="M0 634c160-24 277-11 409 18 125 28 254 22 386-18 128-38 266-37 405 3v163H0z" fill="#0ea5e9" opacity="0.42"/>
+  <rect x="370" y="245" width="355" height="265" rx="16" fill="#0f172a"/>
+  <rect x="400" y="284" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.92"/>
+  <rect x="482" y="284" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.78"/>
+  <rect x="564" y="284" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.92"/>
+  <rect x="646" y="284" width="50" height="52" rx="8" fill="#f8fafc" opacity="0.78"/>
+  <rect x="400" y="365" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.72"/>
+  <rect x="482" y="365" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.9"/>
+  <rect x="564" y="365" width="58" height="52" rx="8" fill="#f8fafc" opacity="0.72"/>
+  <rect x="646" y="365" width="50" height="52" rx="8" fill="#f8fafc" opacity="0.9"/>
+  <path d="M323 510h459v65H323z" fill="#f59e0b"/>
+  <path d="M260 560h585v74H260z" fill="#fafaf7"/>
+  <path d="M254 560h598" stroke="#0f172a" stroke-width="10" stroke-linecap="round" opacity="0.16"/>
+  <path d="M230 515c34-74 94-117 178-129-66 42-101 86-104 132 43-59 103-94 181-105-72 50-114 103-126 160" fill="none" stroke="#0f172a" stroke-width="20" stroke-linecap="round" opacity="0.35"/>
+  <path d="M221 512c-10 66-20 122-31 168" stroke="#0f172a" stroke-width="18" stroke-linecap="round" opacity="0.36"/>
+  <path d="M825 500c42-64 101-95 178-91-58 28-95 65-111 111 52-38 110-53 174-45-63 31-106 74-130 128" fill="none" stroke="#0f172a" stroke-width="19" stroke-linecap="round" opacity="0.32"/>
+  <path d="M817 501c-6 62-14 117-26 165" stroke="#0f172a" stroke-width="17" stroke-linecap="round" opacity="0.33"/>
+  <rect x="64" y="64" width="322" height="74" rx="37" fill="#ffffff" opacity="0.9"/>
+  <text x="96" y="111" fill="#0f172a" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800">Florida Hotel Deals</text>
+</svg>

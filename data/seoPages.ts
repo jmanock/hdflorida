@@ -17,6 +17,11 @@ export type SeoLandingPage = {
     heading: string;
     body: string;
   }>;
+  comparisonRows?: Array<{
+    factor: string;
+    optionA: string;
+    optionB: string;
+  }>;
   faqs?: Array<{
     question: string;
     answer: string;
@@ -1224,6 +1229,226 @@ export const seoLandingPages: SeoLandingPage[] = [
         heading: "Flexible weekend planning",
         body:
           "Weekend rates can rise quickly around holidays, concerts, festivals, sports, cruise departures, and great beach weather. Compare current options, nearby areas, and cancellation terms before booking."
+      }
+    ]
+  },
+  {
+    slug: "miami-vs-miami-beach-hotels",
+    pageKind: "guide",
+    title: "Miami vs Miami Beach Hotels | Where Should You Stay?",
+    description:
+      "Compare Miami and Miami Beach hotels by beach access, nightlife, family stays, budget options, resort fees, and Florida travel planning tips.",
+    h1: "Miami vs Miami Beach Hotels",
+    eyebrow: "Hotel comparison guide",
+    intro:
+      "Miami and Miami Beach are close together, but the hotel experience can feel very different. Use this comparison to decide which side fits your trip.",
+    details:
+      "Compare beach access, nightlife, parking, resort fees, dining, airport convenience, and total stay cost before booking.",
+    image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Miami skyline and beach hotels for Miami versus Miami Beach comparison",
+    dealIds: [
+      "miami-beach-hotel-search",
+      "miami-brickell-weekend-search",
+      "miami-airport-budget-search",
+      "miami-luxury-spa-search"
+    ],
+    related: [
+      "miami-hotel-deals",
+      "miami-beach-hotel-deals",
+      "where-to-stay-in-miami-beach",
+      "florida-oceanfront-hotels"
+    ],
+    comparisonRows: [
+      { factor: "Best fit", optionA: "Miami works well for downtown, airport, cruise, dining, and nightlife trips.", optionB: "Miami Beach works well for beach access, resort stays, oceanfront hotels, and walkable vacation energy." },
+      { factor: "Costs to compare", optionA: "Parking, commute time, and rideshare costs can matter.", optionB: "Resort fees, valet, beach services, and room view can affect the final total." },
+      { factor: "Trip style", optionA: "Better for city breaks, business, cruise connections, and flexible budgets.", optionB: "Better for beach weekends, couples trips, and travelers who want the sand nearby." }
+    ],
+    guideSections: [
+      {
+        heading: "When Miami hotels make sense",
+        body:
+          "Choose Miami when you want Brickell, downtown dining, cruise access, museums, airport convenience, or better flexibility outside the beach corridor. City hotels may also fit short stays where beach time is not the main point of the trip."
+      },
+      {
+        heading: "When Miami Beach hotels make sense",
+        body:
+          "Choose Miami Beach when ocean access, resort amenities, nightlife, walkable restaurants, or a vacation feel matters most. Confirm resort fees, parking, cancellation policies, and whether the hotel is truly beach-facing."
+      }
+    ]
+  },
+  {
+    slug: "orlando-resorts-vs-international-drive-hotels",
+    pageKind: "guide",
+    title: "Orlando Resorts vs International Drive Hotels | Where to Stay",
+    description:
+      "Compare Orlando resorts and International Drive hotels by theme park access, family amenities, pools, budget, dining, and transportation.",
+    h1: "Orlando Resorts vs International Drive Hotels",
+    eyebrow: "Orlando comparison guide",
+    intro:
+      "Orlando resorts and International Drive hotels can both work for theme park trips, but they serve different travel styles.",
+    details:
+      "Compare pools, shuttles, dining, room layout, parking, resort fees, and park drive times before choosing.",
+    image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Orlando resort pool for resorts versus International Drive hotels",
+    dealIds: [
+      "orlando-family-resort-search",
+      "orlando-luxury-villas-search",
+      "orlando-under-150-search",
+      "orlando-resident-suite-search"
+    ],
+    related: [
+      "orlando-hotel-deals",
+      "orlando-resort-guide",
+      "florida-hotels-near-theme-parks",
+      "orlando-family-resort-deals"
+    ],
+    comparisonRows: [
+      { factor: "Best fit", optionA: "Resorts are useful when pools, space, and downtime are part of the trip.", optionB: "International Drive hotels are useful for dining, attractions, convention access, and central location." },
+      { factor: "Costs to compare", optionA: "Resort fees, parking, cleaning fees, and transportation can add up.", optionB: "Parking, shuttle limits, room size, and traffic patterns can affect value." },
+      { factor: "Traveler type", optionA: "Often better for families spending time at the property.", optionB: "Often better for active trips with restaurants and attractions nearby." }
+    ],
+    guideSections: [
+      {
+        heading: "Choose an Orlando resort when the property matters",
+        body:
+          "Resorts can be a strong fit for families who want pools, larger rooms, kitchens, activities, and downtime between park days. Compare the final cost with resort fees and parking included."
+      },
+      {
+        heading: "Choose International Drive for convenience",
+        body:
+          "International Drive can be useful for dining, smaller attractions, shopping, conventions, and rideshare access. It may not always be closest to the parks, so compare drive times and shuttle details."
+      }
+    ]
+  },
+  {
+    slug: "beach-resorts-vs-budget-hotels-florida",
+    pageKind: "guide",
+    title: "Beach Resorts vs Budget Hotels in Florida | Which Fits?",
+    description:
+      "Compare Florida beach resorts and budget hotels by location, amenities, fees, family travel, weekend trips, and total stay cost.",
+    h1: "Beach Resorts vs Budget Hotels in Florida",
+    eyebrow: "Hotel comparison guide",
+    intro:
+      "Beach resorts and budget hotels solve different travel problems. The right choice depends on how much time you plan to spend at the property.",
+    details:
+      "Compare amenities, final fees, beach access, parking, room type, and cancellation terms before booking.",
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida beach resort pool for beach resort versus budget hotel comparison",
+    dealIds: [
+      "fort-lauderdale-beach-resort-search",
+      "clearwater-gulf-search",
+      "jacksonville-budget-search",
+      "orlando-under-150-search"
+    ],
+    related: [
+      "florida-beach-resort-deals",
+      "florida-budget-hotels",
+      "florida-hotels-under-150",
+      "how-to-find-cheap-hotels-in-florida"
+    ],
+    comparisonRows: [
+      { factor: "Best fit", optionA: "Beach resorts fit trips where the pool, beach, and amenities are central.", optionB: "Budget hotels fit road trips, park-heavy days, airport stays, and lower total-cost goals." },
+      { factor: "Costs to compare", optionA: "Resort fees, beach services, parking, room view, and taxes.", optionB: "Parking, breakfast, cancellation terms, location, and transportation." },
+      { factor: "Tradeoff", optionA: "More amenities, often higher final cost.", optionB: "Fewer amenities, potentially better value if location works." }
+    ],
+    guideSections: [
+      {
+        heading: "When a beach resort is worth comparing",
+        body:
+          "A beach resort can be worth it when the property itself is part of the vacation. Confirm what amenities are included and whether the beach access is direct, across the street, or a short drive away."
+      },
+      {
+        heading: "When budget hotels make more sense",
+        body:
+          "Budget hotels can be better when you mainly need a clean, convenient base. Compare total cost, not just nightly rate, and check parking, taxes, cancellation rules, and commute time."
+      }
+    ]
+  },
+  {
+    slug: "family-hotels-vs-romantic-hotels-florida",
+    pageKind: "guide",
+    title: "Family Hotels vs Romantic Hotels in Florida | Stay Comparison",
+    description:
+      "Compare Florida family hotels and romantic hotels by amenities, room layout, beach access, dining, pools, fees, and trip style.",
+    h1: "Family Hotels vs Romantic Hotels in Florida",
+    eyebrow: "Hotel comparison guide",
+    intro:
+      "Family hotels and romantic hotels can overlap, but travelers usually value different amenities and locations.",
+    details:
+      "Compare room setup, pools, dining, walkability, quiet areas, fees, and cancellation terms before choosing.",
+    image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida family resort pool for family versus romantic hotel comparison",
+    dealIds: [
+      "orlando-family-resort-search",
+      "sarasota-family-suite-search",
+      "naples-boutique-retreat-search",
+      "key-west-inn-search"
+    ],
+    related: [
+      "florida-family-hotel-deals",
+      "florida-romantic-hotels",
+      "florida-family-resort-guide",
+      "key-west-hotel-deals"
+    ],
+    comparisonRows: [
+      { factor: "Best fit", optionA: "Family hotels fit pools, suites, kitchens, breakfast, and attraction access.", optionB: "Romantic hotels fit boutique settings, dining, walkability, views, and quieter stays." },
+      { factor: "Costs to compare", optionA: "Occupancy, parking, breakfast, resort fees, and cancellation rules.", optionB: "Room view, resort fees, parking, dining access, and weekend demand." },
+      { factor: "Trip style", optionA: "Practical comfort and convenience.", optionB: "Atmosphere, location, and property feel." }
+    ],
+    guideSections: [
+      {
+        heading: "Family hotel priorities",
+        body:
+          "Families often compare bed setup, room size, pools, breakfast, parking, kitchens, laundry, and location near attractions. A flexible cancellation policy can also matter when traveling with kids."
+      },
+      {
+        heading: "Romantic hotel priorities",
+        body:
+          "Couples may care more about setting, walkable dining, waterfront views, spas, boutique design, and a quieter location. Confirm fees and room details before assuming the stay matches the occasion."
+      }
+    ]
+  },
+  {
+    slug: "miami-vs-fort-lauderdale-hotels",
+    pageKind: "guide",
+    title: "Miami vs Fort Lauderdale Hotels | Beach, Cruise & Weekend Stays",
+    description:
+      "Compare Miami and Fort Lauderdale hotels by beach access, nightlife, marina stays, cruise ports, family trips, and hotel fees.",
+    h1: "Miami vs Fort Lauderdale Hotels",
+    eyebrow: "South Florida comparison",
+    intro:
+      "Miami and Fort Lauderdale both work for South Florida hotel trips, but they offer different beach, city, cruise, and weekend experiences.",
+    details:
+      "Compare nightlife, beach access, airport convenience, marina stays, cruise ports, fees, and total trip logistics before booking.",
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "South Florida beach resort for Miami versus Fort Lauderdale hotels",
+    dealIds: [
+      "miami-beach-hotel-search",
+      "miami-brickell-weekend-search",
+      "fort-lauderdale-beach-resort-search",
+      "fort-lauderdale-marina-search"
+    ],
+    related: [
+      "miami-hotel-deals",
+      "fort-lauderdale-hotel-deals",
+      "miami-vs-miami-beach-hotels",
+      "florida-oceanfront-hotels"
+    ],
+    comparisonRows: [
+      { factor: "Best fit", optionA: "Miami fits nightlife, dining, downtown stays, cruise access, and big-city energy.", optionB: "Fort Lauderdale fits beach and marina stays, boating, Las Olas, and a calmer South Florida base." },
+      { factor: "Costs to compare", optionA: "Valet, resort fees, room view, beach proximity, and event demand.", optionB: "Parking, marina or beach access, port distance, and weekend demand." },
+      { factor: "Traveler type", optionA: "Better for travelers who want city energy and more nightlife.", optionB: "Better for travelers who want easier beach or marina pacing." }
+    ],
+    guideSections: [
+      {
+        heading: "When Miami is the better hotel base",
+        body:
+          "Miami can be the better fit for dining, nightlife, museums, airport access, cruise connections, and a broader range of city hotel styles. Compare neighborhoods carefully because the hotel experience varies by area."
+      },
+      {
+        heading: "When Fort Lauderdale is the better hotel base",
+        body:
+          "Fort Lauderdale can be a strong choice for beach access, marina views, boating, Las Olas dining, and Port Everglades. It can feel easier for some weekend trips while still staying close to South Florida attractions."
       }
     ]
   }

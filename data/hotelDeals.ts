@@ -514,13 +514,13 @@ function getWhyThisStay(deal: HotelDealEntry) {
 function getBestForTags(deal: HotelDealEntry) {
   const tags = new Set<string>();
 
-  if (deal.category.includes("Family")) tags.add("Family");
-  if (deal.category.includes("Beach")) tags.add("Beach");
-  if (deal.category.includes("Weekend")) tags.add("Weekend");
-  if (deal.category.includes("Budget")) tags.add("Budget");
-  if (deal.category.includes("Luxury")) tags.add("Luxury");
+  if (deal.category.includes("Family")) tags.add("Best for Families");
+  if (deal.category.includes("Beach")) tags.add("Beach Stay");
+  if (deal.category.includes("Weekend")) tags.add("Weekend Trip");
+  if (deal.category.includes("Budget")) tags.add("Budget Friendly");
+  if (deal.category.includes("Luxury")) tags.add("Luxury Option");
   if (deal.category.includes("Under $150")) tags.add("Under $150");
-  if (deal.city === "Orlando") tags.add("Theme Parks");
+  if (deal.city === "Orlando") tags.add("Theme Park Area");
   if (["Tampa Bay", "Fort Lauderdale", "Florida Keys"].includes(deal.city)) tags.add("Waterfront");
 
   return Array.from(tags).slice(0, 3);

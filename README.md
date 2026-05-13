@@ -129,13 +129,35 @@ Hotel page strategy:
 - new SEO pages should be added to `data/seoPages.ts`; sitemap, static generation, metadata, FAQ schema, breadcrumb schema, and ItemList schema are generated from that registry
 - if a new page needs destination-specific booking intent, add its slug to `seoPageDestinationMap` and `getPageHeroCta` in `app/[slug]/page.tsx`
 
+Comparison page strategy:
+
+- comparison pages live in `data/seoPages.ts` with `pageKind: "guide"`
+- use `comparisonRows` for the table rendered by `app/[slug]/page.tsx`
+- use `guideSections` for practical context, tradeoffs, and booking checks
+- Article schema is emitted for guide/comparison pages; do not add fake price or offer schema
+
+Image fallback strategy:
+
+- hotel and hero images should use `components/SafeImage.tsx`
+- the branded fallback asset lives at `public/images/fallbacks/florida-resort-placeholder.svg`
+- `SafeImage` preserves the existing image layout, swaps to the fallback on load failure, and tracks `image_fallback_used`
+- use descriptive alt text for both remote images and fallback-safe images
+- keep remote image domains configured in `next.config.ts`; current remote hotel imagery is from `images.unsplash.com`
+
 When adding a new hotel card:
 
 - keep links in `data/hotelDeals.ts` routed through `getHotelAffiliateUrl`
 - use descriptive image alt text
+- choose imagery that matches the destination or stay type
 - avoid guaranteed prices or unsupported discounts
 - provide safe rate/value wording, a clear category, and destination-specific CTA language
 - confirm the card remains useful without API data
+
+Related search and footer strategy:
+
+- every SEO page renders 6-10 related hotel searches by combining page-specific related links with global high-intent hotel pages
+- the footer is grouped into Florida Hotel Destinations, Hotel Types, and Florida Deals Network links
+- destination clusters on the homepage connect hotel pages to related flight, cruise, local, and hub properties without adding unrelated CTAs to hotel cards
 
 ## Analytics
 
@@ -153,7 +175,7 @@ GA4 is loaded globally in `app/layout.tsx`. Outbound Expedia hotel clicks are tr
 - `outbound_url`
 - `page_path`
 
-Expedia hotel clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
+Expedia hotel clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, image fallbacks use `image_fallback_used`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
 
 ## Verification
 

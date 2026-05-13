@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowRight, CalendarDays, MapPin, Star, Tag } from "lucide-react";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
+import { SafeImage } from "@/components/SafeImage";
 import type { HotelDeal } from "@/lib/types";
 
 const badgeClass: Record<HotelDeal["badge"], string> = {
@@ -16,7 +16,7 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
   return (
     <article className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft sm:grid-cols-[15rem_1fr]">
       <div className="relative min-h-56 overflow-hidden sm:min-h-full">
-        <Image
+        <SafeImage
           src={deal.image}
           alt={deal.image_alt}
           fill
@@ -102,7 +102,7 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
               </p>
               <p className="mt-1 text-sm font-bold leading-6 text-slateText">{deal.why_this_stay}</p>
               <p className="mt-3 text-xs font-bold leading-5 text-slate-500">
-                Rates may change. Availability varies by date.
+                Rates may change. Taxes and resort fees may apply.
               </p>
             </div>
 

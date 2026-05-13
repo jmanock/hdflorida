@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -14,10 +13,12 @@ import { NewsletterSection } from "@/components/NewsletterSection";
 import { PopularHotelSearches } from "@/components/PopularHotelSearches";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
+import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
+import { SafeImage } from "@/components/SafeImage";
 import { hotelDeals } from "@/data/hotelDeals";
 import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 
@@ -51,6 +52,67 @@ const stats = [
 
 const trustChips = ["Updated Often", "Florida Focused", "Free Deal Alerts"];
 
+const popularThisWeek = [
+  ["Orlando Hotel Deals", "/orlando-hotel-deals", "Theme park and family resort searches"],
+  ["Miami Beach Hotel Deals", "/miami-beach-hotel-deals", "Oceanfront stays and nightlife areas"],
+  ["Tampa Hotel Deals", "/tampa-hotel-deals", "Downtown, waterfront, and Gulf access"],
+  ["Florida Beach Resort Deals", "/florida-beach-resort-deals", "Coastal resort searches across Florida"],
+  ["Florida Family Hotel Deals", "/florida-family-hotel-deals", "Pool, suite, and kid-friendly stays"],
+  ["Florida Hotels Under $150", "/florida-hotels-under-150", "Value-focused hotel searches"]
+];
+
+const hotelTypeLinks = [
+  ["Beach Resorts", "/florida-beach-resort-deals"],
+  ["Family Hotels", "/florida-family-hotel-deals"],
+  ["Budget Hotels", "/florida-budget-hotels"],
+  ["Weekend Getaways", "/florida-weekend-getaway-hotels"],
+  ["Oceanfront Hotels", "/florida-oceanfront-hotels"],
+  ["Resorts With Pools", "/florida-resorts-with-pools"],
+  ["Pet-Friendly Hotels", "/florida-pet-friendly-hotels"],
+  ["Theme Park Hotels", "/florida-hotels-near-theme-parks"]
+];
+
+const editorPicks = [
+  ["Best for families", "Orlando resort searches", "/orlando-family-resort-deals"],
+  ["Best beach stay", "Miami Beach hotels", "/miami-beach-hotel-deals"],
+  ["Best budget search", "Florida hotels under $150", "/florida-hotels-under-150"],
+  ["Best weekend option", "Tampa and Clearwater stays", "/tampa-hotel-deals"],
+  ["Best romantic search", "Florida Keys and Key West stays", "/key-west-hotel-deals"]
+];
+
+const destinationClusters = [
+  {
+    title: "Orlando Hotel Cluster",
+    links: [
+      ["Orlando Hotel Deals", "/orlando-hotel-deals"],
+      ["Hotels Near Theme Parks", "/florida-hotels-near-theme-parks"],
+      ["Florida Family Hotel Deals", "/florida-family-hotel-deals"],
+      ["Orlando Flight Deals", "https://flightdealsflorida.org"],
+      ["Orlando Local Deals", "https://localdealsflorida.org"]
+    ]
+  },
+  {
+    title: "Miami Hotel Cluster",
+    links: [
+      ["Miami Hotel Deals", "/miami-hotel-deals"],
+      ["Miami Beach Hotel Deals", "/miami-beach-hotel-deals"],
+      ["Florida Oceanfront Hotels", "/florida-oceanfront-hotels"],
+      ["Miami Flight Deals", "https://flightdealsflorida.org"],
+      ["Miami Local Deals", "https://localdealsflorida.org"]
+    ]
+  },
+  {
+    title: "Tampa Hotel Cluster",
+    links: [
+      ["Tampa Hotel Deals", "/tampa-hotel-deals"],
+      ["Weekend Getaway Hotels", "/florida-weekend-getaway-hotels"],
+      ["Clearwater Beach Hotel Deals", "/clearwater-beach-hotel-deals"],
+      ["Tampa Flight Deals", "https://flightdealsflorida.org"],
+      ["Florida Cruise Deals", "https://cruisedealsflorida.org"]
+    ]
+  }
+];
+
 const whyItems = [
   {
     title: "Curated Florida Deals",
@@ -79,7 +141,7 @@ export default function Home() {
       <main>
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
-            <Image
+            <SafeImage
               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85"
               alt="Premium Florida resort pool beside palm trees"
               fill
@@ -137,7 +199,7 @@ export default function Home() {
 
             <aside className="relative mx-auto w-full max-w-md rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur">
               <div className="relative h-52 overflow-hidden rounded-2xl">
-                <Image
+                <SafeImage
                   src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"
                   alt="Resort pool and hotel lounge chairs"
                   fill
@@ -198,6 +260,91 @@ export default function Home() {
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Popular this week
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+                Popular Florida Hotel Searches This Week
+              </h2>
+              <p className="mt-3 max-w-2xl font-medium leading-7 text-slateText">
+                Popular searches from Florida travelers. Rates and availability may change by date.
+              </p>
+            </div>
+          </div>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {popularThisWeek.map(([label, href, description]) => (
+              <Link
+                key={href}
+                href={href}
+                className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+              >
+                <span className="text-lg font-black text-ink">{label}</span>
+                <span className="mt-2 block text-sm font-medium leading-6 text-slateText">
+                  {description}
+                </span>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                  Explore search
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Hotel types
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                Compare stays by trip style.
+              </h2>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                {hotelTypeLinks.map(([label, href]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+                  >
+                    {label}
+                    <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Editor&apos;s Picks
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                Useful starting points for Florida stays.
+              </h2>
+              <div className="mt-6 grid gap-3">
+                {editorPicks.map(([label, title, href]) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="group rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition hover:border-sky-200 hover:text-ocean"
+                  >
+                    <span className="block text-xs font-black uppercase tracking-[0.12em] text-slate-500">
+                      {label}
+                    </span>
+                    <span className="mt-1 flex items-center justify-between gap-3 text-sm font-black text-ink group-hover:text-ocean">
+                      {title}
+                      <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
               <p className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-ocean">
                 <Star className="h-4 w-4" aria-hidden="true" />
                 Featured hotels
@@ -223,7 +370,7 @@ export default function Home() {
                 className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <Image
+                  <SafeImage
                     src={deal.image}
                     alt={deal.image_alt}
                     fill
@@ -262,7 +409,7 @@ export default function Home() {
                         {deal.why_this_stay}
                       </p>
                       <p className="mt-3 text-xs font-bold leading-5 text-slate-500">
-                        Rates may change. Availability varies by date.
+                        Rates may change. Taxes and resort fees may apply.
                       </p>
                     </div>
                     <OutboundDealLink
@@ -304,7 +451,7 @@ export default function Home() {
               ))}
             </div>
             <p className="mt-4 text-xs font-bold text-slate-500">
-              Prices may change. Free cancellation and no booking fees are available on many stays.
+              Rates may change. Confirm taxes, fees, and cancellation terms with the booking source.
             </p>
           </div>
         </section>
@@ -312,6 +459,66 @@ export default function Home() {
         <DealExplorer />
 
         <PopularHotelSearches />
+
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Destination clusters
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+              Build a Florida trip around the hotel market you care about.
+            </h2>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            {destinationClusters.map((cluster) => (
+              <article key={cluster.title} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card">
+                <h3 className="text-xl font-black text-ink">{cluster.title}</h3>
+                <div className="mt-5 grid gap-3">
+                  {cluster.links.map(([label, href]) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
+                    >
+                      {label}
+                      <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                    </Link>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Why trust this site?
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              A Florida hotel discovery resource, not a list of random links.
+            </h2>
+            <p className="mt-4 max-w-4xl font-medium leading-7 text-slateText">
+              Florida Hotel Deals is part of the Florida Deals Hub network. We organize Florida
+              hotel searches by destination, stay type, budget, and trip intent so visitors can
+              compare options faster. Hotel rates may change, availability varies, resort fees and
+              taxes may apply, and current details should always be confirmed with the booking
+              source before booking.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {["Updated regularly", "Rates may change", "Availability varies", "Compare before booking"].map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-slate-200 bg-sand px-4 py-2 text-sm font-black text-ink"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CompleteTripSection />
 
         <NewsletterSection />
 
