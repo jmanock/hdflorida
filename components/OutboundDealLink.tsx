@@ -18,11 +18,13 @@ export function OutboundDealLink({
 }) {
   function trackDealClick() {
     const eventMetadata = {
+      source_site: "hoteldealsflorida.org",
       page: pageContext,
       type: "hotel",
       provider: "expedia",
       destination: deal.city,
       hotel_name: deal.hotel_name,
+      hotel_type: deal.category,
       category: deal.category,
       cta_text: deal.cta_label,
       price_text: deal.price,
@@ -32,6 +34,7 @@ export function OutboundDealLink({
 
     trackEvent("deal_click", eventMetadata);
     trackEvent("hotel_booking_click", eventMetadata);
+    trackEvent("hotel_card_click", eventMetadata);
   }
 
   return (

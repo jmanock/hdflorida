@@ -24,10 +24,12 @@ export function ExpediaHotelCta({
 }) {
   function trackClick() {
     const metadata = {
+      source_site: "hoteldealsflorida.org",
       page: pageContext,
       type: "hotel",
       provider: "expedia",
       destination,
+      hotel_type: category,
       category,
       cta_text: label,
       price_text: priceText,
@@ -37,6 +39,7 @@ export function ExpediaHotelCta({
 
     trackEvent("deal_click", metadata);
     trackEvent("hotel_booking_click", metadata);
+    trackEvent("hotel_card_click", metadata);
   }
 
   return (

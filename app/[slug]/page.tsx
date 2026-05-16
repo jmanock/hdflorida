@@ -73,7 +73,29 @@ const seoPageDestinationMap: Record<string, string> = {
   "orlando-resorts-vs-international-drive-hotels": "orlando",
   "beach-resorts-vs-budget-hotels-florida": "miamiBeach",
   "family-hotels-vs-romantic-hotels-florida": "orlando",
-  "miami-vs-fort-lauderdale-hotels": "fortLauderdale"
+  "miami-vs-fort-lauderdale-hotels": "fortLauderdale",
+  "best-family-resorts-in-florida": "orlando",
+  "best-beach-hotels-in-florida": "miamiBeach",
+  "where-to-stay-in-miami": "miami",
+  "where-to-stay-in-orlando": "orlando",
+  "best-hotels-near-florida-cruise-ports": "miami",
+  "budget-hotels-in-florida": "orlando",
+  "luxury-florida-resorts": "naples",
+  "weekend-getaway-hotels": "miamiBeach",
+  "best-waterfront-hotels-in-florida": "fortLauderdale",
+  "miami-vs-orlando-hotels": "miami",
+  "beach-resort-vs-theme-park-resort": "orlando",
+  "budget-hotel-vs-luxury-resort": "naples",
+  "downtown-vs-beachfront-hotel": "miamiBeach",
+  "hotel-vs-vacation-rental-in-florida": "orlando",
+  "summer-florida-resorts": "clearwater",
+  "winter-florida-getaways": "floridaKeys",
+  "spring-break-hotels": "miamiBeach",
+  "holiday-hotel-deals": "orlando",
+  "memorial-day-florida-hotels": "clearwater",
+  "cheap-summer-hotels-in-florida": "orlando",
+  "editorial-policy": "orlando",
+  "how-hotel-pricing-works": "orlando"
 };
 
 const popularExpediaSearches = [
@@ -339,7 +361,29 @@ function getPageHeroCta(slug: string, destinationLabel: string) {
     "orlando-resorts-vs-international-drive-hotels": "Compare Orlando Hotels",
     "beach-resorts-vs-budget-hotels-florida": "Compare Beach Resorts",
     "family-hotels-vs-romantic-hotels-florida": "Compare Family Hotels",
-    "miami-vs-fort-lauderdale-hotels": "Compare Fort Lauderdale Hotels"
+    "miami-vs-fort-lauderdale-hotels": "Compare Fort Lauderdale Hotels",
+    "best-family-resorts-in-florida": "Explore Family Resort Options",
+    "best-beach-hotels-in-florida": "Search Beach Hotels",
+    "where-to-stay-in-miami": "Browse Miami Hotels",
+    "where-to-stay-in-orlando": "Compare Orlando Resorts",
+    "best-hotels-near-florida-cruise-ports": "Search Cruise Port Hotels",
+    "budget-hotels-in-florida": "View Budget Hotel Options",
+    "luxury-florida-resorts": "Compare Luxury Resorts",
+    "weekend-getaway-hotels": "Search Weekend Rates",
+    "best-waterfront-hotels-in-florida": "Explore Waterfront Hotels",
+    "miami-vs-orlando-hotels": "Compare Miami and Orlando Hotels",
+    "beach-resort-vs-theme-park-resort": "Compare Resort Options",
+    "budget-hotel-vs-luxury-resort": "Compare Hotel Prices",
+    "downtown-vs-beachfront-hotel": "Compare Hotel Locations",
+    "hotel-vs-vacation-rental-in-florida": "Search Florida Hotels",
+    "summer-florida-resorts": "Explore Summer Resorts",
+    "winter-florida-getaways": "Search Winter Getaways",
+    "spring-break-hotels": "Search Spring Break Hotels",
+    "holiday-hotel-deals": "Search Holiday Hotel Options",
+    "memorial-day-florida-hotels": "Search Weekend Rates",
+    "cheap-summer-hotels-in-florida": "Browse Budget Summer Hotels",
+    "editorial-policy": "Search Florida Hotels",
+    "how-hotel-pricing-works": "Compare Hotel Prices"
   };
 
   return ctas[slug] ?? `Compare ${destinationLabel} Hotels`;

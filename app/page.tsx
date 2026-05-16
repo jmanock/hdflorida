@@ -19,6 +19,7 @@ import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { SafeImage } from "@/components/SafeImage";
+import { TrackedLink } from "@/components/TrackedLink";
 import { hotelDeals } from "@/data/hotelDeals";
 import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 
@@ -61,6 +62,51 @@ const popularThisWeek = [
   ["Florida Hotels Under $150", "/florida-hotels-under-150", "Value-focused hotel searches"]
 ];
 
+const trendingHotelSearches = [
+  {
+    title: "Miami Beach Hotels",
+    href: "/miami-beach-hotel-deals",
+    tripStyle: "Oceanfront weekends",
+    value: "Useful for comparing beach access, resort fees, nightlife areas, and walkable stays.",
+    tag: "Beachfront Stay"
+  },
+  {
+    title: "Orlando Family Resorts",
+    href: "/orlando-family-resort-deals",
+    tripStyle: "Theme park vacations",
+    value: "Good starting point for pools, suites, shuttles, and family-friendly park corridors.",
+    tag: "Family Friendly"
+  },
+  {
+    title: "Tampa Waterfront Hotels",
+    href: "/tampa-hotel-deals",
+    tripStyle: "Bay and city stays",
+    value: "Compare downtown, waterfront, cruise, and Gulf Coast access before choosing a base.",
+    tag: "Waterfront Hotel"
+  },
+  {
+    title: "Florida Beach Resorts",
+    href: "/florida-beach-resort-deals",
+    tripStyle: "Coastal resort searches",
+    value: "Helpful for comparing Atlantic, Gulf, and island resort options across Florida.",
+    tag: "Luxury Resort"
+  },
+  {
+    title: "Hotels Near Cruise Ports",
+    href: "/best-hotels-near-florida-cruise-ports",
+    tripStyle: "Pre-cruise stays",
+    value: "Compare port distance, parking, airport access, and transfer convenience.",
+    tag: "Cruise Travelers"
+  },
+  {
+    title: "Budget Florida Hotels",
+    href: "/florida-hotels-under-150",
+    tripStyle: "Value-focused trips",
+    value: "Search flexible dates, practical areas, and lower-rate options while checking final fees.",
+    tag: "Budget Friendly"
+  }
+];
+
 const hotelTypeLinks = [
   ["Beach Resorts", "/florida-beach-resort-deals"],
   ["Family Hotels", "/florida-family-hotel-deals"],
@@ -78,6 +124,24 @@ const editorPicks = [
   ["Best budget search", "Florida hotels under $150", "/florida-hotels-under-150"],
   ["Best weekend option", "Tampa and Clearwater stays", "/tampa-hotel-deals"],
   ["Best romantic search", "Florida Keys and Key West stays", "/key-west-hotel-deals"]
+];
+
+const planningGuides = [
+  ["Best Family Resorts in Florida", "/best-family-resorts-in-florida", "Pools, suites, theme parks, beach areas, and family logistics."],
+  ["Best Beach Hotels in Florida", "/best-beach-hotels-in-florida", "Oceanfront, Gulf Coast, Atlantic beach, and island stay comparisons."],
+  ["Where to Stay in Miami", "/where-to-stay-in-miami", "Brickell, Downtown, Miami Beach, cruise areas, and airport stays."],
+  ["Where to Stay in Orlando", "/where-to-stay-in-orlando", "Disney-area hotels, Universal corridors, I-Drive, resorts, and airport stays."],
+  ["Hotels Near Florida Cruise Ports", "/best-hotels-near-florida-cruise-ports", "Miami, Fort Lauderdale, Tampa, Port Canaveral, and Jacksonville planning."],
+  ["Best Time to Book Florida Hotels", "/best-time-to-book-florida-hotels", "Seasonality, events, flexible dates, and rate-change planning."]
+];
+
+const seasonalTravelIdeas = [
+  ["Summer Florida Resorts", "/summer-florida-resorts"],
+  ["Winter Florida Getaways", "/winter-florida-getaways"],
+  ["Spring Break Hotels", "/spring-break-hotels"],
+  ["Holiday Hotel Deals", "/holiday-hotel-deals"],
+  ["Memorial Day Florida Hotels", "/memorial-day-florida-hotels"],
+  ["Cheap Summer Hotels in Florida", "/cheap-summer-hotels-in-florida"]
 ];
 
 const destinationClusters = [
@@ -134,9 +198,51 @@ const whyItems = [
   }
 ];
 
+const homepageFaqs = [
+  {
+    question: "When is the cheapest time to book Florida hotels?",
+    answer:
+      "Florida hotel rates often depend on destination, season, events, day of week, and room type. Flexible weekday dates and nearby areas can help, but travelers should confirm current rates before booking."
+  },
+  {
+    question: "Which Florida beach has the best hotels?",
+    answer:
+      "Miami Beach, Fort Lauderdale, Clearwater Beach, Naples, Sarasota, Daytona Beach, and the Florida Keys all have strong hotel options. The best fit depends on beach access, nightlife, family needs, fees, and budget."
+  },
+  {
+    question: "Are Orlando resorts good for families?",
+    answer:
+      "Orlando resorts can be useful for families comparing pools, suites, shuttle areas, larger rooms, and theme park access. Always compare resort fees, parking, cancellation terms, and drive times."
+  },
+  {
+    question: "Should I compare hotel fees before booking?",
+    answer:
+      "Yes. Resort fees, parking, taxes, breakfast, cancellation policies, beach services, and room view categories can change the final value of a hotel stay."
+  }
+];
+
 export default function Home() {
+  const homepageFaqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homepageFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }))
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageFaqSchema)
+        }}
+      />
       <SiteHeader />
       <main>
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
@@ -174,14 +280,14 @@ export default function Home() {
                   href="#deals"
                   className="btn btn-primary px-6"
                 >
-                  View Hotel Deals
+                  Search Florida Hotels
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
                 <Link
                   href="#alerts"
                   className="btn btn-secondary px-6"
                 >
-                  Get Alerts
+                  Get Hotel Alerts
                 </Link>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -273,9 +379,11 @@ export default function Home() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {popularThisWeek.map(([label, href, description]) => (
-              <Link
+              <TrackedLink
                 key={href}
                 href={href}
+                label={`popular-this-week:${label}`}
+                eventName="destination_click"
                 className="group rounded-3xl border border-slate-200 bg-white p-5 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
               >
                 <span className="text-lg font-black text-ink">{label}</span>
@@ -286,7 +394,48 @@ export default function Home() {
                   Explore search
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
                 </span>
-              </Link>
+              </TrackedLink>
+            ))}
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Trending Hotel Searches
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+              Search by destination, trip style, and hotel intent.
+            </h2>
+            <p className="mt-3 font-medium leading-7 text-slateText">
+              These are practical Florida hotel searches travelers use when comparing where to stay,
+              what fees to check, and which area fits the trip.
+            </p>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {trendingHotelSearches.map((search) => (
+              <TrackedLink
+                key={search.href}
+                href={search.href}
+                label={`trending:${search.title}`}
+                eventName="destination_click"
+                className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+              >
+                <span className="rounded-full border border-slate-200 bg-sand px-3 py-1 text-xs font-black text-ink">
+                  {search.tag}
+                </span>
+                <span className="mt-4 block text-xl font-black text-ink">{search.title}</span>
+                <span className="mt-1 block text-sm font-black uppercase tracking-[0.12em] text-ocean">
+                  {search.tripStyle}
+                </span>
+                <span className="mt-3 block text-sm font-medium leading-6 text-slateText">
+                  {search.value}
+                </span>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">
+                  Explore hotel search
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </TrackedLink>
             ))}
           </div>
         </section>
@@ -302,14 +451,16 @@ export default function Home() {
               </h2>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {hotelTypeLinks.map(([label, href]) => (
-                  <Link
+                  <TrackedLink
                     key={href}
                     href={href}
+                    label={`hotel-type:${label}`}
+                    eventName="destination_click"
                     className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
                   >
                     {label}
                     <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
-                  </Link>
+                  </TrackedLink>
                 ))}
               </div>
             </div>
@@ -323,9 +474,11 @@ export default function Home() {
               </h2>
               <div className="mt-6 grid gap-3">
                 {editorPicks.map(([label, title, href]) => (
-                  <Link
+                  <TrackedLink
                     key={href}
                     href={href}
+                    label={`editors-pick:${title}`}
+                    eventName="guide_click"
                     className="group rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-sm transition hover:border-sky-200 hover:text-ocean"
                   >
                     <span className="block text-xs font-black uppercase tracking-[0.12em] text-slate-500">
@@ -335,7 +488,61 @@ export default function Home() {
                       {title}
                       <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
                     </span>
-                  </Link>
+                  </TrackedLink>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="grid gap-5 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Hotel Planning Guides
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                Go beyond the hotel card before you book.
+              </h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                {planningGuides.map(([label, href, description]) => (
+                  <TrackedLink
+                    key={href}
+                    href={href}
+                    label={`planning-guide:${label}`}
+                    eventName="guide_click"
+                    className="group rounded-2xl border border-slate-200 bg-sand p-4 transition hover:border-sky-200 hover:bg-skyline"
+                  >
+                    <span className="block text-base font-black text-ink group-hover:text-ocean">
+                      {label}
+                    </span>
+                    <span className="mt-2 block text-sm font-medium leading-6 text-slateText">
+                      {description}
+                    </span>
+                  </TrackedLink>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Seasonal Travel Ideas
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                Plan around Florida&apos;s travel calendar.
+              </h2>
+              <div className="mt-6 grid gap-3">
+                {seasonalTravelIdeas.map(([label, href]) => (
+                  <TrackedLink
+                    key={href}
+                    href={href}
+                    label={`seasonal:${label}`}
+                    eventName="guide_click"
+                    className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:text-ocean"
+                  >
+                    {label}
+                    <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
+                  </TrackedLink>
                 ))}
               </div>
             </div>
@@ -475,14 +682,16 @@ export default function Home() {
                 <h3 className="text-xl font-black text-ink">{cluster.title}</h3>
                 <div className="mt-5 grid gap-3">
                   {cluster.links.map(([label, href]) => (
-                    <Link
+                    <TrackedLink
                       key={href}
                       href={href}
+                      label={`destination-cluster:${label}`}
+                      eventName="destination_click"
                       className="group flex items-center justify-between gap-3 rounded-2xl border border-slate-200 bg-sand px-4 py-3 text-sm font-black text-ink transition hover:border-sky-200 hover:bg-skyline hover:text-ocean"
                     >
                       {label}
                       <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
-                    </Link>
+                    </TrackedLink>
                   ))}
                 </div>
               </article>
@@ -513,6 +722,25 @@ export default function Home() {
                 >
                   {item}
                 </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+          <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
+            <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+              Hotel FAQ
+            </p>
+            <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+              Common questions before comparing Florida stays.
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              {homepageFaqs.map((faq) => (
+                <article key={faq.question} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                  <h3 className="text-base font-black leading-7 text-ink">{faq.question}</h3>
+                  <p className="mt-2 text-sm font-medium leading-6 text-slateText">{faq.answer}</p>
+                </article>
               ))}
             </div>
           </div>

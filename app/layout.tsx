@@ -13,9 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoteldealsflorida.org"),
-  title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
+  title: "Florida Hotel Deals | Resorts, Beach Hotels & Vacation Stays",
   description:
-    "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates across Orlando, Miami, Tampa, Fort Lauderdale, the Florida Keys, and more.",
+    "Discover Florida hotel deals, beach resorts, family-friendly stays, waterfront hotels, weekend getaways, and Florida vacation planning guides.",
   keywords: [
     "Florida hotel deals",
     "Florida resort deals",
@@ -38,9 +38,9 @@ export const metadata: Metadata = {
     }
   },
   openGraph: {
-    title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
+    title: "Florida Hotel Deals | Resorts, Beach Hotels & Vacation Stays",
     description:
-      "Find Florida hotel deals including beach resorts, family hotels, luxury stays, weekend getaways, and staycation rates across Orlando, Miami, Tampa, Fort Lauderdale, the Florida Keys, and more.",
+      "Discover Florida hotel deals, beach resorts, family-friendly stays, waterfront hotels, weekend getaways, and Florida vacation planning guides.",
     url: "https://hoteldealsflorida.org",
     siteName: "Florida Hotel Deals",
     locale: "en_US",
@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Florida Hotel Deals | Resorts, Beach Hotels & Weekend Stays",
+    title: "Florida Hotel Deals | Resorts, Beach Hotels & Vacation Stays",
     description:
-      "Find Florida beach resort, family hotel, luxury stay, weekend getaway, and staycation rates.",
+      "Discover Florida hotel deals, beach resorts, family-friendly stays, waterfront hotels, weekend getaways, and Florida vacation planning guides.",
     images: [
       {
         url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",

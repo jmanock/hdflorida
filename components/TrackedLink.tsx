@@ -20,11 +20,18 @@ export function TrackedLink({
   ariaCurrent?: "page";
 }) {
   function handleClick() {
-    trackEvent(eventName, {
+    const eventMetadata = {
+      source_site: "hoteldealsflorida.org",
       label,
       href,
       page_path: window.location.pathname
-    });
+    };
+
+    trackEvent(eventName, eventMetadata);
+
+    if (href.startsWith("https://")) {
+      trackEvent("network_site_click", eventMetadata);
+    }
   }
 
   return (

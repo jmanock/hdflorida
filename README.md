@@ -121,6 +121,17 @@ SEO pages follow this structure:
 - cross-network links to Florida Flight Deals, Florida Cruise Deals, Local Florida Deals, and Florida Deals Hub
 - newsletter and shared footer
 
+## Hotels V2 Authority Strategy
+
+Version 2 expands the site from a single hotel-deal surface into a Florida accommodations resource. The homepage now supports destination discovery, trending hotel searches, hotel types, editorial picks, planning guides, seasonal travel ideas, destination clusters, trust messaging, FAQs, newsletter signup, and network planning links.
+
+The content model has four page families:
+
+- destination pages for high-intent city searches such as Orlando, Miami, Miami Beach, Tampa, Fort Lauderdale, Clearwater Beach, Key West, Naples, Daytona Beach, and St. Augustine
+- hotel-intent pages for beach resorts, family hotels, budget stays, luxury resorts, pet-friendly hotels, oceanfront hotels, pool resorts, cruise-port hotels, and weekend getaways
+- planning guides for where to stay, booking timing, resort fees, family resorts, beach hotels, cruise-port hotels, waterfront hotels, and hotel pricing
+- comparison and seasonal pages for Miami vs Orlando, downtown vs beachfront, hotel vs vacation rental, summer resorts, winter getaways, spring break hotels, holiday hotels, and budget summer stays
+
 Hotel page strategy:
 
 - destination pages target high-intent market searches such as Orlando, Miami Beach, Tampa, Fort Lauderdale, Jacksonville, Clearwater Beach, Florida Keys, Key West, Naples, Daytona Beach, and St. Augustine
@@ -129,12 +140,25 @@ Hotel page strategy:
 - new SEO pages should be added to `data/seoPages.ts`; sitemap, static generation, metadata, FAQ schema, breadcrumb schema, and ItemList schema are generated from that registry
 - if a new page needs destination-specific booking intent, add its slug to `seoPageDestinationMap` and `getPageHeroCta` in `app/[slug]/page.tsx`
 
+Destination cluster strategy:
+
+- homepage clusters connect Orlando, Miami, and Tampa hotel searches to related hotel types and sister-network travel resources
+- every SEO page renders Related Hotel Searches and Complete Your Florida Trip sections to deepen crawl paths
+- internal links open in the same tab; external Expedia hotel CTAs open in a new tab with `rel="noopener noreferrer"`
+- use descriptive anchors such as "Miami Beach Hotel Deals" or "Florida Beach Resort Deals"; avoid vague "click here" links
+
 Comparison page strategy:
 
 - comparison pages live in `data/seoPages.ts` with `pageKind: "guide"`
 - use `comparisonRows` for the table rendered by `app/[slug]/page.tsx`
 - use `guideSections` for practical context, tradeoffs, and booking checks
 - Article schema is emitted for guide/comparison pages; do not add fake price or offer schema
+
+Seasonal page strategy:
+
+- seasonal pages should explain why timing matters, which destinations fit the season, and what travelers should confirm before booking
+- keep seasonal wording evergreen and trust-first; avoid fake urgency, countdowns, unsupported discounts, or stale "last checked" claims
+- connect seasonal pages back to destination pages, hotel-type pages, and planning guides through `related`
 
 Image fallback strategy:
 
@@ -175,7 +199,18 @@ GA4 is loaded globally in `app/layout.tsx`. Outbound Expedia hotel clicks are tr
 - `outbound_url`
 - `page_path`
 
-Expedia hotel clicks also fire `hotel_booking_click` with the same metadata. Navigation links use `navigation_click`, filters use `filter_click`, image fallbacks use `image_fallback_used`, and newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
+Expedia hotel clicks also fire `hotel_booking_click` and `hotel_card_click` with the same metadata. Navigation links use `navigation_click`; destination discovery links use `destination_click`; planning and editorial guide links use `guide_click`; external Florida Deals network links also fire `network_site_click`; filters use `filter_click`; image fallbacks use `image_fallback_used`; newsletter form interactions use `newsletter_signup_started` and `newsletter_signup_success`.
+
+Core analytics metadata should include:
+
+- `source_site`
+- `destination`
+- `hotel_type`
+- `category`
+- `cta_text`
+- `price_text`
+- `outbound_url`
+- `page_path`
 
 ## Verification
 

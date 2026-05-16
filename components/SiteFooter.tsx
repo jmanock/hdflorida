@@ -68,6 +68,8 @@ export function SiteFooter() {
           >
             {[
               ["About", "/about"],
+              ["Editorial Policy", "/editorial-policy"],
+              ["Hotel Pricing", "/how-hotel-pricing-works"],
               ["Contact", "/contact"],
               ["Privacy", "/privacy"],
               ["Terms", "/terms"],
