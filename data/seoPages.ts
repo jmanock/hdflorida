@@ -1881,6 +1881,102 @@ export const seoLandingPages: SeoLandingPage[] = [
     ]
   },
   {
+    slug: "hotels-near-disney",
+    pageKind: "guide",
+    title: "Hotels Near Disney | Orlando Family Stay Guide",
+    description:
+      "Compare hotels near Disney with Orlando family resort areas, shuttle tradeoffs, room layouts, fees, parking, and current hotel searches.",
+    h1: "Hotels Near Disney",
+    eyebrow: "Orlando family stays",
+    intro:
+      "Hotels near Disney work best when travelers compare location, transportation, room type, fees, breakfast, pool time, and how many park days they need.",
+    details:
+      "Use this guide to compare Disney-area hotel searches without assuming the closest room is automatically the best value.",
+    image: "https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Orlando family hotel pool near theme park trips",
+    dealIds: ["orlando-family-resort-search", "orlando-resident-suite-search", "orlando-luxury-villas-search", "orlando-under-150-search"],
+    related: ["where-to-stay-in-orlando", "orlando-hotel-deals", "orlando-family-resort-deals", "florida-hotels-near-theme-parks"],
+    guideSections: [
+      {
+        heading: "Compare more than distance",
+        body:
+          "A slightly farther hotel can still work if it has better room space, breakfast, parking, cancellation terms, or transportation. Confirm shuttle schedules and final fees before booking."
+      }
+    ]
+  },
+  {
+    slug: "hotels-near-miami-cruise-port",
+    pageKind: "guide",
+    title: "Hotels Near Miami Cruise Port | Pre-Cruise Stay Guide",
+    description:
+      "Compare hotels near Miami cruise port with Brickell, Downtown Miami, Miami Beach, airport stays, transportation, fees, and pre-cruise planning tips.",
+    h1: "Hotels Near Miami Cruise Port",
+    eyebrow: "Pre-cruise Miami hotels",
+    intro:
+      "Hotels near Miami cruise port can make a sailing day easier, but the best area depends on arrival time, budget, dining plans, luggage, and transfer needs.",
+    details:
+      "Compare Downtown Miami, Brickell, airport hotels, and Miami Beach before choosing a pre-cruise night.",
+    image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Miami skyline hotels for cruise port stays",
+    dealIds: ["miami-beach-hotel-search", "miami-brickell-weekend-search", "miami-airport-budget-search", "miami-luxury-spa-search"],
+    related: ["miami-hotel-deals", "where-to-stay-in-miami", "hotels-near-florida-cruise-ports", "miami-vs-miami-beach-hotels"],
+    guideSections: [
+      {
+        heading: "Choose the area around your arrival",
+        body:
+          "Late arrivals may favor airport convenience, while earlier arrivals may prefer Brickell, Downtown, or the beach. Confirm transfer timing, parking, fees, and checkout before sailing."
+      }
+    ]
+  },
+  {
+    slug: "clearwater-beachfront-hotels",
+    pageKind: "guide",
+    title: "Clearwater Beachfront Hotels | Gulf Coast Stay Guide",
+    description:
+      "Compare Clearwater beachfront hotels with Gulf Coast resort searches, family stay tips, parking, fees, beach access, and Tampa Bay planning notes.",
+    h1: "Clearwater Beachfront Hotels",
+    eyebrow: "Gulf beach hotels",
+    intro:
+      "Clearwater beachfront hotel searches should compare beach access, parking, resort fees, family amenities, walkability, and Tampa Bay airport logistics.",
+    details:
+      "Use this page to compare Gulf Coast hotel ideas before checking current rates and availability.",
+    image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Clearwater-style Gulf beach hotels and turquoise water",
+    dealIds: ["clearwater-gulf-search", "tampa-waterfront-hotel-search", "st-pete-art-hotel-search", "tampa-budget-search"],
+    related: ["clearwater-beach-hotel-deals", "florida-beach-resort-deals", "best-beach-hotels-in-florida", "tampa-hotel-deals"],
+    guideSections: [
+      {
+        heading: "Beachfront value depends on the full stay",
+        body:
+          "Compare direct beach access against final cost, parking, resort fees, room view, cancellation terms, and whether you will spend enough time at the property to justify the premium."
+      }
+    ]
+  },
+  {
+    slug: "hotels-near-florida-cruise-ports",
+    pageKind: "guide",
+    title: "Hotels Near Florida Cruise Ports | Miami, Port Canaveral & Tampa",
+    description:
+      "Compare hotels near Florida cruise ports including Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville with pre-cruise planning tips.",
+    h1: "Hotels Near Florida Cruise Ports",
+    eyebrow: "Cruise port hotel guide",
+    intro:
+      "Hotels near Florida cruise ports help reduce departure-day friction when travelers compare airport arrival times, port transfers, parking, and local plans.",
+    details:
+      "Use this guide to compare pre-cruise hotel markets near Miami, Port Canaveral, Fort Lauderdale, Tampa, and Jacksonville.",
+    image: "https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida cruise ship and nearby hotel planning guide",
+    dealIds: ["miami-brickell-weekend-search", "fort-lauderdale-marina-search", "tampa-waterfront-hotel-search", "jacksonville-riverfront-search"],
+    related: ["hotels-near-miami-cruise-port", "miami-hotel-deals", "fort-lauderdale-hotel-deals", "tampa-hotel-deals"],
+    guideSections: [
+      {
+        heading: "Plan around the port, not only the room",
+        body:
+          "A good cruise hotel balances airport arrival, port distance, transfer cost, dining, luggage, parking, and checkout timing. Always confirm current shuttle or transportation details."
+      }
+    ]
+  },
+  {
     slug: "summer-florida-resorts",
     pageKind: "guide",
     title: "Summer Florida Resorts | Beach, Pool & Family Stay Ideas",
