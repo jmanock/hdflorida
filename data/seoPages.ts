@@ -1977,6 +1977,102 @@ export const seoLandingPages: SeoLandingPage[] = [
     ]
   },
   {
+    slug: "cheap-hotels-in-orlando",
+    pageKind: "guide",
+    title: "Cheap Hotels In Orlando | Budget Stays Near Parks & I-Drive",
+    description:
+      "Compare cheap hotels in Orlando with budget stay tips for theme parks, International Drive, Lake Buena Vista, fees, parking, and family trip planning.",
+    h1: "Cheap Hotels In Orlando",
+    eyebrow: "Budget Orlando hotels",
+    intro:
+      "Cheap hotels in Orlando can be useful for theme park trips, family weekends, conventions, and short stays when travelers compare total cost instead of nightly rate alone.",
+    details:
+      "Use this page to compare Orlando budget hotel searches by location, parking, resort fees, breakfast, shuttle access, room size, and cancellation terms.",
+    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Affordable Orlando hotel room for budget family stays",
+    dealIds: ["orlando-under-150-search", "orlando-resident-suite-search", "orlando-family-resort-search", "tampa-budget-search"],
+    related: ["orlando-hotel-deals", "hotels-near-disney", "where-to-stay-in-orlando", "florida-budget-hotels"],
+    guideSections: [
+      {
+        heading: "Compare the final checkout cost",
+        body:
+          "A low Orlando nightly rate can change once parking, resort fees, breakfast, shuttle value, taxes, and drive time are included. Confirm the total before booking."
+      }
+    ]
+  },
+  {
+    slug: "florida-beachfront-hotels",
+    pageKind: "guide",
+    title: "Florida Beachfront Hotels | Oceanfront & Gulf Coast Stay Guide",
+    description:
+      "Compare Florida beachfront hotels with beach access tips for Miami Beach, Clearwater, Fort Lauderdale, Daytona, Naples, the Keys, and Gulf Coast stays.",
+    h1: "Florida Beachfront Hotels",
+    eyebrow: "Beach stay guide",
+    intro:
+      "Florida beachfront hotels can be worth the premium when beach access, views, pools, and walkability are central to the trip.",
+    details:
+      "Compare beachfront hotel searches by destination, final fees, parking, room view, beach service, cancellation terms, and season.",
+    image: "https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida beachfront hotel area with blue water and sand",
+    dealIds: ["miami-beach-hotel-search", "clearwater-gulf-search", "fort-lauderdale-beach-resort-search", "daytona-oceanfront-search"],
+    related: ["best-beach-hotels-in-florida", "florida-beach-resort-deals", "clearwater-beachfront-hotels", "miami-beach-hotel-deals"],
+    guideSections: [
+      {
+        heading: "Beachfront means different things by destination",
+        body:
+          "Oceanfront, beachfront, beach-adjacent, and waterfront can describe different stays. Check map position, room view, beach access, resort fees, and parking before booking."
+      }
+    ]
+  },
+  {
+    slug: "downtown-miami-hotels",
+    pageKind: "guide",
+    title: "Downtown Miami Hotels | Brickell, Cruise Port & Weekend Stays",
+    description:
+      "Compare Downtown Miami hotels for Brickell weekends, cruise port stays, dining, nightlife, airport access, fees, and South Florida trip planning.",
+    h1: "Downtown Miami Hotels",
+    eyebrow: "Miami city stays",
+    intro:
+      "Downtown Miami hotels are useful for Brickell weekends, PortMiami cruise nights, dining, events, business trips, and travelers who want city access more than beach access.",
+    details:
+      "Use this guide to compare Downtown Miami and Brickell hotel searches with Miami Beach, airport, and cruise-port alternatives.",
+    image: "https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Downtown Miami and Brickell hotel skyline for city stays",
+    dealIds: ["miami-brickell-weekend-search", "miami-airport-budget-search", "miami-luxury-spa-search", "miami-beach-hotel-search"],
+    related: ["miami-hotel-deals", "hotels-near-miami-cruise-port", "where-to-stay-in-miami", "miami-vs-miami-beach-hotels"],
+    guideSections: [
+      {
+        heading: "Choose Downtown for city convenience",
+        body:
+          "Downtown and Brickell can work better than Miami Beach when the trip centers on cruises, restaurants, business, events, or easier airport and port transfers."
+      }
+    ]
+  },
+  {
+    slug: "miami-beach-hotels",
+    pageKind: "guide",
+    title: "Miami Beach Hotels | Where To Stay For Beaches, Nightlife & Weekend Trips",
+    description:
+      "Compare Miami Beach hotels with South Beach, Mid-Beach, family stay, nightlife, resort fee, beach access, and weekend planning tips.",
+    h1: "Miami Beach Hotels",
+    eyebrow: "Miami Beach stay guide",
+    intro:
+      "Miami Beach hotels are best for travelers who want beach access, nightlife, design hotels, walkable restaurants, and a more vacation-focused stay than Downtown Miami.",
+    details:
+      "Compare Miami Beach hotel searches by neighborhood, beach access, resort fees, parking, room size, nightlife proximity, and cancellation terms.",
+    image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Miami Beach hotels and oceanfront skyline",
+    dealIds: ["miami-beach-hotel-search", "miami-luxury-spa-search", "miami-brickell-weekend-search", "fort-lauderdale-beach-resort-search"],
+    related: ["miami-beach-hotel-deals", "miami-hotel-deals", "miami-vs-miami-beach-hotels", "downtown-miami-hotels"],
+    guideSections: [
+      {
+        heading: "Match the neighborhood to the trip",
+        body:
+          "South Beach fits nightlife and walkability, Mid-Beach can feel more resort-focused, and quieter areas may work better for families or beach-first weekends."
+      }
+    ]
+  },
+  {
     slug: "summer-florida-resorts",
     pageKind: "guide",
     title: "Summer Florida Resorts | Beach, Pool & Family Stay Ideas",
