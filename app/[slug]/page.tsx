@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, Home, Search } from "lucide-react";
+import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
@@ -20,6 +21,7 @@ import {
   seoLandingPageMap,
   seoLandingPages
 } from "@/data/seoPages";
+import { hotelPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { SITE_URL } from "@/lib/siteConstants";
 
@@ -94,6 +96,8 @@ const seoPageDestinationMap: Record<string, string> = {
   "holiday-hotel-deals": "orlando",
   "memorial-day-florida-hotels": "clearwater",
   "cheap-summer-hotels-in-florida": "orlando",
+  "florida-resort-packing-guide": "orlando",
+  "beach-vacation-essentials": "miamiBeach",
   "editorial-policy": "orlando",
   "how-hotel-pricing-works": "orlando"
 };
@@ -382,6 +386,8 @@ function getPageHeroCta(slug: string, destinationLabel: string) {
     "holiday-hotel-deals": "Search Holiday Hotel Options",
     "memorial-day-florida-hotels": "Search Weekend Rates",
     "cheap-summer-hotels-in-florida": "Browse Budget Summer Hotels",
+    "florida-resort-packing-guide": "Compare Resort Hotels",
+    "beach-vacation-essentials": "Search Beach Hotels",
     "editorial-policy": "Search Florida Hotels",
     "how-hotel-pricing-works": "Compare Hotel Prices"
   };
@@ -462,6 +468,7 @@ export default async function SeoLandingPage({
   const destinationLink = getExpediaHotelLink(destinationKey);
   const destinationLabel = page.h1.replace(" Deals", "");
   const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
+  const showGearPicks = /packing|essentials|beach|resort/.test(page.slug);
   const guideCopy = getHotelGuideCopy(page.slug, destinationLabel);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
@@ -729,6 +736,27 @@ export default async function SeoLandingPage({
             ))}
           </div>
         </section>
+
+        {showGearPicks ? (
+          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                  Florida travel gear picks
+                </p>
+                <h2 className="mt-3 text-3xl font-black tracking-normal text-ink sm:text-4xl">
+                  Useful outdoor gear for hotel and resort trips.
+                </h2>
+              </div>
+              <AffiliateDisclosure className="max-w-md" />
+            </div>
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {hotelPiscifunGearPicks.map((item) => (
+                <AffiliateGearLink key={item.title} item={item} ctaText="Shop Outdoor Gear" />
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">

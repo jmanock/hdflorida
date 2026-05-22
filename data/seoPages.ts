@@ -2217,6 +2217,108 @@ export const seoLandingPages: SeoLandingPage[] = [
     ]
   },
   {
+    slug: "florida-resort-packing-guide",
+    pageKind: "guide",
+    title: "Florida Resort Packing Guide | What To Bring For Hotel Stays",
+    description:
+      "Plan what to pack for Florida resort stays, beach hotels, family trips, cruise-port nights, and warm-weather hotel getaways.",
+    h1: "Florida Resort Packing Guide",
+    eyebrow: "Packing guide",
+    intro:
+      "Florida resort packing works best when travelers plan around the hotel, beach access, pool time, restaurants, weather, and nearby outdoor activities.",
+    details:
+      "Use this guide to compare what belongs in the suitcase before booking a resort, beach hotel, family stay, or pre-cruise night in Florida.",
+    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida resort room and travel packing essentials",
+    dealIds: ["orlando-family-resort-search", "clearwater-gulf-search", "miami-beach-hotel-search", "naples-boutique-retreat-search"],
+    related: ["best-family-resorts-in-florida", "best-beach-hotels-in-florida", "hotels-near-florida-cruise-ports", "beach-vacation-essentials"],
+    guideSections: [
+      {
+        heading: "Pack around the hotel style",
+        body:
+          "Theme park resorts, beach hotels, cruise-port stays, and luxury resorts all create different packing needs. Check pool rules, parking, laundry access, dress codes, and whether beach towels or chairs are included."
+      },
+      {
+        heading: "Think beyond the room rate",
+        body:
+          "A slightly better hotel location can reduce rideshare, parking, and activity costs. Before packing specialty gear, confirm the hotel's amenities and nearby activities so the bag stays useful."
+      },
+      {
+        heading: "Outdoor gear should support the trip",
+        body:
+          "Compact fishing, beach, and outdoor accessories can make sense for pier days, Gulf Coast stays, Keys trips, and family beach plans, but avoid packing anything that conflicts with airline or property rules."
+      }
+    ],
+    faqs: [
+      {
+        question: "What should I pack for a Florida resort stay?",
+        answer:
+          "Pack breathable clothing, swimwear, sun protection, comfortable shoes, chargers, medication, activity-specific gear, and any resort documents or reservation details you may need."
+      },
+      {
+        question: "Should I bring beach or fishing gear to a hotel?",
+        answer:
+          "Bring compact gear only when it matches your itinerary and transportation rules. Confirm airline restrictions, hotel storage, and local activity plans first."
+      },
+      {
+        question: "Do resorts provide towels and beach gear?",
+        answer:
+          "Some do, but policies vary. Check resort amenities, beach service rules, rental fees, and pool or towel policies before packing."
+      }
+    ]
+  },
+  {
+    slug: "beach-vacation-essentials",
+    pageKind: "guide",
+    title: "Beach Vacation Essentials | Florida Hotel & Resort Packing Guide",
+    description:
+      "Pack for Florida beach hotels with essentials for resort days, outdoor activities, fishing piers, family trips, and weekend coastal stays.",
+    h1: "Beach Vacation Essentials",
+    eyebrow: "Beach packing guide",
+    intro:
+      "Florida beach hotel trips are easier when travelers pack for sun, sand, weather, walking distance, family needs, and outdoor plans before arriving.",
+    details:
+      "Use this guide before comparing beach hotels, Gulf Coast resorts, oceanfront stays, or cruise-port nights with beach add-ons.",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=85",
+    imageAlt: "Florida beach vacation essentials near an oceanfront hotel",
+    dealIds: ["miami-beach-hotel-search", "clearwater-gulf-search", "fort-lauderdale-beach-resort-search", "sarasota-family-suite-search"],
+    related: ["florida-beach-resort-deals", "best-beach-hotels-in-florida", "florida-oceanfront-hotels", "florida-resort-packing-guide"],
+    guideSections: [
+      {
+        heading: "Start with the beach location",
+        body:
+          "Oceanfront hotels, walk-to-beach stays, and inland value hotels all change what you need. If the beach is a long walk or short drive away, pack lighter and confirm parking or shuttle details."
+      },
+      {
+        heading: "Plan for sun and weather changes",
+        body:
+          "Florida beach weather can shift quickly. Sun protection, water, a light layer, a dry bag, and backup indoor plans can make the day smoother without overpacking."
+      },
+      {
+        heading: "Match gear to activities",
+        body:
+          "Fishing piers, boating days, shelling walks, and family beach time need different supplies. Choose practical outdoor gear that supports the trip instead of filling the room with unused extras."
+      }
+    ],
+    faqs: [
+      {
+        question: "What are the most useful Florida beach vacation essentials?",
+        answer:
+          "Sun protection, swimwear, sandals, a light layer, refillable water, chargers, beach-safe storage, and comfortable walking clothes are useful for most beach hotel stays."
+      },
+      {
+        question: "Should I choose an oceanfront hotel or a nearby hotel?",
+        answer:
+          "Oceanfront hotels can save time and make beach days easier, while nearby hotels may cost less. Compare parking, resort fees, walking distance, and the final checkout total."
+      },
+      {
+        question: "Can outdoor gear make sense for a beach hotel trip?",
+        answer:
+          "Yes, when the trip includes fishing, boating, parks, or long beach days. Keep gear compact and confirm airline, hotel, and local rules before traveling."
+      }
+    ]
+  },
+  {
     slug: "editorial-policy",
     pageKind: "guide",
     title: "Editorial Policy | Florida Hotel Deals",
