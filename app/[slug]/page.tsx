@@ -468,7 +468,7 @@ export default async function SeoLandingPage({
   const destinationLink = getExpediaHotelLink(destinationKey);
   const destinationLabel = page.h1.replace(" Deals", "");
   const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
-  const showGearPicks = /packing|essentials|beach|resort/.test(page.slug);
+  const showGearPicks = /packing|essentials|beach|resort|camping|cabin|rain-gear/.test(page.slug);
   const guideCopy = getHotelGuideCopy(page.slug, destinationLabel);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
@@ -752,7 +752,7 @@ export default async function SeoLandingPage({
             </div>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {hotelPiscifunGearPicks.map((item) => (
-                <AffiliateGearLink key={item.title} item={item} ctaText="Shop Outdoor Gear" />
+                <AffiliateGearLink key={item.title} item={item} ctaText={item.advertiser === "tidewe" ? "Browse TideWe Outdoor Gear" : "Shop Outdoor Gear"} />
               ))}
             </div>
           </section>

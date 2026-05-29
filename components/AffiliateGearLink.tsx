@@ -13,6 +13,7 @@ type AffiliateGearLinkProps = {
 
 export function AffiliateGearLink({ item, ctaText }: AffiliateGearLinkProps) {
   const pathname = usePathname();
+  const advertiser = item.advertiser ?? "piscifun";
 
   return (
     <a
@@ -23,7 +24,7 @@ export function AffiliateGearLink({ item, ctaText }: AffiliateGearLinkProps) {
         trackEvent("affiliate_click", {
           source_site: "hoteldealsflorida.org",
           affiliate_program: "awin",
-          advertiser: "piscifun",
+          advertiser,
           item_title: item.title,
           category: item.category,
           cta_text: ctaText,
