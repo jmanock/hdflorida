@@ -443,8 +443,12 @@ export const seoLandingPages: SeoLandingPage[] = [
     eyebrow: "Oceanfront hotel searches",
     intro:
       "Compare Florida beach resort deals for oceanfront hotels, Gulf Coast escapes, Atlantic beach weekends, and luxury coastal stays. Use these current hotel searches to check rates by date.",
-    details:
+    details: [
       "Beach resort pricing can move quickly with weather, holidays, and events. This page collects useful coastal hotel searches across Florida so visitors can compare current stay options.",
+      "Compare Gulf Coast and Atlantic Coast beach destinations based on travel style, beach access, nightlife, and family activities.",
+      "Review Miami Beach, Fort Lauderdale, Clearwater Beach, Sarasota, Daytona Beach, Naples, and Florida Keys resort areas before choosing a destination.",
+      "Compare hotel location, resort fees, parking, beach access, and seasonal demand before booking."
+    ] 
     image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Florida beach resort pool and palms for oceanfront hotel deals",
     dealIds: [
@@ -459,7 +463,9 @@ export const seoLandingPages: SeoLandingPage[] = [
       "miami-beach-hotel-deals",
       "florida-keys-hotel-deals",
       "clearwater-beach-hotel-deals",
-      "florida-luxury-hotel-deals"
+      "florida-luxury-hotel-deals",
+      "florida-family-hotel-deals",
+      "hotel-deals-in-florida"
     ],
     faqs: [
       {
