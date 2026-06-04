@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seo:indexnow": "node scripts/seo-automation.mjs --site=hoteldealsflorida --mode=indexnow",
+    "seo:validate": "node scripts/seo-automation.mjs --site=hoteldealsflorida --mode=validate",
+    "seo:report": "node scripts/seo-automation.mjs --site=hoteldealsflorida --mode=report"
   },
   "dependencies": {
     "@next/third-parties": "^15.3.0",
