@@ -13,9 +13,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://hoteldealsflorida.org"),
-  title: "Florida Hotel Deals | Resorts, Beach Hotels & Vacation Stays",
+  title: "Florida Hotel Deals: Beach Resorts, Family Stays & Weekend Ideas",
   description:
-    "Discover Florida hotel deals, beach resorts, family-friendly stays, waterfront hotels, weekend getaways, and Florida vacation planning guides.",
+    "Compare Florida hotel deals, beach resorts, family-friendly stays, waterfront hotels, cruise-port lodging, and weekend getaway ideas.",
   keywords: [
     "Florida hotel deals",
     "Florida resort deals",
