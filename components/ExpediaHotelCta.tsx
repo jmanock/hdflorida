@@ -40,6 +40,7 @@ export function ExpediaHotelCta({
     trackEvent("deal_click", metadata);
     trackEvent("hotel_booking_click", metadata);
     trackEvent("hotel_card_click", metadata);
+    trackEvent("hotel_affiliate_click", metadata);
   }
 
   return (

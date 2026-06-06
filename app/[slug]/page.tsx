@@ -464,7 +464,24 @@ export default async function SeoLandingPage({
 
   const deals = getDealsForSeoPage(page);
   const faqs = getFaqsForSeoPage(page);
-  const destinationKey = seoPageDestinationMap[page.slug] ?? "orlando";
+  const inferredDestinationKey = page.slug.includes("key-west")
+    ? "keyWest"
+    : page.slug.includes("clearwater")
+      ? "clearwater"
+      : page.slug.includes("destin") || page.slug.includes("panama-city")
+        ? "clearwater"
+        : page.slug.includes("siesta") || page.slug.includes("sarasota")
+          ? "sarasota"
+          : page.slug.includes("naples")
+            ? "naples"
+            : page.slug.includes("fort-lauderdale")
+              ? "fortLauderdale"
+              : page.slug.includes("orlando") || page.slug.includes("disney") || page.slug.includes("universal")
+                ? "orlando"
+                : page.slug.includes("beach")
+                  ? "miamiBeach"
+                  : "orlando";
+  const destinationKey = seoPageDestinationMap[page.slug] ?? inferredDestinationKey;
   const destinationLink = getExpediaHotelLink(destinationKey);
   const destinationLabel = page.h1.replace(" Deals", "");
   const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
@@ -705,6 +722,37 @@ export default async function SeoLandingPage({
                   </tbody>
                 </table>
               </div>
+            </div>
+          </section>
+        ) : null}
+
+        {page.gallery?.length ? (
+          <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+            <div>
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
+                Destination gallery
+              </p>
+              <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">
+                Picture the stay before comparing rates.
+              </h2>
+            </div>
+            <div className="mt-7 grid gap-5 md:grid-cols-3">
+              {page.gallery.map((image) => (
+                <figure key={image.src} className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+                  <div className="relative aspect-[4/3] bg-sand">
+                    <SafeImage
+                      src={image.src}
+                      alt={image.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <figcaption className="px-5 py-4 text-sm font-bold leading-6 text-slateText">
+                    {image.caption}
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </section>
         ) : null}

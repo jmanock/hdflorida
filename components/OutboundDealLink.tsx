@@ -35,6 +35,7 @@ export function OutboundDealLink({
     trackEvent("deal_click", eventMetadata);
     trackEvent("hotel_booking_click", eventMetadata);
     trackEvent("hotel_card_click", eventMetadata);
+    trackEvent("hotel_affiliate_click", eventMetadata);
   }
 
   return (

@@ -11,6 +11,11 @@ export type SeoLandingPage = {
   details: string;
   image: string;
   imageAlt: string;
+  gallery?: Array<{
+    src: string;
+    alt: string;
+    caption: string;
+  }>;
   dealIds: string[];
   related: string[];
   guideSections?: Array<{
@@ -97,8 +102,114 @@ const v7HotelProgrammaticPages: SeoLandingPage[] = v7HotelSeeds.map(([slug, titl
   ]
 }));
 
+type V11HotelCluster = "beach" | "pool" | "keyWest" | "orlando";
+type V11HotelSeed = [string, string, string, string, string, string, string, V11HotelCluster];
+
+const v11HotelSeeds: V11HotelSeed[] = [
+  ["family-beach-resorts-florida", "15 Family Beach Resorts in Florida (2026 Guide)", "Compare family beach resorts in Florida with pools, kid-friendly amenities, Gulf and Atlantic locations, and current hotel deals.", "Family Beach Resorts Florida", "Family beach guide", "Florida family beach resorts work best when the sand, pool, room layout, food options, and nearby activities all fit the ages traveling.", "Compare Gulf Coast calm, Atlantic surf, kids clubs, pool depth, parking, resort fees, and current room availability before booking.", "beach"],
+  ["beachfront-hotels-clearwater", "12 Beachfront Hotels in Clearwater With Gulf Views (2026)", "Compare beachfront hotels in Clearwater for Gulf views, family pools, Pier 60 access, resort amenities, and current hotel deals.", "Beachfront Hotels Clearwater", "Clearwater beachfront stays", "Clearwater beachfront hotels put Gulf sunsets and beach days close to the room, but location on the island and parking can change the stay.", "Compare direct beach access, Pier 60 walkability, Sand Key alternatives, family pools, resort fees, and Tampa airport drive time.", "beach"],
+  ["beachfront-hotels-destin", "14 Beachfront Hotels in Destin for Florida Beach Trips (2026)", "Compare beachfront hotels in Destin with Gulf access, family amenities, fishing-trip convenience, pools, and current resort deals.", "Beachfront Hotels Destin", "Destin beachfront stays", "Destin beachfront hotels are popular for clear-water Gulf trips, family vacations, fishing weekends, and summer stays.", "Compare direct sand access, condo-style layouts, parking, seasonal minimum stays, pool amenities, and drive time from regional airports.", "beach"],
+  ["beachfront-hotels-panama-city-beach", "13 Beachfront Hotels in Panama City Beach (2026 Guide)", "Compare Panama City Beach beachfront hotels for family vacations, Gulf views, pools, spring trips, and current hotel rates.", "Beachfront Hotels Panama City Beach", "Panhandle beach stays", "Panama City Beach hotels range from lively resort corridors to quieter beachfront stays suited to families and longer Gulf vacations.", "Compare beach access, pool setup, room layout, spring-break timing, parking, and distance to the activities your group expects to use.", "beach"],
+  ["beachfront-hotels-siesta-key", "10 Beachfront Hotels Near Siesta Key for Gulf Getaways", "Compare beachfront hotels near Siesta Key for Gulf beaches, Sarasota weekends, couples trips, family stays, and current hotel deals.", "Beachfront Hotels Siesta Key", "Siesta Key hotel guide", "Siesta Key hotel planning is about balancing direct beach access, village walkability, Sarasota attractions, and limited island inventory.", "Compare Siesta Key, Lido Key, and Sarasota options by beach access, parking, resort fees, dining, and current availability.", "beach"],
+  ["beachfront-hotels-naples", "11 Beachfront Hotels in Naples for Luxury Gulf Stays (2026)", "Compare beachfront hotels in Naples for Gulf views, luxury resorts, spa weekends, family trips, and current hotel offers.", "Beachfront Hotels Naples", "Naples beachfront stays", "Naples beachfront hotels suit travelers looking for Gulf sunsets, polished resort amenities, dining, spa time, and quieter beach trips.", "Compare beachfront location, Fifth Avenue access, resort fees, parking, room view, and winter-season demand before booking.", "beach"],
+  ["beachfront-hotels-fort-lauderdale", "15 Beachfront Hotels in Fort Lauderdale Near Las Olas & Cruises", "Compare beachfront hotels in Fort Lauderdale for ocean views, Las Olas, Port Everglades, pools, and current hotel deals.", "Beachfront Hotels Fort Lauderdale", "Fort Lauderdale beachfront stays", "Fort Lauderdale beachfront hotels can combine Atlantic beach time with boating, Las Olas dining, and pre- or post-cruise stays.", "Compare beach access, marina proximity, Port Everglades transfers, parking, resort fees, and room views before booking.", "beach"],
+  ["best-beach-resorts-in-florida", "20 Best Beach Resorts in Florida for 2026 Vacations", "Compare the best beach resorts in Florida for families, couples, Gulf Coast stays, Atlantic beaches, pools, and current resort deals.", "Best Beach Resorts in Florida", "Best Florida beach resorts", "The best Florida beach resort depends on whether the trip prioritizes calm Gulf water, Atlantic energy, island atmosphere, family amenities, or luxury.", "Compare beach access, pools, room type, resort fees, destination fit, airport logistics, and the activities beyond the property.", "beach"],
+  ["cheap-beachfront-hotels-florida", "18 Cheap Beachfront Hotels in Florida & Affordable Coastal Stays", "Compare cheap beachfront hotels in Florida, affordable coastal alternatives, flexible dates, fees, and current beach hotel deals.", "Cheap Beachfront Hotels Florida", "Affordable beach stays", "Affordable beachfront searches require flexibility because direct beach access usually carries a premium in Florida's most popular coastal markets.", "Compare shoulder-season dates, nearby beach towns, final fees, parking, breakfast, cancellation terms, and whether oceanfront is essential.", "beach"],
+  ["best-hotel-pools-in-florida", "20 Best Hotel Pools in Florida for Families & Resort Days (2026)", "Compare the best hotel pools in Florida including family resorts, lazy rivers, water slides, beach pools, and current hotel deals.", "Best Hotel Pools in Florida", "Florida pool guide", "Florida's best hotel pools can become the center of the trip, especially for families, staycations, and travelers building in resort days.", "Compare pool complexes, supervision rules, cabana costs, splash areas, hours, seasonal maintenance, and resort fees.", "pool"],
+  ["lazy-river-resorts-florida", "12 Lazy River Resorts in Florida for Relaxing Family Trips", "Compare lazy river resorts in Florida with family pools, water features, resort amenities, and current hotel deals.", "Lazy River Resorts Florida", "Lazy river resort guide", "Lazy river resorts can give families and groups a built-in resort day without adding another attraction ticket to the itinerary.", "Confirm lazy-river hours, height rules, seasonal closures, pool access policies, resort fees, and room distance from amenities.", "pool"],
+  ["family-waterpark-resorts-florida", "14 Family Waterpark Resorts in Florida With Pools & Slides", "Compare family waterpark resorts in Florida with slides, splash zones, lazy rivers, family rooms, and current resort deals.", "Family Waterpark Resorts Florida", "Family waterpark stays", "Florida waterpark resorts work best when pool features, room setup, food options, safety rules, and attraction plans fit the family.", "Compare included water features, height rules, pool hours, resort fees, room capacity, and whether park tickets are separate.", "pool"],
+  ["hotels-with-indoor-pools-florida", "Hotels With Indoor Pools in Florida: Rainy-Day Stay Guide", "Find Florida hotels with indoor pools and compare rainy-day amenities, family stays, locations, and current hotel rates.", "Hotels With Indoor Pools Florida", "Indoor pool hotel guide", "Indoor pools are less common in Florida than outdoor resort pools, making current amenity confirmation especially important before booking.", "Verify that the pool is truly indoors, open during your dates, heated as expected, and included for registered guests.", "pool"],
+  ["luxury-resorts-with-pools-florida", "15 Luxury Florida Resorts With Standout Pools (2026)", "Compare luxury resorts with pools in Florida for spa trips, couples stays, beach vacations, cabanas, and current resort offers.", "Luxury Resorts With Pools Florida", "Luxury pool resorts", "Luxury Florida pool resorts compete on setting, service, cabanas, adults-only areas, spas, and access to beaches or golf.", "Compare pool atmosphere, included amenities, resort fees, parking, food minimums, spa access, and room-view value.", "pool"],
+  ["best-resort-pools-in-florida", "18 Best Resort Pools in Florida for a Pool-First Vacation", "Compare the best resort pools in Florida with lazy rivers, beach views, family zones, adults-only areas, and current hotel deals.", "Best Resort Pools in Florida", "Pool-first resort guide", "A pool-first Florida vacation can work for families, couples, and staycation travelers who want meaningful time at the property.", "Compare pool variety, shade, food access, hours, child-friendly zones, adults-only spaces, and the full resort fee.", "pool"],
+  ["florida-resorts-for-kids", "17 Best Florida Resorts for Kids & Family Vacations (2026)", "Compare Florida resorts for kids with pools, family rooms, beach access, theme parks, activities, and current resort deals.", "Florida Resorts for Kids", "Kid-friendly resort guide", "The best Florida resort for kids depends on age, trip pace, pool safety, room layout, food flexibility, and nearby activities.", "Compare splash areas, kids clubs, family suites, breakfast, transportation, quiet time, fees, and cancellation terms.", "pool"],
+  ["top-resorts-with-water-slides-florida", "Top Florida Resorts With Water Slides & Family Pools (2026)", "Compare top Florida resorts with water slides, splash areas, family pools, lazy rivers, and current hotel offers.", "Top Resorts With Water Slides Florida", "Water-slide resort guide", "Florida resorts with water slides can add a full activity day to a family stay, but features and access rules vary by property.", "Confirm slide height rules, operating hours, seasonal maintenance, pool wristband policies, lifeguards, and resort fees.", "pool"],
+  ["cheap-hotels-key-west", "12 Cheap Hotels in Key West & Better-Value Island Stays (2026)", "Compare cheap hotels in Key West, affordable island alternatives, Old Town access, parking, and current hotel deals.", "Cheap Hotels Key West", "Key West value stays", "Cheap Key West hotel searches often require flexible dates, smaller rooms, guesthouses, or Stock Island and Lower Keys alternatives.", "Compare total price, parking, transportation, walkability, minimum stays, fees, and whether a lower rate adds too much travel time.", "keyWest"],
+  ["beachfront-hotels-key-west", "10 Beachfront Hotels in Key West & Waterfront Resort Stays", "Compare beachfront and waterfront hotels in Key West for island views, resort amenities, couples trips, and current hotel deals.", "Beachfront Hotels Key West", "Key West waterfront stays", "Key West has limited traditional beach frontage, so travelers should distinguish beachfront, waterfront, marina, and ocean-view stays.", "Confirm the actual waterfront setting, swimming access, shuttle options, walkability, resort fees, and parking before booking.", "keyWest"],
+  ["family-hotels-key-west", "11 Family Hotels in Key West for Easy Island Vacations", "Compare family hotels in Key West with pools, larger rooms, island activities, parking, and current hotel rates.", "Family Hotels Key West", "Key West family stays", "Key West family hotels work best when room layout, pool time, transportation, quieter hours, and age-appropriate island activities align.", "Compare family rooms, pools, breakfast, parking, Old Town access, resort fees, and boat-trip logistics.", "keyWest"],
+  ["key-west-resort-guide", "Key West Resort Guide (2026): Where To Stay Around the Island", "Use this Key West resort guide to compare Old Town, waterfront, Stock Island, pools, amenities, and current hotel deals.", "Key West Resort Guide", "Complete Key West resort guide", "Key West resorts range from walkable Old Town properties to waterfront escapes and quieter Stock Island stays.", "Choose the area first, then compare transportation, pools, waterfront access, parking, room type, resort fees, and minimum stays.", "keyWest"],
+  ["best-time-to-book-key-west-hotels", "Best Time To Book Key West Hotels for Better 2026 Rates", "Learn the best time to book Key West hotels with seasonal demand, events, flexible-date tips, and current island hotel deals.", "Best Time To Book Key West Hotels", "Key West booking guide", "Key West has limited inventory and strong winter, holiday, festival, and weekend demand, so useful rooms can disappear before prices improve.", "Compare dates early, watch event calendars, test weekdays and shoulder seasons, and book when the total stay fits the trip.", "keyWest"],
+  ["key-west-hotel-comparison", "Key West Hotel Comparison: Old Town vs Waterfront vs Stock Island", "Compare Key West hotels in Old Town, waterfront areas, Stock Island, and the Lower Keys by location, amenities, and current deals.", "Key West Hotel Comparison", "Key West area comparison", "Key West hotel value changes dramatically by area: walkability, waterfront atmosphere, parking, and transportation can matter more than room size.", "Compare Old Town convenience, waterfront views, Stock Island space, Lower Keys value, fees, and the daily transportation plan.", "keyWest"],
+  ["luxury-hotels-key-west", "12 Luxury Hotels in Key West for Waterfront Island Escapes", "Compare luxury hotels in Key West for waterfront stays, pools, spa trips, couples weekends, and current resort deals.", "Luxury Hotels Key West", "Luxury Key West stays", "Luxury Key West hotels emphasize setting, service, pools, waterfront atmosphere, dining, and easy access to island experiences.", "Compare room categories, resort fees, parking, beach or waterfront access, dining, spa amenities, and cancellation terms.", "keyWest"],
+  ["key-west-weekend-hotel-deals", "Key West Weekend Hotel Deals & Island Getaway Guide (2026)", "Compare Key West weekend hotel deals, flexible island stays, Old Town access, current rates, and trip-planning tips.", "Key West Weekend Hotel Deals", "Key West weekend stays", "A Key West weekend works best when hotel location protects limited trip time and the arrival, parking, and activity schedule stay simple.", "Compare Friday and Saturday premiums, three-night minimums, flights or driving, walkability, cancellation terms, and current rates.", "keyWest"],
+  ["hotels-near-disney-world", "18 Hotels Near Disney World With Family-Friendly Perks (2026)", "Compare hotels near Disney World with pools, suites, shuttles, family amenities, and current Orlando hotel deals.", "Hotels Near Disney World", "Disney-area hotel guide", "Hotels near Disney World range from resort-area stays to practical family suites around Lake Buena Vista and nearby corridors.", "Compare park transportation, parking, resort fees, room layout, breakfast, drive time, and how many Disney days are planned.", "orlando"],
+  ["hotels-near-universal-orlando", "15 Hotels Near Universal Orlando for Easy Theme Park Trips", "Compare hotels near Universal Orlando with walkability, shuttles, pools, family rooms, and current hotel deals.", "Hotels Near Universal Orlando", "Universal-area hotel guide", "Hotels near Universal Orlando can reduce transportation time and make mid-day breaks easier during busy theme park trips.", "Compare walking routes, shuttle schedules, parking, early-entry eligibility, room setup, pools, and resort fees.", "orlando"],
+  ["family-hotels-orlando", "20 Family Hotels in Orlando With Pools, Suites & Park Access", "Compare family hotels in Orlando with pools, suites, breakfast, theme park access, and current hotel deals.", "Family Hotels Orlando", "Orlando family hotel guide", "Orlando family hotels should make park days, rest time, meals, and transportation easier rather than adding extra friction.", "Compare room capacity, pools, breakfast, shuttle schedules, parking, resort fees, and drive times to planned attractions.", "orlando"],
+  ["budget-hotels-orlando", "25 Budget Hotels in Orlando Near Theme Parks & Attractions", "Compare budget hotels in Orlando near Disney, Universal, International Drive, and current affordable hotel deals.", "Budget Hotels Orlando", "Orlando budget hotel guide", "Orlando budget hotels can create strong value when the location, final fees, room setup, and transportation plan still support the trip.", "Compare checkout totals, parking, breakfast, resort fees, reviews, cancellation terms, and actual drive time to the parks.", "orlando"],
+  ["disney-area-resort-deals", "Disney Area Resort Deals: Pools, Suites & Orlando Stays (2026)", "Compare Disney-area resort deals with pools, family suites, transportation, current rates, and Orlando vacation planning.", "Disney Area Resort Deals", "Disney resort-area deals", "Disney-area resorts can add pools, space, transportation options, and resort days to an Orlando vacation.", "Compare official and nearby resorts by transportation, parking, resort fees, room layout, dining, and the number of park days.", "orlando"],
+  ["universal-orlando-hotel-guide", "Universal Orlando Hotel Guide: Where To Stay in 2026", "Use this Universal Orlando hotel guide to compare on-site hotels, nearby stays, pools, transportation, and current deals.", "Universal Orlando Hotel Guide", "Universal stay planning", "Universal Orlando hotel choices range from on-site properties with theme park perks to nearby hotels with different room and price tradeoffs.", "Compare walkability, early-entry benefits, transportation, parking, pools, room type, and final checkout cost.", "orlando"],
+  ["best-family-resorts-orlando", "16 Best Family Resorts in Orlando for Theme Park Vacations", "Compare the best family resorts in Orlando with pools, suites, water features, park access, and current resort deals.", "Best Family Resorts Orlando", "Best Orlando family resorts", "The best Orlando family resort should support both theme park days and the downtime families need between them.", "Compare family suites, pools, splash areas, transportation, dining, parking, resort fees, and age-appropriate amenities.", "orlando"],
+  ["orlando-hotel-deals-2026", "Orlando Hotel Deals 2026: Theme Park, Family & Resort Stays", "Compare Orlando hotel deals for 2026 including theme park hotels, family resorts, budget stays, pools, and current rates.", "Orlando Hotel Deals 2026", "Current Orlando hotel guide", "Orlando hotel deals in 2026 span Disney and Universal corridors, International Drive, family resorts, budget stays, and airport hotels.", "Use flexible dates and compare the final trip cost, including parking, resort fees, park transportation, room type, and cancellation terms.", "orlando"]
+];
+
+const v11ClusterConfig = {
+  beach: {
+    image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
+    dealIds: ["miami-beach-hotel-search", "fort-lauderdale-beach-resort-search", "clearwater-gulf-search", "daytona-oceanfront-search", "sarasota-lido-resort-search"],
+    related: ["best-beach-hotels-in-florida", "best-beach-resorts-in-florida", "cheap-beachfront-hotels-florida", "florida-oceanfront-hotels"]
+  },
+  pool: {
+    image: "https://images.unsplash.com/photo-1570213489059-0aac6626cade?auto=format&fit=crop&w=1400&q=85",
+    dealIds: ["orlando-family-resort-search", "orlando-luxury-villas-search", "clearwater-gulf-search", "keys-family-resort-search", "naples-boutique-retreat-search"],
+    related: ["best-hotel-pools-in-florida", "best-resort-pools-in-florida", "florida-resorts-for-kids", "florida-resorts-with-pools"]
+  },
+  keyWest: {
+    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1400&q=85",
+    dealIds: ["key-west-inn-search", "florida-keys-weekend-search", "keys-family-resort-search", "florida-keys-waterfront-search"],
+    related: ["key-west-hotel-deals", "key-west-resort-guide", "key-west-hotel-comparison", "key-west-weekend-hotel-deals"]
+  },
+  orlando: {
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85",
+    dealIds: ["orlando-family-resort-search", "orlando-resident-suite-search", "orlando-luxury-villas-search", "orlando-under-150-search"],
+    related: ["orlando-hotel-deals", "hotels-near-disney-world", "hotels-near-universal-orlando", "best-family-resorts-orlando"]
+  }
+};
+
+const v11GalleryImages = [
+  { src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80", alt: "Florida resort pool and hotel balconies", caption: "Compare the property amenities that matter to the trip." },
+  { src: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=900&q=80", alt: "Florida beach resort beside the ocean", caption: "Check the actual location and access before booking." },
+  { src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=80", alt: "Florida hotel pool with lounge chairs", caption: "Review current pool access, hours, and resort fees." }
+];
+
+const v11HotelPages: SeoLandingPage[] = v11HotelSeeds.map(([slug, title, description, h1, eyebrow, intro, details, cluster]) => {
+  const config = v11ClusterConfig[cluster];
+  const related = config.related.filter((relatedSlug) => relatedSlug !== slug);
+
+  return {
+    slug,
+    pageKind: "guide",
+    title,
+    description,
+    h1,
+    eyebrow,
+    intro,
+    details,
+    image: config.image,
+    imageAlt: `${h1} Florida hotel planning guide`,
+    gallery: v11GalleryImages.map((image) => ({ ...image, alt: `${h1}: ${image.alt}` })),
+    dealIds: config.dealIds,
+    related,
+    guideSections: [
+      { heading: `Destination overview for ${h1}`, body: intro },
+      { heading: "Best time to visit and book", body: "Compare shoulder-season dates, weekdays, holidays, school calendars, event weekends, and weather before deciding. Useful rates depend on destination demand and current inventory." },
+      { heading: "What to confirm before booking", body: details }
+    ],
+    comparisonRows: [
+      { factor: "Best for", optionA: "Value-focused and flexible stays", optionB: "Amenity-rich or prime-location stays" },
+      { factor: "Compare", optionA: "Final price, parking, breakfast, and cancellation", optionB: "Location, room type, amenities, and resort fees" },
+      { factor: "Before booking", optionA: "Confirm current total and policies", optionB: "Confirm access, hours, and included benefits" }
+    ],
+    faqs: [
+      { question: `How should travelers compare ${h1.toLowerCase()}?`, answer: details },
+      { question: `When is the best time to book ${h1.toLowerCase()}?`, answer: "Start earlier for holidays, school breaks, major events, and peak beach or theme park seasons. Flexible weekdays and shoulder seasons may create more options." },
+      { question: "Do hotel rates and amenities change?", answer: "Yes. Rates, availability, pool access, fees, room types, and policies can change. Confirm current details with the booking source before reserving." },
+      { question: "What costs should be included in the comparison?", answer: "Compare taxes, parking, resort fees, breakfast, transportation, cancellation terms, and the value of the location or amenities." }
+    ]
+  };
+});
+
 export const seoLandingPages: SeoLandingPage[] = [
   ...v7HotelProgrammaticPages,
+  ...v11HotelPages,
   {
     slug: "orlando-hotel-deals",
     title: "Orlando Hotel Deals | Resorts, Family Stays & Theme Park Hotels",
@@ -677,9 +788,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "key-west-hotel-deals",
-    title: "Key West Hotel Deals | Island Inns, Resorts & Waterfront Stays",
+    title: "Best Key West Hotel Deals & Resort Discounts (2026)",
     description:
-      "Compare Key West hotel deals, boutique inns, waterfront resorts, guesthouses, and flexible island lodging ideas.",
+      "Compare the best Key West hotel deals, resort discounts, boutique inns, waterfront stays, Old Town locations, and current 2026 rates.",
     h1: "Key West Hotel Deals",
     eyebrow: "Island hotel searches",
     intro:
@@ -729,9 +840,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels | Value Stays & Affordable Hotel Searches",
+    title: "Florida Budget Hotels: 30 Affordable Beach & Resort Stays (2026)",
     description:
-      "Compare Florida budget hotels, value stays, airport hotels, road trip lodging, and affordable beach-area hotel searches.",
+      "Compare 30 Florida budget hotel ideas, affordable beach and resort stays, airport hotels, road trip lodging, fees, and current 2026 rates.",
     h1: "Florida Budget Hotels",
     eyebrow: "Affordable stay searches",
     intro:
@@ -808,9 +919,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "Florida Oceanfront Hotels | Beach Resorts & Waterfront Stays",
+    title: "25 Best Oceanfront Hotels in Florida (2026 Guide)",
     description:
-      "Compare Florida oceanfront hotels, beach resorts, waterfront stays, and coastal lodging ideas from Miami Beach to the Gulf Coast.",
+      "Compare 25 of the best oceanfront hotels in Florida, beach resorts, Gulf and Atlantic stays, amenities, fees, and current 2026 deals.",
     h1: "Florida Oceanfront Hotels",
     eyebrow: "Oceanfront stay searches",
     intro:
@@ -835,9 +946,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-resorts-with-pools",
-    title: "Florida Resorts with Pools | Family Resorts & Weekend Stays",
+    title: "20 Florida Resorts With Pools for Family Trips (2026)",
     description:
-      "Compare Florida resorts with pools, family-friendly hotels, beach resorts, Orlando stays, and weekend resort searches.",
+      "Compare 20 Florida resorts with pools, family-friendly hotels, beach resorts, Orlando stays, pool amenities, and current 2026 deals.",
     h1: "Florida Resorts with Pools",
     eyebrow: "Pool resort searches",
     intro:
@@ -1573,9 +1684,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   {
     slug: "best-beach-hotels-in-florida",
     pageKind: "guide",
-    title: "Best Beach Hotels in Florida | Oceanfront & Gulf Coast Stays",
+    title: "20 Best Beach Hotels in Florida for 2026 Coastal Trips",
     description:
-      "Explore Florida beach hotel areas including Miami Beach, Fort Lauderdale, Clearwater, Daytona, Naples, Sarasota, and the Florida Keys.",
+      "Compare 20 of the best beach hotels in Florida for 2026 including oceanfront resorts, Gulf Coast stays, family hotels, and island getaways.",
     h1: "Best Beach Hotels in Florida",
     eyebrow: "Beach hotel guide",
     intro:
@@ -1584,6 +1695,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       "This guide helps travelers compare Florida beach hotel searches without assuming one beach works for every trip.",
     image: "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=1400&q=85",
     imageAlt: "Florida beach hotel with palm trees and oceanfront resort pool",
+    gallery: v11GalleryImages,
     dealIds: ["miami-beach-hotel-search", "fort-lauderdale-beach-resort-search", "clearwater-gulf-search", "daytona-oceanfront-search"],
     related: ["florida-beach-resort-deals", "florida-oceanfront-hotels", "miami-beach-hotel-deals", "clearwater-beach-hotel-deals"],
     guideSections: [
@@ -1597,6 +1709,11 @@ export const seoLandingPages: SeoLandingPage[] = [
         body:
           "Confirm whether the hotel is beachfront, oceanfront, across the street, bayfront, or a short drive away. Also compare resort fees, beach chair policies, parking, taxes, and cancellation terms before booking."
       }
+    ],
+    comparisonRows: [
+      { factor: "Best for", optionA: "Gulf Coast sunsets and family trips", optionB: "Atlantic energy, cities, and cruise connections" },
+      { factor: "Compare", optionA: "Clearwater, Sarasota, Naples, and the Panhandle", optionB: "Miami Beach, Fort Lauderdale, Daytona, and Northeast Florida" },
+      { factor: "Before booking", optionA: "Confirm beach access, parking, and resort fees", optionB: "Confirm room view, walkability, and event demand" }
     ]
   },
   {
