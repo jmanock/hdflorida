@@ -207,9 +207,201 @@ const v11HotelPages: SeoLandingPage[] = v11HotelSeeds.map(([slug, title, descrip
   };
 });
 
+type V10HotelSeed = {
+  slug: string;
+  title: string;
+  description: string;
+  h1: string;
+  eyebrow: string;
+  intro: string;
+  details: string;
+  cluster: V11HotelCluster;
+  related: string[];
+};
+
+const v10SearchConsoleHotelPages: SeoLandingPage[] = ([
+  {
+    slug: "best-budget-hotels-in-tampa",
+    title: "15 Best Budget Hotels in Tampa for Gulf Coast Trips (2026)",
+    description: "Compare budget hotels in Tampa for downtown stays, Busch Gardens, cruises, airport access, parking, and current hotel rates.",
+    h1: "Best Budget Hotels in Tampa",
+    eyebrow: "Tampa budget hotel guide",
+    intro: "Tampa budget hotels can work well for Gulf Coast weekends, cruises, sports trips, Busch Gardens visits, and travelers who need practical airport access.",
+    details: "Compare the final rate, parking, breakfast, cancellation terms, downtown or attraction drive times, and whether a lower nightly price adds transportation costs.",
+    cluster: "orlando",
+    related: ["tampa-hotel-deals", "florida-budget-hotels", "hotels-near-busch-gardens"]
+  },
+  {
+    slug: "best-budget-hotels-in-miami",
+    title: "15 Best Budget Hotels in Miami for Beaches, Cruises & City Trips",
+    description: "Compare budget hotels in Miami for beaches, PortMiami cruises, airport stays, downtown trips, parking, and current rates.",
+    h1: "Best Budget Hotels in Miami",
+    eyebrow: "Miami budget hotel guide",
+    intro: "Miami budget hotel value depends heavily on location because beach access, PortMiami transfers, airport transportation, and parking can change the complete stay cost.",
+    details: "Compare Miami Beach, downtown, Brickell, airport, and nearby South Florida options by final rate, transportation, fees, room type, and trip purpose.",
+    cluster: "beach",
+    related: ["miami-hotel-deals", "miami-airport-hotels", "miami-vs-miami-beach-hotels"]
+  },
+  {
+    slug: "best-budget-hotels-in-jacksonville",
+    title: "14 Best Budget Hotels in Jacksonville for Beaches & Road Trips",
+    description: "Compare budget hotels in Jacksonville for downtown, beaches, airport stays, road trips, family visits, and current hotel deals.",
+    h1: "Best Budget Hotels in Jacksonville",
+    eyebrow: "Jacksonville budget hotel guide",
+    intro: "Jacksonville budget hotel searches work best when travelers choose between downtown, the airport, beach areas, and road-trip corridors before comparing rates.",
+    details: "Compare parking, breakfast, drive times, cancellation terms, beach access, and whether a Jacksonville base supports nearby St. Augustine or Amelia Island plans.",
+    cluster: "orlando",
+    related: ["jacksonville-hotel-deals", "jacksonville-beach-hotels", "florida-budget-hotels"]
+  },
+  {
+    slug: "best-oceanfront-hotels-in-daytona",
+    title: "15 Best Oceanfront Hotels in Daytona Beach for 2026 Trips",
+    description: "Compare Daytona Beach oceanfront hotels for boardwalk trips, family stays, event weekends, pools, parking, and current rates.",
+    h1: "Best Oceanfront Hotels in Daytona Beach",
+    eyebrow: "Daytona oceanfront guide",
+    intro: "Daytona Beach oceanfront hotels can put the sand, boardwalk, pools, and Atlantic views close to the room while still supporting Speedway and event-weekend plans.",
+    details: "Confirm true oceanfront access, room view, parking, event-date cancellation rules, pool hours, and the drive to planned Daytona activities.",
+    cluster: "beach",
+    related: ["daytona-beach-hotel-deals", "florida-oceanfront-hotels", "best-beach-hotels-in-florida"]
+  },
+  {
+    slug: "best-oceanfront-hotels-in-cocoa-beach",
+    title: "12 Best Oceanfront Hotels in Cocoa Beach Near Port Canaveral",
+    description: "Compare Cocoa Beach oceanfront hotels near Port Canaveral for cruise nights, family trips, beach access, parking, and current rates.",
+    h1: "Best Oceanfront Hotels in Cocoa Beach",
+    eyebrow: "Space Coast oceanfront guide",
+    intro: "Cocoa Beach oceanfront hotels can combine a beach stay with Port Canaveral cruises, Kennedy Space Center visits, and Orlando-area travel.",
+    details: "Compare beach access, cruise-terminal transportation, parking, breakfast, family room layouts, and whether the stay protects the sailing schedule.",
+    cluster: "beach",
+    related: ["port-canaveral-hotels-before-cruise", "hotels-near-florida-cruise-ports", "florida-oceanfront-hotels"]
+  },
+  {
+    slug: "pet-friendly-hotels-in-orlando",
+    title: "Pet-Friendly Hotels in Orlando Near Parks & Attractions (2026)",
+    description: "Compare pet-friendly hotels in Orlando with pet fees, size rules, green space, room layouts, parking, and attraction access.",
+    h1: "Pet-Friendly Hotels in Orlando",
+    eyebrow: "Orlando pet-friendly stays",
+    intro: "Orlando pet-friendly hotels can support longer family trips and road trips when pet rules, room setup, outdoor space, and daily transportation are practical.",
+    details: "Confirm pet fees, size and breed rules, room availability, cleaning policies, nearby walking areas, and how pets fit into theme park days.",
+    cluster: "orlando",
+    related: ["orlando-hotel-deals", "florida-pet-friendly-hotels", "family-hotels-orlando"]
+  },
+  {
+    slug: "pet-friendly-hotels-in-tampa",
+    title: "Pet-Friendly Hotels in Tampa for Gulf Coast Trips (2026)",
+    description: "Compare pet-friendly hotels in Tampa for downtown stays, Gulf Coast road trips, parks, fees, parking, and current rates.",
+    h1: "Pet-Friendly Hotels in Tampa",
+    eyebrow: "Tampa pet-friendly stays",
+    intro: "Tampa pet-friendly stays can work for Gulf Coast road trips, downtown weekends, and longer visits when the hotel and nearby activities support pets.",
+    details: "Confirm pet fees, limits, walking areas, parking, cancellation terms, and whether nearby beaches or attractions have separate pet policies.",
+    cluster: "orlando",
+    related: ["tampa-hotel-deals", "florida-pet-friendly-hotels", "best-budget-hotels-in-tampa"]
+  },
+  {
+    slug: "pet-friendly-hotels-in-miami",
+    title: "Pet-Friendly Hotels in Miami for Beach & City Trips (2026)",
+    description: "Compare pet-friendly hotels in Miami and Miami Beach with fees, walking areas, parking, room rules, and current hotel rates.",
+    h1: "Pet-Friendly Hotels in Miami",
+    eyebrow: "Miami pet-friendly stays",
+    intro: "Pet-friendly Miami stays require careful neighborhood planning because beach rules, heat, parking, walking routes, and hotel policies vary across South Florida.",
+    details: "Confirm current pet fees, size rules, room restrictions, nearby green space, beach policies, parking, and the transportation plan before booking.",
+    cluster: "beach",
+    related: ["miami-hotel-deals", "miami-beach-hotel-deals", "florida-pet-friendly-hotels"]
+  },
+  {
+    slug: "pet-friendly-hotels-in-key-west",
+    title: "Pet-Friendly Hotels in Key West for Island Road Trips (2026)",
+    description: "Compare pet-friendly hotels in Key West with Old Town access, fees, parking, outdoor space, island rules, and current rates.",
+    h1: "Pet-Friendly Hotels in Key West",
+    eyebrow: "Key West pet-friendly stays",
+    intro: "Pet-friendly Key West trips work best when hotel rules, walking conditions, parking, outdoor dining, and the island transportation plan are clear before arrival.",
+    details: "Confirm pet fees, room availability, size limits, heat planning, parking, Old Town walkability, and pet rules for every activity on the itinerary.",
+    cluster: "keyWest",
+    related: ["key-west-hotel-deals", "key-west-resort-guide", "florida-pet-friendly-hotels"]
+  },
+  {
+    slug: "hotels-near-seaworld",
+    title: "15 Hotels Near SeaWorld Orlando for Easy Family Trips (2026)",
+    description: "Compare hotels near SeaWorld Orlando with family rooms, pools, parking, transportation, breakfast, and current hotel deals.",
+    h1: "Hotels Near SeaWorld Orlando",
+    eyebrow: "SeaWorld hotel guide",
+    intro: "Hotels near SeaWorld can simplify family trips that combine the park with International Drive, other Orlando attractions, pools, and flexible resort days.",
+    details: "Compare actual drive time, shuttle schedules, parking, breakfast, room layout, pool time, resort fees, and cancellation terms.",
+    cluster: "orlando",
+    related: ["orlando-hotel-deals", "hotels-near-disney-world", "hotels-near-universal-orlando"]
+  },
+  {
+    slug: "hotels-near-busch-gardens",
+    title: "14 Hotels Near Busch Gardens Tampa for Family Trips (2026)",
+    description: "Compare hotels near Busch Gardens Tampa with parking, family rooms, pools, breakfast, airport access, and current rates.",
+    h1: "Hotels Near Busch Gardens Tampa",
+    eyebrow: "Busch Gardens hotel guide",
+    intro: "Hotels near Busch Gardens can reduce drive time for attraction-focused Tampa trips while keeping downtown, airport, and Gulf Coast add-ons within reach.",
+    details: "Compare actual attraction drive time, parking, breakfast, family room setup, cancellation terms, pool access, and the rest of the Tampa itinerary.",
+    cluster: "orlando",
+    related: ["tampa-hotel-deals", "best-budget-hotels-in-tampa", "florida-hotels-near-theme-parks"]
+  },
+  {
+    slug: "hotel-booking-tips",
+    title: "Florida Hotel Booking Tips: Rates, Fees & Better Stays (2026)",
+    description: "Use these Florida hotel booking tips to compare rates, resort fees, parking, cancellation terms, room types, and seasonal demand.",
+    h1: "Florida Hotel Booking Tips",
+    eyebrow: "Hotel booking resource",
+    intro: "Useful Florida hotel booking starts with the complete stay rather than the first nightly rate. Location, fees, parking, room type, and cancellation terms can change the value.",
+    details: "Compare the final checkout total, neighborhood, current amenities, policies, transportation, and trip purpose before reserving.",
+    cluster: "orlando",
+    related: ["how-hotel-pricing-works", "florida-resort-fees-guide", "best-time-to-book-florida-hotels"]
+  },
+  {
+    slug: "florida-hotel-seasonality-guide",
+    title: "Florida Hotel Seasonality Guide: When Rates Change in 2026",
+    description: "Learn how Florida hotel seasonality changes around beaches, theme parks, cruises, holidays, events, and regional travel demand.",
+    h1: "Florida Hotel Seasonality Guide",
+    eyebrow: "Hotel timing resource",
+    intro: "Florida hotel seasonality changes by region and trip type. Winter South Florida stays, spring breaks, summer family travel, cruises, events, and holiday weekends can behave differently.",
+    details: "Compare the destination's real demand calendar, current rates, weather, cancellation terms, and alternative dates before booking.",
+    cluster: "beach",
+    related: ["best-time-to-book-florida-hotels", "hotel-booking-tips", "florida-oceanfront-hotels"]
+  },
+  {
+    slug: "florida-beach-hotel-guide",
+    title: "Florida Beach Hotel Guide: Gulf vs Atlantic Stays (2026)",
+    description: "Compare Florida beach hotels across the Gulf and Atlantic coasts by access, resort fees, family fit, parking, and current rates.",
+    h1: "Florida Beach Hotel Guide",
+    eyebrow: "Beach hotel resource",
+    intro: "Florida beach hotel searches should begin with the coast and trip style. Gulf Coast sunsets, Atlantic energy, island stays, family resorts, and cruise-port beaches all create different hotel decisions.",
+    details: "Confirm whether a property is truly beachfront or oceanfront, then compare fees, parking, beach access, room view, cancellation terms, and nearby activities.",
+    cluster: "beach",
+    related: ["best-beach-hotels-in-florida", "florida-oceanfront-hotels", "florida-beach-resort-deals"]
+  }
+] as V10HotelSeed[]).map((seed) => {
+  const config = v11ClusterConfig[seed.cluster];
+
+  return {
+    ...seed,
+    pageKind: "guide" as const,
+    image: config.image,
+    imageAlt: `${seed.h1} Florida hotel planning guide`,
+    gallery: v11GalleryImages.map((image) => ({ ...image, alt: `${seed.h1}: ${image.alt}` })),
+    dealIds: config.dealIds,
+    guideSections: [
+      { heading: `How to compare ${seed.h1.toLowerCase()}`, body: seed.intro },
+      { heading: "Best fit by traveler type", body: "Families should compare room setup, breakfast, pools, and transportation. Couples may value location, dining, and atmosphere. Budget travelers should compare the final checkout total and cancellation terms." },
+      { heading: "What to confirm before booking", body: seed.details },
+      { heading: "Recommended hotel planning resources", body: "Use the related category, destination, pricing, and booking guides to compare the complete stay before reserving." }
+    ],
+    comparisonRows: [
+      { factor: "Family fit", optionA: "Room setup, breakfast, pools, and easy transportation", optionB: "Confirm capacity, fees, and attraction timing" },
+      { factor: "Couples fit", optionA: "Location, dining, atmosphere, and walkability", optionB: "Confirm room type, parking, and policies" },
+      { factor: "Budget fit", optionA: "Final checkout total and flexible dates", optionB: "Include fees, transportation, and cancellation terms" }
+    ]
+  };
+});
+
 export const seoLandingPages: SeoLandingPage[] = [
   ...v7HotelProgrammaticPages,
   ...v11HotelPages,
+  ...v10SearchConsoleHotelPages,
   {
     slug: "orlando-hotel-deals",
     title: "Orlando Hotel Deals | Resorts, Family Stays & Theme Park Hotels",
@@ -521,7 +713,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "Clearwater Beach Hotel Deals | Gulf Resorts & Family Beach Stays",
+    title: "15 Clearwater Beach Hotel Deals & Gulf Resort Ideas (2026)",
     description:
       "Find Clearwater Beach hotel deals including Gulf resorts, family beach stays, weekend getaways, and current hotel searches near the sand.",
     h1: "Clearwater Beach Hotel Deals",
@@ -867,7 +1059,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-pet-friendly-hotels",
-    title: "Florida Pet-Friendly Hotels | Beach, City & Road Trip Stays",
+    title: "20 Florida Pet-Friendly Hotels for Beach & Road Trips (2026)",
     description:
       "Compare Florida pet-friendly hotels, beach stays, city hotels, road trip lodging, and current hotel searches for travelers with pets.",
     h1: "Florida Pet-Friendly Hotels",
