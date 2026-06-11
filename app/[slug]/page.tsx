@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Home, Search } from "lucide-react";
+import { ArrowRight, Home, MapPin, Search, Ticket, Umbrella } from "lucide-react";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
@@ -10,6 +10,7 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -919,6 +920,13 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
+        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+          <div className="grid gap-5 md:grid-cols-3">
+            <RevenueCtaCard eyebrow="Attractions" headline="Plan activities near your hotel" benefits={["Compare theme parks, tours, and local attractions", "Build a practical activity day before booking"]} href="https://localdealsflorida.org" cta="Find Florida Activities" icon={<Ticket className="h-5 w-5" />} />
+            <RevenueCtaCard eyebrow="Vacation packages" headline="Turn the stay into a complete Florida trip" benefits={["Compare family, beach, and weekend packages", "Connect hotels with flights and attractions"]} href="https://floridadealshub.com/vacation-packages" cta="Explore Vacation Packages" icon={<Umbrella className="h-5 w-5" />} />
+            <RevenueCtaCard eyebrow="Destination planning" headline="Choose the right Florida area" benefits={["Compare destination guides and nearby experiences", "Check transportation and trip timing"]} href="https://floridadealshub.com/destinations" cta="Browse Florida Destinations" icon={<MapPin className="h-5 w-5" />} />
+          </div>
+        </section>
         <CompleteTripSection />
         <NewsletterSection />
         <SisterSitesSection />
