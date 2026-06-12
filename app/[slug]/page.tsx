@@ -11,6 +11,8 @@ import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
+import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -25,6 +27,7 @@ import {
 import { hotelPiscifunGearPicks } from "@/lib/affiliate/piscifunLinks";
 import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 import { SITE_URL } from "@/lib/siteConstants";
+import { transferAndTravelSlugs } from "@/lib/revenuePartners";
 
 type SeoPageParams = {
   slug: string;
@@ -488,6 +491,7 @@ export default async function SeoLandingPage({
   const heroCtaLabel = getPageHeroCta(page.slug, destinationLabel);
   const showGearPicks = /packing|essentials|beach|resort|camping|cabin|rain-gear/.test(page.slug);
   const guideCopy = getHotelGuideCopy(page.slug, destinationLabel);
+  const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -927,6 +931,7 @@ export default async function SeoLandingPage({
             <RevenueCtaCard eyebrow="Destination planning" headline="Choose the right Florida area" benefits={["Compare destination guides and nearby experiences", "Check transportation and trip timing"]} href="https://floridadealshub.com/destinations" cta="Browse Florida Destinations" icon={<MapPin className="h-5 w-5" />} />
           </div>
         </section>
+        {showTransferAndTravel ? <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2"><TransferBookingCard slug={page.slug} /><TravelBookingCard /></div></section> : null}
         <CompleteTripSection />
         <NewsletterSection />
         <SisterSitesSection />
