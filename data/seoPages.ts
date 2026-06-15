@@ -1032,9 +1032,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels: 30 Affordable Beach & Resort Stays (2026)",
+    title: "30 Florida Budget Hotels Near Beaches, Airports & Attractions (2026)",
     description:
-      "Compare 30 Florida budget hotel ideas, affordable beach and resort stays, airport hotels, road trip lodging, fees, and current 2026 rates.",
+      "Compare 30 Florida budget hotel ideas near beaches, airports, cruises, and attractions, with practical tips for finding affordable stays and avoiding extra fees.",
     h1: "Florida Budget Hotels",
     eyebrow: "Affordable stay searches",
     intro:
