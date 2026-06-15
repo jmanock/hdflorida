@@ -5,5 +5,6 @@ export const transferAndTravelSlugs = new Set([
   "florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals",
   "florida-hotels-near-theme-parks", "key-west-hotel-deals", "orlando-family-resort-deals"
 ]);
+export const conversionSlugs = new Set(["florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals", "florida-pet-friendly-hotels"]);
 export const getTransferAffiliateUrl = (site: string, slug: string) =>
   `${AIRPORT_TRANSFER_AFFILIATE_URL}${encodeURIComponent(`${site}:${slug}`)}`;
