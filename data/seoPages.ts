@@ -36,6 +36,9 @@ export type SeoLandingPage = {
 type V7HotelSeed = [string, string, string, string, string, string, string, string[], string[]];
 
 const v7HotelSeeds: V7HotelSeed[] = [
+  ["florida-road-trip-hotels", "Florida Road Trip Hotels: Best Stops, Routes & Booking Tips", "Compare Florida road trip hotels by route, destination, parking, family fit, beach access, attraction stops, and total stay cost.", "Florida Road Trip Hotels", "Florida road trip stays", "Florida road trip hotels should support the route instead of forcing long detours, difficult parking, or rushed check-in days.", "Compare Miami-to-Key-West, Gulf Coast, Orlando-to-Space-Coast, and Northeast Florida routes by drive time, parking, final fees, breakfast, and nearby activities.", ["jacksonville-budget-search", "daytona-oceanfront-search", "tampa-budget-search", "orlando-under-150-search"], ["best-budget-hotels-on-florida-road-trips", "affordable-hotels-near-florida-attractions", "florida-budget-hotels", "florida-oceanfront-hotels"]],
+  ["best-budget-hotels-on-florida-road-trips", "Best Budget Hotels on Florida Road Trips: Route-by-Route Guide", "Find affordable Florida road trip hotel ideas with practical route stops, parking, breakfast, family notes, attractions, and final-cost tips.", "Best Budget Hotels on Florida Road Trips", "Affordable road trip stays", "The most affordable hotel on a Florida road trip is the stay that controls the complete cost while keeping the next drive and planned activities realistic.", "Compare the final checkout total, parking, breakfast, cancellation terms, neighborhood, and how much driving a lower nightly rate adds.", ["jacksonville-budget-search", "tampa-budget-search", "orlando-under-150-search", "sarasota-under-150-search"], ["florida-road-trip-hotels", "florida-budget-hotels", "affordable-hotels-near-florida-attractions", "florida-hotels-under-150"]],
+  ["affordable-hotels-near-florida-attractions", "Affordable Hotels Near Florida Attractions: Family Stay Guide", "Compare affordable hotels near Florida attractions with practical Orlando, Tampa, Jacksonville, Space Coast, parking, and family-stay tips.", "Affordable Hotels Near Florida Attractions", "Value stays near attractions", "Affordable hotels near Florida attractions can save money and travel time when location, parking, breakfast, room layout, and final fees work together.", "Compare theme park corridors, museums, beaches, sports areas, and family attractions by real drive time rather than only the advertised distance.", ["orlando-under-150-search", "orlando-family-resort-search", "tampa-budget-search", "jacksonville-budget-search"], ["florida-road-trip-hotels", "best-budget-hotels-on-florida-road-trips", "florida-hotels-near-theme-parks", "florida-budget-hotels"]],
   ["orlando-theme-park-hotel-guide", "Orlando Theme Park Hotel Guide | Disney, Universal & Family Stays", "Compare Orlando theme park hotel areas near Disney, Universal, International Drive, and family resort corridors.", "Orlando Theme Park Hotel Guide", "Theme park stays", "Orlando theme park hotels work best when travelers compare park distance, shuttle options, parking, resort fees, room layout, and family pacing.", "Lake Buena Vista, International Drive, Universal Orlando, Disney-area corridors, and airport approaches all serve different trip styles.", ["orlando-family-resort-search", "orlando-resident-suite-search", "orlando-luxury-villas-search"], ["orlando-hotel-deals", "where-to-stay-in-orlando", "florida-hotels-near-theme-parks"]],
   ["orlando-suite-hotels-for-families", "Orlando Suite Hotels For Families | Room Space, Pools & Theme Parks", "Find Orlando suite hotel planning tips for families comparing room space, pools, breakfast, parking, and theme park access.", "Orlando Suite Hotels For Families", "Family hotel guide", "Orlando suite hotels can help families manage longer stays, rest time, meals, and park-day logistics without needing multiple rooms.", "Compare bedding, kitchenettes, breakfast, resort fees, shuttles, and drive times before choosing the lowest nightly rate.", ["orlando-family-resort-search", "orlando-resident-suite-search", "orlando-under-150-search"], ["orlando-hotel-deals", "florida-family-hotel-deals", "best-family-resorts-in-florida"]],
   ["miami-downtown-hotels", "Downtown Miami Hotels | Brickell, PortMiami & Weekend Stays", "Compare downtown Miami hotels for Brickell, PortMiami, nightlife, restaurants, cruise nights, and weekend trips.", "Downtown Miami Hotels", "City hotel guide", "Downtown Miami hotels are useful for cruise travelers, nightlife weekends, business trips, restaurants, and visitors who want bay or Brickell access.", "Compare PortMiami distance, parking, resort fees, transit options, and whether Miami Beach or Brickell fits the trip better.", ["miami-brickell-weekend-search", "miami-airport-budget-search", "miami-luxury-spa-search"], ["miami-hotel-deals", "where-to-stay-in-miami", "hotels-near-miami-cruise-port"]],
@@ -713,7 +716,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "15 Clearwater Beach Hotel Deals & Gulf Resort Ideas (2026)",
+    title: "Clearwater Beach Hotel Deals: Gulf Resorts & Family Stays (2026)",
     description:
       "Find Clearwater Beach hotel deals including Gulf resorts, family beach stays, weekend getaways, and current hotel searches near the sand.",
     h1: "Clearwater Beach Hotel Deals",
@@ -1032,7 +1035,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "30 Florida Budget Hotels Near Beaches, Airports & Attractions (2026)",
+    title: "Florida Budget Hotels: Affordable Stays Near Beaches, Parks & Attractions",
     description:
       "Compare 30 Florida budget hotel ideas near beaches, airports, cruises, and attractions, with practical tips for finding affordable stays and avoiding extra fees.",
     h1: "Florida Budget Hotels",
@@ -1053,6 +1056,9 @@ export const seoLandingPages: SeoLandingPage[] = [
     related: [
       "florida-hotels-under-150",
       "florida-budget-hotel-deals",
+      "florida-road-trip-hotels",
+      "best-budget-hotels-on-florida-road-trips",
+      "affordable-hotels-near-florida-attractions",
       "jacksonville-hotel-deals",
       "daytona-beach-hotel-deals"
     ]
@@ -1111,7 +1117,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "25 Best Oceanfront Hotels in Florida (2026 Guide)",
+    title: "25 Florida Oceanfront Hotels for Beach & Road Trips (2026)",
     description:
       "Compare 25 of the best oceanfront hotels in Florida, beach resorts, Gulf and Atlantic stays, amenities, fees, and current 2026 deals.",
     h1: "Florida Oceanfront Hotels",
@@ -1133,6 +1139,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       "florida-beach-resort-deals",
       "miami-beach-hotel-deals",
       "clearwater-beach-hotel-deals",
+      "florida-road-trip-hotels",
       "florida-keys-hotel-deals"
     ]
   },
