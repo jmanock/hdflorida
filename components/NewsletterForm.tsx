@@ -41,6 +41,7 @@ export function NewsletterForm() {
       setStatus("success");
       setEmail("");
       trackEvent("newsletter_signup_success");
+      trackEvent("newsletter_signup");
     } catch {
       setStatus("error");
     }
