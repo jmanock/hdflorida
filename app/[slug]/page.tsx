@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Home, MapPin, Search, Ticket, Umbrella } from "lucide-react";
+import { ArrowRight, Check, Home, MapPin, Minus, Search, Ticket, Umbrella } from "lucide-react";
 import { AffiliateGearLink } from "@/components/AffiliateGearLink";
 import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
-import { ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides } from "@/components/HotelConversionBoosters";
+import { ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides, StickyHotelCtas } from "@/components/HotelConversionBoosters";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
@@ -127,6 +127,76 @@ const globalRelatedHotelSearches = [
   "florida-weekend-getaway-hotels",
   "florida-oceanfront-hotels"
 ];
+
+const priorityHotelCluster = [
+  "florida-budget-hotels",
+  "florida-oceanfront-hotels",
+  "florida-hotels-near-theme-parks",
+  "clearwater-beach-hotel-deals",
+  "key-west-hotel-deals"
+];
+
+function HotelFeatureTable({ slug }: { slug: string }) {
+  const isBeach = /oceanfront|beach|clearwater|key-west|keys/.test(slug);
+  const isFamily = /family|theme-park|orlando|budget/.test(slug);
+  const rows = [
+    ["Budget / practical stay", "Sometimes", isBeach ? "Usually nearby" : "Varies", "Often easier", isFamily ? "Strong fit" : "Varies", "Property specific"],
+    ["Best-value hotel", "Common", isBeach ? "Direct or short walk" : "Varies", "Check final fee", "Often", "Selected rooms"],
+    ["Luxury resort", "Usually", isBeach ? "Often direct" : "Destination dependent", "Often valet or paid", "Amenities vary", "Limited policies"]
+  ];
+
+  return (
+    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+        <div className="border-b border-slate-200 bg-sand p-6 sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Hotel feature comparison</p>
+          <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Compare the amenities that change the real value of a stay.</h2>
+        </div>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[64rem] border-collapse text-left">
+            <thead className="bg-white text-sm font-black text-ink">
+              <tr>
+                {["Hotel type", "Pool", "Beach access", "Parking", "Family friendly", "Pet friendly"].map((heading) => (
+                  <th className="border-b border-slate-200 px-4 py-4" key={heading}>{heading}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody className="text-sm font-semibold leading-6 text-slateText">
+              {rows.map((row) => (
+                <tr className="border-t border-slate-200" key={row[0]}>
+                  {row.map((cell, index) => (
+                    <td className={`px-4 py-4 ${index === 0 ? "bg-sand font-black text-ink" : ""}`} key={`${row[0]}-${index}`}>
+                      <span className="inline-flex items-center gap-2">
+                        {index > 0 ? (cell === "Varies" || cell.includes("specific") || cell.includes("Selected") || cell.includes("Limited") ? <Minus className="h-4 w-4 text-amber-600" /> : <Check className="h-4 w-4 text-ocean" />) : null}
+                        {cell}
+                      </span>
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="px-6 py-4 text-xs font-bold leading-5 text-slateText">Features vary by property, room type, season, and policy. Confirm amenities, fees, and availability with the booking source.</p>
+      </div>
+    </section>
+  );
+}
+
+function InlineHotelAlerts() {
+  return (
+    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="flex flex-col gap-5 rounded-3xl bg-ink p-6 text-white shadow-soft sm:p-8 md:flex-row md:items-center md:justify-between">
+        <div>
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-gold">Florida hotel deal alerts</p>
+          <h2 className="mt-2 text-2xl font-black">Watch beach, budget, family, and resort stay ideas.</h2>
+          <p className="mt-2 text-sm font-semibold text-slate-300">Free alerts. No spam. Rates and availability may change.</p>
+        </div>
+        <Link className="btn btn-gold min-h-12 shrink-0 px-6" href="#alerts">Get Hotel Deal Alerts</Link>
+      </div>
+    </section>
+  );
+}
 
 type HotelGuideProfile = {
   stayTypes: string;
@@ -495,12 +565,15 @@ export default async function SeoLandingPage({
   const guideCopy = getHotelGuideCopy(page.slug, destinationLabel);
   const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const showConversionCards = conversionSlugs.has(page.slug);
-  const isPriorityHotelPage = page.slug === "florida-budget-hotels" || page.slug === "florida-oceanfront-hotels";
+  const isPriorityHotelPage = priorityHotelCluster.includes(page.slug);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
-  const relatedSearchLinks = [
+  const relatedSearchCandidates = [
     { label: "Hotel Deals Home", href: "/" },
+    ...priorityHotelCluster
+      .filter((slug) => slug !== page.slug)
+      .map((slug) => ({ label: getSeoPageLabel(slug), href: `/${slug}` })),
     ...relatedPages.map((relatedPage) => ({
       label: getSeoPageLabel(relatedPage.slug),
       href: `/${relatedPage.slug}`
@@ -511,7 +584,15 @@ export default async function SeoLandingPage({
         label: getSeoPageLabel(slug),
         href: `/${slug}`
       }))
-  ].slice(0, 10);
+  ];
+  const seenRelatedHrefs = new Set<string>();
+  const relatedSearchLinks = relatedSearchCandidates
+    .filter((link) => {
+      if (seenRelatedHrefs.has(link.href)) return false;
+      seenRelatedHrefs.add(link.href);
+      return true;
+    })
+    .slice(0, 10);
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -569,6 +650,7 @@ export default async function SeoLandingPage({
             "@type": "Organization",
             name: "Florida Deals Hub"
           },
+          dateModified: "2026-06-22",
           mainEntityOfPage: `${SITE_URL}/${page.slug}`
         }
       : null;
@@ -591,6 +673,7 @@ export default async function SeoLandingPage({
       <main>
         {showConversionCards ? <ConversionScrollAnalytics /> : null}
         {isPriorityHotelPage ? <ExitNewsletterCapture /> : null}
+        <StickyHotelCtas destination={destinationLabel} expediaUrl={destinationLink} />
         <nav
           aria-label="Breadcrumb"
           className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-4 py-4 text-sm font-bold text-slateText sm:px-6 lg:px-8"
@@ -700,6 +783,8 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
+        <InlineHotelAlerts />
+
         {page.comparisonRows?.length ? (
           <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
             <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
@@ -736,6 +821,9 @@ export default async function SeoLandingPage({
             </div>
           </section>
         ) : null}
+
+        <HotelFeatureTable slug={page.slug} />
+        <HotelBookingStack destination={destinationLabel} expediaUrl={destinationLink} />
 
         {page.gallery?.length ? (
           <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
@@ -937,8 +1025,7 @@ export default async function SeoLandingPage({
             <RevenueCtaCard eyebrow="Destination planning" headline="Choose the right Florida area" benefits={["Compare destination guides and nearby experiences", "Check transportation and trip timing"]} href="https://floridadealshub.com/destinations" cta="Browse Florida Destinations" icon={<MapPin className="h-5 w-5" />} />
           </div>
         </section>
-        {isPriorityHotelPage ? <HotelBookingStack destination={destinationLabel} /> : null}
-        {isPriorityHotelPage ? <HotelContinuePlanningGuides /> : null}
+        <HotelContinuePlanningGuides />
         {showConversionCards ? <section className="bg-white px-4 py-14 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2"><QuickDealCard /><RecommendedPartnerCard /></div></section> : null}
         {showTransferAndTravel ? <section className="bg-sand px-4 py-14 sm:px-6 lg:px-8"><div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-2"><TransferBookingCard slug={page.slug} /><TravelBookingCard /></div></section> : null}
         <CompleteTripSection />

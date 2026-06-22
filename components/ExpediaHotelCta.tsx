@@ -44,7 +44,7 @@ export function ExpediaHotelCta({
   }
 
   return (
-    <a href={href} className={className} target="_blank" rel="noopener noreferrer" onClick={trackClick}>
+    <a href={href} className={className} target="_blank" rel="sponsored noopener noreferrer" onClick={trackClick}>
       {children}
     </a>
   );

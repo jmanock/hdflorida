@@ -6,6 +6,7 @@ export const SKYLARK_HOME_AFFILIATE_URL =
   "https://www.awin1.com/awclick.php?gid=564694&mid=106305&awinaffid=2881665&linkid=4324767&clickref=";
 export const SKYLARK_DEALS_AFFILIATE_URL =
   "https://www.awin1.com/awclick.php?gid=564694&mid=106305&awinaffid=2881665&linkid=4324766&clickref=";
+export const BOOKING_COM_AFFILIATE_URL = process.env.NEXT_PUBLIC_BOOKING_COM_AFFILIATE_URL ?? "";
 export const transferAndTravelSlugs = new Set([
   "florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals",
   "florida-road-trip-hotels", "best-budget-hotels-on-florida-road-trips", "affordable-hotels-near-florida-attractions",

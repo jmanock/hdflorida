@@ -43,7 +43,7 @@ export function OutboundDealLink({
       href={deal.booking_url}
       className={className}
       target="_blank"
-      rel="noopener noreferrer"
+      rel="sponsored noopener noreferrer"
       onClick={trackDealClick}
     >
       {children}

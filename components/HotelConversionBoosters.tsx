@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowRight, Hotel, Mail, Plane, Sparkles, Ticket, Umbrella } from "lucide-react";
+import { ArrowRight, Crown, Hotel, Mail, Plane, Sparkles, Ticket, Umbrella, WalletCards } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
-import { SKYLARK_DEALS_AFFILIATE_URL, SKYLARK_HOME_AFFILIATE_URL, ZENHOTELS_AFFILIATE_URL } from "@/lib/revenuePartners";
+import { BOOKING_COM_AFFILIATE_URL, SKYLARK_DEALS_AFFILIATE_URL, SKYLARK_HOME_AFFILIATE_URL, ZENHOTELS_AFFILIATE_URL } from "@/lib/revenuePartners";
 
 const rel = "sponsored nofollow noopener noreferrer";
 
@@ -13,7 +13,10 @@ function trackAffiliate(eventName: string, advertiser: string, url: string, ctaT
   trackEvent("affiliate_click", params);
 }
 
-export function HotelBookingStack({ destination }: { destination: string }) {
+export function HotelBookingStack({ destination, expediaUrl }: { destination: string; expediaUrl: string }) {
+  const bestValueUrl = BOOKING_COM_AFFILIATE_URL || expediaUrl;
+  const bestValuePartner = BOOKING_COM_AFFILIATE_URL ? "booking.com" : "expedia";
+
   return (
     <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
       <div className="rounded-3xl border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
@@ -22,27 +25,46 @@ export function HotelBookingStack({ destination }: { destination: string }) {
         <p className="mt-3 max-w-3xl text-sm font-semibold leading-6 text-slateText">Use these booking paths to compare value stays, premium hotels, and luxury travel options. Confirm live rates, taxes, fees, and cancellation terms with the provider.</p>
         <div className="mt-7 grid gap-5 md:grid-cols-3">
           <a className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-sky-200" href={ZENHOTELS_AFFILIATE_URL} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click_zenhotels", "zenhotels", ZENHOTELS_AFFILIATE_URL, "Compare Hotel Rates")}>
+            <WalletCards className="h-7 w-7 text-ocean" />
+            <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-ocean">Budget option</p>
+            <h3 className="mt-2 text-xl font-black text-ink">Compare with ZenHotels</h3>
+            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">Useful for comparing value-focused stays and current room rates.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">Check Budget Options <ArrowRight className="h-4 w-4" /></span>
+          </a>
+          <a className="rounded-3xl border border-sky-200 bg-skyline p-6 shadow-card transition hover:-translate-y-1" href={bestValueUrl} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click", bestValuePartner, bestValueUrl, "Compare Best Value Hotels")}>
             <Hotel className="h-7 w-7 text-ocean" />
-            <h3 className="mt-4 text-xl font-black text-ink">ZenHotels</h3>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">Compare hotel rates for Florida stays and destination trips.</p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">Compare Hotel Rates <ArrowRight className="h-4 w-4" /></span>
+            <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-ocean">Best value</p>
+            <h3 className="mt-2 text-xl font-black text-ink">{BOOKING_COM_AFFILIATE_URL ? "Compare on Booking.com" : "Compare Current Hotel Deals"}</h3>
+            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">Compare location, cancellation terms, room type, and the final checkout total.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">Compare Best Value <ArrowRight className="h-4 w-4" /></span>
           </a>
-          <a className="rounded-3xl border border-slate-200 bg-ink p-6 text-white shadow-soft transition hover:-translate-y-1" href={SKYLARK_HOME_AFFILIATE_URL} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click_skylark", "skylark", SKYLARK_HOME_AFFILIATE_URL, "Plan Luxury Travel")}>
-            <Sparkles className="h-7 w-7 text-gold" />
-            <h3 className="mt-4 text-xl font-black">Skylark Luxury Travel</h3>
-            <p className="mt-3 text-sm font-semibold leading-6 text-white/75">Use this for premium Florida trips and luxury planning.</p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-white">Plan Luxury Travel <ArrowRight className="h-4 w-4" /></span>
-          </a>
-          <a className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-sky-200" href={SKYLARK_DEALS_AFFILIATE_URL} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click_skylark_deals", "skylark", SKYLARK_DEALS_AFFILIATE_URL, "View Luxury Hotel Deals")}>
-            <Umbrella className="h-7 w-7 text-ocean" />
-            <h3 className="mt-4 text-xl font-black text-ink">Luxury hotel deals</h3>
-            <p className="mt-3 text-sm font-semibold leading-6 text-slateText">Compare curated luxury hotel offers when the stay is the trip anchor.</p>
-            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">View Luxury Hotel Deals <ArrowRight className="h-4 w-4" /></span>
+          <a className="rounded-3xl border border-slate-200 bg-ink p-6 text-white shadow-soft transition hover:-translate-y-1" href={SKYLARK_DEALS_AFFILIATE_URL} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click_skylark_deals", "skylark", SKYLARK_DEALS_AFFILIATE_URL, "View Luxury Hotel Deals")}>
+            <Crown className="h-7 w-7 text-gold" />
+            <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-sky-200">Luxury option</p>
+            <h3 className="mt-2 text-xl font-black">Skylark Luxury Hotel Deals</h3>
+            <p className="mt-3 text-sm font-semibold leading-6 text-white/75">Compare premium Florida stays when service and hotel experience matter most.</p>
+            <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-white">View Luxury Hotels <ArrowRight className="h-4 w-4" /></span>
           </a>
         </div>
+        <a className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean" href={SKYLARK_HOME_AFFILIATE_URL} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click_skylark", "skylark", SKYLARK_HOME_AFFILIATE_URL, "Plan Luxury Travel")}>
+          <Sparkles className="h-4 w-4" /> Need a full luxury trip? Plan with Skylark Travel <ArrowRight className="h-4 w-4" />
+        </a>
         <p className="mt-4 text-xs font-bold text-slateText">Affiliate links. We may earn a commission at no extra cost to you.</p>
       </div>
     </section>
+  );
+}
+
+export function StickyHotelCtas({ destination, expediaUrl }: { destination: string; expediaUrl: string }) {
+  return (
+    <aside className="fixed bottom-3 left-3 right-3 z-40 mx-auto flex max-w-lg gap-2 rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-soft backdrop-blur md:hidden">
+      <a className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-ocean px-3 text-center text-sm font-black text-white" href={expediaUrl} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click", "expedia", expediaUrl, `Compare ${destination}`)}>
+        Compare Hotels
+      </a>
+      <a className="flex min-h-12 items-center justify-center rounded-xl bg-ink px-4 text-sm font-black text-white" href="#alerts">
+        Get Alerts
+      </a>
+    </aside>
   );
 }
 
@@ -89,5 +111,5 @@ export function ExitNewsletterCapture() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [dismissed, visible]);
   if (!visible || dismissed) return null;
-  return <aside className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-xl rounded-3xl border border-sky-200 bg-white p-5 shadow-soft"><button className="absolute right-4 top-3 text-sm font-black text-slateText" type="button" onClick={() => setDismissed(true)}>Close</button><p className="text-xs font-black uppercase tracking-[0.16em] text-ocean">Get New Florida Deals Every Week</p><h2 className="mt-2 pr-12 text-xl font-black text-ink">Hotel ideas, flight routes, cruise add-ons, and local deals.</h2><a className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-ink px-5 text-sm font-black text-white" href="#alerts" onClick={() => setDismissed(true)}><Mail className="h-4 w-4" />Join free alerts</a></aside>;
+  return <aside className="fixed bottom-20 left-4 right-4 z-50 mx-auto max-w-xl rounded-3xl border border-sky-200 bg-white p-5 shadow-soft md:bottom-4"><button className="absolute right-4 top-3 text-sm font-black text-slateText" type="button" onClick={() => setDismissed(true)}>Close</button><p className="text-xs font-black uppercase tracking-[0.16em] text-ocean">Get New Florida Deals Every Week</p><h2 className="mt-2 pr-12 text-xl font-black text-ink">Hotel ideas, flight routes, cruise add-ons, and local deals.</h2><a className="mt-4 inline-flex h-11 items-center gap-2 rounded-xl bg-ink px-5 text-sm font-black text-white" href="#alerts" onClick={() => setDismissed(true)}><Mail className="h-4 w-4" />Join free alerts</a></aside>;
 }

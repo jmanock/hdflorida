@@ -716,9 +716,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "Clearwater Beach Hotel Deals: Gulf Resorts & Family Stays (2026)",
+    title: "Clearwater Beach Hotels (2026): Gulf Resorts, Pools & Family Stays",
     description:
-      "Find Clearwater Beach hotel deals including Gulf resorts, family beach stays, weekend getaways, and current hotel searches near the sand.",
+      "Compare Clearwater Beach hotels with Gulf access, family pools, Pier 60 locations, parking details, resort amenities, and current 2026 rates.",
     h1: "Clearwater Beach Hotel Deals",
     eyebrow: "Gulf beach searches",
     intro:
@@ -983,9 +983,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "key-west-hotel-deals",
-    title: "Best Key West Hotel Deals & Resort Discounts (2026)",
+    title: "Key West Hotels (2026): Compare Old Town, Waterfront & Resort Stays",
     description:
-      "Compare the best Key West hotel deals, resort discounts, boutique inns, waterfront stays, Old Town locations, and current 2026 rates.",
+      "Compare Key West hotels in Old Town, waterfront areas and Stock Island, with pool, parking, walkability, resort-fee and current-rate guidance.",
     h1: "Key West Hotel Deals",
     eyebrow: "Island hotel searches",
     intro:
@@ -1035,9 +1035,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels: Affordable Stays Near Beaches, Parks & Attractions",
+    title: "Florida Budget Hotels (2026): Affordable Stays Without Surprise Fees",
     description:
-      "Compare 30 Florida budget hotel ideas near beaches, airports, cruises, and attractions, with practical tips for finding affordable stays and avoiding extra fees.",
+      "Compare affordable Florida hotels near beaches, airports, theme parks and cruise ports, with parking, breakfast, fee and location tips for better value.",
     h1: "Florida Budget Hotels",
     eyebrow: "Affordable stay searches",
     intro:
@@ -1091,9 +1091,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-hotels-near-theme-parks",
-    title: "Florida Hotels Near Theme Parks | Orlando Family Stays",
+    title: "Florida Theme Park Hotels (2026): Disney, Universal & Family Stays",
     description:
-      "Compare Florida hotels near theme parks, Orlando resorts, family suites, pool hotels, and lodging ideas near major attractions.",
+      "Compare Orlando hotels near Disney, Universal and SeaWorld, including family suites, pools, shuttles, parking, resort fees and current rates.",
     h1: "Florida Hotels Near Theme Parks",
     eyebrow: "Theme park hotel searches",
     intro:
@@ -1117,9 +1117,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "25 Florida Oceanfront Hotels for Beach & Road Trips (2026)",
+    title: "Florida Oceanfront Hotels (2026): Beach Access, Pools & Best-Value Stays",
     description:
-      "Compare 25 of the best oceanfront hotels in Florida, beach resorts, Gulf and Atlantic stays, amenities, fees, and current 2026 deals.",
+      "Compare Florida oceanfront hotels by beach access, pools, parking, family fit and resort fees across the Gulf, Atlantic Coast and Florida Keys.",
     h1: "Florida Oceanfront Hotels",
     eyebrow: "Oceanfront stay searches",
     intro:
