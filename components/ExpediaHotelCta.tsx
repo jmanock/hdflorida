@@ -41,10 +41,11 @@ export function ExpediaHotelCta({
     trackEvent("hotel_booking_click", metadata);
     trackEvent("hotel_card_click", metadata);
     trackEvent("hotel_affiliate_click", metadata);
+    trackEvent("hotel_cta_click", metadata);
   }
 
   return (
-    <a href={href} className={className} target="_blank" rel="sponsored noopener noreferrer" onClick={trackClick}>
+    <a href={href} className={className} target="_blank" rel="sponsored nofollow noopener noreferrer" onClick={trackClick}>
       {children}
     </a>
   );

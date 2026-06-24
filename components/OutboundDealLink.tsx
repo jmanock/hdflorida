@@ -36,6 +36,7 @@ export function OutboundDealLink({
     trackEvent("hotel_booking_click", eventMetadata);
     trackEvent("hotel_card_click", eventMetadata);
     trackEvent("hotel_affiliate_click", eventMetadata);
+    trackEvent("hotel_cta_click", eventMetadata);
   }
 
   return (
@@ -43,7 +44,7 @@ export function OutboundDealLink({
       href={deal.booking_url}
       className={className}
       target="_blank"
-      rel="sponsored noopener noreferrer"
+      rel="sponsored nofollow noopener noreferrer"
       onClick={trackDealClick}
     >
       {children}

@@ -638,9 +638,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "st-augustine-hotel-deals",
-    title: "St. Augustine Hotel Deals | Historic Inns, Boutique Hotels & Family Stays",
+    title: "St. Augustine Hotel Deals (2026): Historic Inns, Beaches & Family Stays",
     description:
-      "Find St. Augustine hotel deals including historic inns, boutique hotels, family stays, and current hotel searches near the old city and beaches.",
+      "Compare St. Augustine hotel deals near the historic district and beaches, with boutique inns, family stays, parking, walkability and 2026 booking tips.",
     h1: "St. Augustine Hotel Deals",
     eyebrow: "Historic Florida stays",
     intro:
@@ -928,9 +928,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "orlando-family-resort-deals",
-    title: "Orlando Family Resort Deals | Pool Hotels, Suites & Theme Park Stays",
+    title: "Orlando Family Resort Deals (2026): Pools, Suites & Theme Park Stays",
     description:
-      "Find Orlando family resort deals including pool hotels, suites, theme park area stays, and current family hotel searches near Disney, Universal, and International Drive.",
+      "Compare Orlando family resort deals near Disney, Universal and International Drive, including pool hotels, suites, parking, shuttle and current-rate tips.",
     h1: "Orlando Family Resort Deals",
     eyebrow: "Theme park family stays",
     intro:

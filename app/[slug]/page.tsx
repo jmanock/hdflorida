@@ -7,7 +7,7 @@ import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
-import { ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides, StickyHotelCtas } from "@/components/HotelConversionBoosters";
+import { CompareHotelOptions, ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides, StickyHotelCtas } from "@/components/HotelConversionBoosters";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
@@ -133,7 +133,11 @@ const priorityHotelCluster = [
   "florida-oceanfront-hotels",
   "florida-hotels-near-theme-parks",
   "clearwater-beach-hotel-deals",
-  "key-west-hotel-deals"
+  "florida-pet-friendly-hotels",
+  "key-west-hotel-deals",
+  "florida-resorts-with-pools",
+  "orlando-family-resort-deals",
+  "st-augustine-hotel-deals"
 ];
 
 function HotelFeatureTable({ slug }: { slug: string }) {
@@ -822,8 +826,9 @@ export default async function SeoLandingPage({
           </section>
         ) : null}
 
+        {isPriorityHotelPage ? <CompareHotelOptions destination={destinationLabel} expediaUrl={destinationLink} /> : null}
         <HotelFeatureTable slug={page.slug} />
-        <HotelBookingStack destination={destinationLabel} expediaUrl={destinationLink} />
+        {isPriorityHotelPage ? <HotelBookingStack destination={destinationLabel} expediaUrl={destinationLink} /> : null}
 
         {page.gallery?.length ? (
           <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">

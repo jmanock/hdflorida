@@ -11,6 +11,8 @@ function trackAffiliate(eventName: string, advertiser: string, url: string, ctaT
   const params = { affiliate_program: "awin", advertiser, cta_text: ctaText, outbound_url: url, placement: "hotel_booking_stack", page_path: window.location.pathname };
   trackEvent(eventName, params);
   trackEvent("affiliate_click", params);
+  trackEvent("hotel_cta_click", params);
+  trackEvent("hotel_compare_click", params);
 }
 
 export function HotelBookingStack({ destination, expediaUrl }: { destination: string; expediaUrl: string }) {
@@ -55,11 +57,88 @@ export function HotelBookingStack({ destination, expediaUrl }: { destination: st
   );
 }
 
+export function CompareHotelOptions({ destination, expediaUrl }: { destination: string; expediaUrl: string }) {
+  const bestValueUrl = BOOKING_COM_AFFILIATE_URL || expediaUrl;
+  const options = [
+    {
+      label: "Budget Option",
+      headline: "Keep the final checkout total low",
+      body: "Compare taxes, parking, breakfast, cancellation rules, and room location before choosing the lowest nightly rate.",
+      href: ZENHOTELS_AFFILIATE_URL,
+      advertiser: "zenhotels",
+      eventName: "affiliate_click_zenhotels",
+      cta: "Compare Budget Hotels",
+      icon: WalletCards
+    },
+    {
+      label: "Best Value Option",
+      headline: "Balance location, fees, and flexibility",
+      body: "Use this path when you want a practical stay with fewer surprises at checkout and a realistic location for the trip.",
+      href: bestValueUrl,
+      advertiser: BOOKING_COM_AFFILIATE_URL ? "booking.com" : "expedia",
+      eventName: "affiliate_click",
+      cta: "Compare Best Value Stays",
+      icon: Hotel
+    },
+    {
+      label: "Family-Friendly Option",
+      headline: "Prioritize pools, room layout, and attractions",
+      body: "Check family amenities, parking, breakfast, pool hours, and travel time to beaches, parks, or cruise ports.",
+      href: expediaUrl,
+      advertiser: "expedia",
+      eventName: "affiliate_click",
+      cta: "Compare Family Hotels",
+      icon: Umbrella
+    },
+    {
+      label: "Luxury Option",
+      headline: "Compare premium Florida hotel experiences",
+      body: "Use Skylark when the trip calls for a higher-touch stay, upgraded service, or luxury hotel planning.",
+      href: SKYLARK_DEALS_AFFILIATE_URL,
+      advertiser: "skylark",
+      eventName: "affiliate_click_skylark_deals",
+      cta: "View Luxury Hotel Deals",
+      icon: Crown
+    }
+  ];
+
+  return (
+    <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+        <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Compare hotel options</p>
+        <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Choose the right {destination.toLowerCase()} for the way you travel.</h2>
+        <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {options.map((option) => {
+            const Icon = option.icon;
+            return (
+              <a
+                key={option.label}
+                className="rounded-3xl border border-slate-200 bg-sand p-5 transition hover:-translate-y-1 hover:border-sky-200 hover:bg-skyline"
+                href={option.href}
+                target="_blank"
+                rel={rel}
+                onClick={() => trackAffiliate(option.eventName, option.advertiser, option.href, option.cta)}
+              >
+                <Icon className="h-6 w-6 text-ocean" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.14em] text-ocean">{option.label}</p>
+                <h3 className="mt-2 text-lg font-black leading-6 text-ink">{option.headline}</h3>
+                <p className="mt-3 text-sm font-semibold leading-6 text-slateText">{option.body}</p>
+                <span className="mt-5 inline-flex items-center gap-2 text-sm font-black text-ocean">{option.cta}<ArrowRight className="h-4 w-4" /></span>
+              </a>
+            );
+          })}
+        </div>
+        <p className="mt-5 text-xs font-bold text-slateText">Affiliate links. We may earn a commission at no extra cost to you. Confirm live prices, fees, and availability with the provider.</p>
+      </div>
+    </section>
+  );
+}
+
 export function StickyHotelCtas({ destination, expediaUrl }: { destination: string; expediaUrl: string }) {
   return (
     <aside className="fixed bottom-3 left-3 right-3 z-40 mx-auto flex max-w-lg gap-2 rounded-2xl border border-slate-200 bg-white/95 p-2 shadow-soft backdrop-blur md:hidden">
       <a className="flex min-h-12 flex-1 items-center justify-center rounded-xl bg-ocean px-3 text-center text-sm font-black text-white" href={expediaUrl} target="_blank" rel={rel} onClick={() => trackAffiliate("affiliate_click", "expedia", expediaUrl, `Compare ${destination}`)}>
-        Compare Hotels
+        Compare Florida Hotel Deals
       </a>
       <a className="flex min-h-12 items-center justify-center rounded-xl bg-ink px-4 text-sm font-black text-white" href="#alerts">
         Get Alerts

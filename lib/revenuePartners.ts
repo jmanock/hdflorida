@@ -10,8 +10,14 @@ export const BOOKING_COM_AFFILIATE_URL = process.env.NEXT_PUBLIC_BOOKING_COM_AFF
 export const transferAndTravelSlugs = new Set([
   "florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals",
   "florida-road-trip-hotels", "best-budget-hotels-on-florida-road-trips", "affordable-hotels-near-florida-attractions",
-  "florida-hotels-near-theme-parks", "key-west-hotel-deals", "orlando-family-resort-deals"
+  "florida-hotels-near-theme-parks", "florida-pet-friendly-hotels", "key-west-hotel-deals",
+  "florida-resorts-with-pools", "orlando-family-resort-deals", "st-augustine-hotel-deals"
 ]);
-export const conversionSlugs = new Set(["florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals", "florida-road-trip-hotels", "best-budget-hotels-on-florida-road-trips", "affordable-hotels-near-florida-attractions", "florida-pet-friendly-hotels"]);
+export const conversionSlugs = new Set([
+  "florida-budget-hotels", "florida-oceanfront-hotels", "clearwater-beach-hotel-deals",
+  "florida-road-trip-hotels", "best-budget-hotels-on-florida-road-trips", "affordable-hotels-near-florida-attractions",
+  "florida-hotels-near-theme-parks", "florida-pet-friendly-hotels", "key-west-hotel-deals",
+  "florida-resorts-with-pools", "orlando-family-resort-deals", "st-augustine-hotel-deals"
+]);
 export const getTransferAffiliateUrl = (site: string, slug: string) =>
   `${AIRPORT_TRANSFER_AFFILIATE_URL}${encodeURIComponent(`${site}:${slug}`)}`;
