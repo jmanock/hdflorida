@@ -161,7 +161,12 @@ export function HotelContinuePlanningGuides() {
         <h2 className="mt-3 text-3xl font-black tracking-normal text-ink">Next steps after choosing a hotel.</h2>
         <div className="mt-7 grid gap-4 md:grid-cols-4">
           {guides.map(([label, href, Icon]) => (
-            <a key={label} href={href} className="group rounded-3xl border border-slate-200 bg-sand p-5 transition hover:border-sky-200 hover:bg-skyline" onClick={() => trackEvent("related_guide_click", { item_title: label, outbound_url: href, page_path: window.location.pathname })}>
+            <a key={label} href={href} className="group rounded-3xl border border-slate-200 bg-sand p-5 transition hover:border-sky-200 hover:bg-skyline" onClick={() => {
+              const params = { item_title: label, outbound_url: href, page_path: window.location.pathname };
+              trackEvent("related_guide_click", params);
+              trackEvent("continue_planning_click", params);
+              if (href.startsWith("https://")) trackEvent("cross_site_click", params);
+            }}>
               <Icon className="h-6 w-6 text-ocean" />
               <h3 className="mt-4 text-lg font-black text-ink">{label}</h3>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">Plan this step <ArrowRight className="h-4 w-4" /></span>

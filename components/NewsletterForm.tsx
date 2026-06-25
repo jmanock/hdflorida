@@ -69,6 +69,7 @@ export function NewsletterForm() {
       <button
         type="submit"
           disabled={status === "loading"}
+          onClick={() => trackEvent("newsletter_cta_click", { site: "hoteldealsflorida.org", source: "hotels" })}
           className="btn btn-gold disabled:cursor-not-allowed disabled:opacity-70"
       >
           {status === "success" ? (
