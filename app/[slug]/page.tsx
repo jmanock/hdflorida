@@ -13,6 +13,7 @@ import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
@@ -570,6 +571,7 @@ export default async function SeoLandingPage({
   const showTransferAndTravel = transferAndTravelSlugs.has(page.slug);
   const showConversionCards = conversionSlugs.has(page.slug);
   const isPriorityHotelPage = priorityHotelCluster.includes(page.slug);
+  const isLuxuryLeanPage = /oceanfront|resort|pool|luxury|key-west|beach/.test(page.slug);
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
@@ -829,6 +831,7 @@ export default async function SeoLandingPage({
         {isPriorityHotelPage ? <CompareHotelOptions destination={destinationLabel} expediaUrl={destinationLink} /> : null}
         <HotelFeatureTable slug={page.slug} />
         {isPriorityHotelPage ? <HotelBookingStack destination={destinationLabel} expediaUrl={destinationLink} /> : null}
+        <TravelEssentialsBlock destination={destinationLabel} luxury={isLuxuryLeanPage} />
 
         {page.gallery?.length ? (
           <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">

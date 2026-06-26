@@ -20,6 +20,7 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { SafeImage } from "@/components/SafeImage";
 import { TrackedLink } from "@/components/TrackedLink";
+import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { hotelDeals } from "@/data/hotelDeals";
 import { getExpediaHotelLink } from "@/lib/affiliateLinks";
 
@@ -747,6 +748,8 @@ export default function Home() {
         </section>
 
         <CompleteTripSection />
+
+        <TravelEssentialsBlock destination="Florida" />
 
         <NewsletterSection />
 
