@@ -11,6 +11,7 @@ import { CompareHotelOptions, ExitNewsletterCapture, HotelBookingStack, HotelCon
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { CompleteTripSection } from "@/components/CompleteTripSection";
 import { NewsletterSection } from "@/components/NewsletterSection";
+import { ReadingProgressBar } from "@/components/ReadingProgressBar";
 import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
@@ -641,6 +642,13 @@ export default async function SeoLandingPage({
       return true;
     })
     .slice(0, 10);
+  const readersAlsoPlanned = [
+    { label: "Find Florida attractions", href: "https://localdealsflorida.org/best-things-to-do-in-florida" },
+    { label: "Compare Florida flights", href: "https://flightdealsflorida.org/cheap-flights-to-florida-guide" },
+    { label: "Plan vacation packages", href: "https://floridadealshub.com/vacation-packages" },
+    { label: "Check weekend cruises", href: "https://cruisedealsflorida.org/weekend-cruises-from-florida" },
+    { label: "Review hotel feature tables", href: "#hotel-faq" }
+  ];
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -708,6 +716,7 @@ export default async function SeoLandingPage({
 
   return (
     <>
+      <ReadingProgressBar />
       {pageSchemas.map((schema) => (
         <script
           key={String(schema["@type"])}
@@ -1018,6 +1027,16 @@ export default async function SeoLandingPage({
                   <ArrowRight className="h-4 w-4 shrink-0 transition group-hover:translate-x-0.5" aria-hidden="true" />
                 </Link>
               ))}
+            </div>
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-skyline p-5">
+              <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Readers also planned</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+                {readersAlsoPlanned.map((item) => (
+                  <a className="rounded-2xl bg-white px-4 py-3 text-sm font-black text-ink transition hover:text-ocean" href={item.href} key={item.href}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>
