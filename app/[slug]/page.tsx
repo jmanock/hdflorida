@@ -203,6 +203,48 @@ function InlineHotelAlerts() {
   );
 }
 
+function HotelQuickAnswer({ destinationLabel }: { destinationLabel: string }) {
+  return (
+    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="hotel-quick-answer-title">
+      <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="rounded-3xl border border-sky-200 bg-skyline p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Quick answer</p>
+          <h2 id="hotel-quick-answer-title" className="mt-3 text-3xl font-black tracking-normal text-ink">
+            Compare the room, the fees, and what you need after check-in.
+          </h2>
+          <ul className="mt-5 grid gap-3 text-sm font-semibold leading-6 text-slateText">
+            <li>• Start with location, parking, resort fees, cancellation terms, and beach or attraction access.</li>
+            <li>• Budget hotels can work well for road trips, airport nights, and short stays when fees are clear.</li>
+            <li>• Oceanfront and resort stays are easier to compare when pools, beach access, and family amenities are visible.</li>
+            <li>• Pair {destinationLabel.toLowerCase()} with nearby activities, flights, and vacation package ideas before booking.</li>
+            <li>• Recheck final taxes, fees, and policies with the booking source because hotel prices can change quickly.</li>
+          </ul>
+          <p className="mt-5 text-sm font-black text-ink">
+            Best for: travelers comparing total stay cost, family amenities, beach access, parking, and nearby attractions.
+          </p>
+        </div>
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Plan the rest of the trip</p>
+          <div className="mt-5 grid gap-3">
+            <Link className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="#featured-stays">
+              Compare featured stays
+            </Link>
+            <Link className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="#hotel-faq">
+              Read hotel FAQ
+            </Link>
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="https://flightdealsflorida.org/cheap-flights-to-florida-guide">
+              Find flights to Florida
+            </a>
+            <a className="rounded-2xl bg-sand px-4 py-3 text-sm font-black text-ink transition hover:bg-skyline hover:text-ocean" href="https://localdealsflorida.org/best-things-to-do-in-florida">
+              Find Florida attractions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 type HotelGuideProfile = {
   stayTypes: string;
   bestFor: string;
@@ -765,6 +807,8 @@ export default async function SeoLandingPage({
           </div>
         </section>
 
+        <HotelQuickAnswer destinationLabel={destinationLabel} />
+
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
@@ -913,7 +957,7 @@ export default async function SeoLandingPage({
           </section>
         ) : null}
 
-        <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <section id="hotel-faq" className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-slate-200 bg-sand p-6 sm:p-8">
             <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">
               Compare Hotels Before You Book

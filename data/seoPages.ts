@@ -638,7 +638,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "st-augustine-hotel-deals",
-    title: "St. Augustine Hotel Deals (2026): Historic Inns, Beaches & Family Stays",
+    title: "St. Augustine Hotel Deals: Historic Inns, Beaches & Family Stays",
     description:
       "Compare St. Augustine hotel deals near the historic district and beaches, with boutique inns, family stays, parking, walkability and 2026 booking tips.",
     h1: "St. Augustine Hotel Deals",
@@ -716,7 +716,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "Clearwater Beach Hotels (2026): Gulf Resorts, Pools & Family Stays",
+    title: "Clearwater Beach Hotels: Gulf Resorts, Pools & Family Stays",
     description:
       "Compare Clearwater Beach hotels with Gulf access, family pools, Pier 60 locations, parking details, resort amenities, and current 2026 rates.",
     h1: "Clearwater Beach Hotel Deals",
@@ -928,7 +928,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "orlando-family-resort-deals",
-    title: "Orlando Family Resort Deals (2026): Pools, Suites & Theme Park Stays",
+    title: "Orlando Family Resort Deals: Pools, Suites & Theme Park Stays",
     description:
       "Compare Orlando family resort deals near Disney, Universal and International Drive, including pool hotels, suites, parking, shuttle and current-rate tips.",
     h1: "Orlando Family Resort Deals",
@@ -983,7 +983,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "key-west-hotel-deals",
-    title: "Key West Hotels (2026): Compare Old Town, Waterfront & Resort Stays",
+    title: "Key West Hotels: Compare Old Town, Waterfront & Resort Stays",
     description:
       "Compare Key West hotels in Old Town, waterfront areas and Stock Island, with pool, parking, walkability, resort-fee and current-rate guidance.",
     h1: "Key West Hotel Deals",
@@ -1035,7 +1035,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels (2026): Affordable Stays Without Surprise Fees",
+    title: "Florida Budget Hotels: Affordable Stays Near Beaches, Parks & Ports",
     description:
       "Compare affordable Florida hotels near beaches, airports, theme parks and cruise ports, with parking, breakfast, fee and location tips for better value.",
     h1: "Florida Budget Hotels",
@@ -1065,9 +1065,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-pet-friendly-hotels",
-    title: "20 Florida Pet-Friendly Hotels for Beach & Road Trips (2026)",
+    title: "Florida Pet-Friendly Hotels: Beach, City & Road Trip Stays",
     description:
-      "Compare Florida pet-friendly hotels, beach stays, city hotels, road trip lodging, and current hotel searches for travelers with pets.",
+      "Compare Florida pet-friendly hotels for beach stays, city trips and road trips, including pet fees, rules, parking and current hotel searches.",
     h1: "Florida Pet-Friendly Hotels",
     eyebrow: "Pet-friendly stay searches",
     intro:
@@ -1091,7 +1091,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-hotels-near-theme-parks",
-    title: "Florida Theme Park Hotels (2026): Disney, Universal & Family Stays",
+    title: "Florida Theme Park Hotels: Disney, Universal & Family Stays",
     description:
       "Compare Orlando hotels near Disney, Universal and SeaWorld, including family suites, pools, shuttles, parking, resort fees and current rates.",
     h1: "Florida Hotels Near Theme Parks",
@@ -1117,7 +1117,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "Florida Oceanfront Hotels (2026): Beach Access, Pools & Best-Value Stays",
+    title: "Florida Oceanfront Hotels: Beach Access, Pools & Best-Value Stays",
     description:
       "Compare Florida oceanfront hotels by beach access, pools, parking, family fit and resort fees across the Gulf, Atlantic Coast and Florida Keys.",
     h1: "Florida Oceanfront Hotels",
@@ -1145,9 +1145,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-resorts-with-pools",
-    title: "20 Florida Resorts With Pools for Family Trips (2026)",
+    title: "Florida Resorts With Pools: Family, Beach & Staycation Picks",
     description:
-      "Compare 20 Florida resorts with pools, family-friendly hotels, beach resorts, Orlando stays, pool amenities, and current 2026 deals.",
+      "Compare Florida resorts with pools for family trips, beach stays, Orlando vacations, pool amenities, fees and current hotel searches.",
     h1: "Florida Resorts with Pools",
     eyebrow: "Pool resort searches",
     intro:
