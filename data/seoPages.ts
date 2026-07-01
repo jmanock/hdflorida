@@ -2731,7 +2731,7 @@ export const seoLandingPages: SeoLandingPage[] = [
       {
         heading: "How we handle affiliate links",
         body:
-          "Some hotel links may earn Florida Deals Hub a commission. Affiliate relationships do not change the need for accurate, practical, and clearly labeled travel guidance."
+          "Some links may be sponsored or affiliate links. We may earn a commission if you book or buy through them, at no extra cost to you. Affiliate relationships do not change the need for accurate, practical, and clearly labeled travel guidance."
       }
     ]
   },

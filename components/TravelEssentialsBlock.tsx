@@ -13,6 +13,7 @@ function eventForAdvertiser(advertiser: TravelEssentialItem["advertiser"]) {
   if (advertiser === "bedsure") return "affiliate_click_bedsure";
   if (advertiser === "zenhotels") return "affiliate_click_zenhotels";
   if (advertiser === "skylark") return "affiliate_click_skylark_deals";
+  if (advertiser === "bookafly") return "affiliate_click_bookafly";
   return "travel_essentials_click";
 }
 
@@ -44,15 +45,21 @@ export function TravelEssentialsBlock({ destination, luxury = false }: { destina
     const params = {
       affiliate_program: "awin",
       advertiser: item.advertiser,
+      affiliate_partner: item.advertiser,
       category: item.category,
       cta_text: item.cta,
       destination,
       item_title: item.title,
       outbound_url: item.affiliateUrl,
+      page_topic: destination,
       page_type: "hotel",
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      placement_type: "travel_toolkit",
+      tool_type: item.category
     };
     trackEvent("travel_essentials_click", params);
+    trackEvent("toolkit_click", params);
+    trackEvent("affiliate_click", params);
     trackEvent(eventForAdvertiser(item.advertiser), params);
   }
 

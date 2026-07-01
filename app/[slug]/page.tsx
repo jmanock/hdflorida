@@ -21,6 +21,7 @@ import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SafeImage } from "@/components/SafeImage";
+import { TrackedLink } from "@/components/TrackedLink";
 import {
   getDealsForSeoPage,
   getFaqsForSeoPage,
@@ -1032,9 +1033,9 @@ export default async function SeoLandingPage({
               <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Readers also planned</p>
               <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                 {readersAlsoPlanned.map((item) => (
-                  <a className="rounded-2xl bg-white px-4 py-3 text-sm font-black text-ink transition hover:text-ocean" href={item.href} key={item.href}>
+                  <TrackedLink className="rounded-2xl bg-white px-4 py-3 text-sm font-black text-ink transition hover:text-ocean" href={item.href} label={item.label} eventName="related_guide_click" key={item.href}>
                     {item.label}
-                  </a>
+                  </TrackedLink>
                 ))}
               </div>
             </div>

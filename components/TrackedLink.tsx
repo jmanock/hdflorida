@@ -24,7 +24,10 @@ export function TrackedLink({
       source_site: "hoteldealsflorida.org",
       label,
       href,
-      page_path: window.location.pathname
+      page_path: window.location.pathname,
+      source_page: window.location.pathname,
+      target_page: href,
+      placement_type: eventName === "related_guide_click" ? "related_discovery" : "navigation"
     };
 
     trackEvent(eventName, eventMetadata);
