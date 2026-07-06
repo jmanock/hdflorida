@@ -31,6 +31,12 @@ export function TrackedLink({
     };
 
     trackEvent(eventName, eventMetadata);
+    if (eventName === "related_guide_click") {
+      trackEvent("internal_related_click", eventMetadata);
+    }
+    if (eventName.includes("cta") || className?.includes("btn")) {
+      trackEvent("cta_click", eventMetadata);
+    }
 
     if (href.startsWith("https://")) {
       trackEvent("network_site_click", eventMetadata);

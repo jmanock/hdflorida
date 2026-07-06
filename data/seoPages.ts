@@ -716,7 +716,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "Clearwater Beach Hotels: Gulf Resorts, Pools & Family Stays",
+    title: "Clearwater Beach Hotels (2026): Gulf Resorts, Pools & Family Stays",
     description:
       "Compare Clearwater Beach hotels with Gulf access, family pools, Pier 60 locations, parking details, resort amenities, and current 2026 rates.",
     h1: "Clearwater Beach Hotel Deals",
@@ -1035,7 +1035,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels: Affordable Stays Near Beaches, Parks & Ports",
+    title: "Florida Budget Hotels (2026): Affordable Stays Near Beaches, Parks & Ports",
     description:
       "Compare affordable Florida hotels near beaches, airports, theme parks and cruise ports, with parking, breakfast, fee and location tips for better value.",
     h1: "Florida Budget Hotels",
@@ -1117,7 +1117,7 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "Florida Oceanfront Hotels: Beach Access, Pools & Best-Value Stays",
+    title: "Florida Oceanfront Hotels (2026): Beach Access, Pools & Best-Value Stays",
     description:
       "Compare Florida oceanfront hotels by beach access, pools, parking, family fit and resort fees across the Gulf, Atlantic Coast and Florida Keys.",
     h1: "Florida Oceanfront Hotels",

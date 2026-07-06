@@ -17,6 +17,7 @@ import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
+import { V14HotelDiscovery } from "@/components/V14HotelDiscovery";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -818,6 +819,7 @@ export default async function SeoLandingPage({
         </section>
 
         <HotelQuickAnswer destinationLabel={destinationLabel} />
+        <V14HotelDiscovery slug={page.slug} destination={destinationLabel} />
 
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
