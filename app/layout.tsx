@@ -101,7 +101,11 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} fdn-site font-sans antialiased`}>
+        <div className="fdn-network-bar" role="note" aria-label="Florida Deals Network family">
+          <strong>Florida Deals Network</strong>
+          <span>Flights · Hotels · Cruises · Things to do</span>
+        </div>
         {[organizationSchema, websiteSchema].map((schema) => (
           <script
             key={schema["@type"]}
