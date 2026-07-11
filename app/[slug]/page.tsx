@@ -17,6 +17,7 @@ import { RevenueCtaCard } from "@/components/RevenueCtaCard";
 import { TransferBookingCard } from "@/components/TransferBookingCard";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { TravelBookingCard } from "@/components/TravelBookingCard";
+import { V22AffiliateResources } from "@/components/V22AffiliateResources";
 import { ConversionScrollAnalytics, QuickDealCard, RecommendedPartnerCard } from "@/components/ConversionCards";
 import { V14HotelDiscovery } from "@/components/V14HotelDiscovery";
 import { SisterSitesSection } from "@/components/SisterSitesSection";
@@ -889,6 +890,7 @@ export default async function SeoLandingPage({
         {isPriorityHotelPage ? <CompareHotelOptions destination={destinationLabel} expediaUrl={destinationLink} /> : null}
         <HotelFeatureTable slug={page.slug} />
         {isPriorityHotelPage ? <HotelBookingStack destination={destinationLabel} expediaUrl={destinationLink} /> : null}
+        {isPriorityHotelPage ? <V22AffiliateResources destination={destinationLabel} luxury={isLuxuryLeanPage} slug={page.slug} /> : null}
         <TravelEssentialsBlock destination={destinationLabel} luxury={isLuxuryLeanPage} />
 
         {page.gallery?.length ? (
