@@ -9,6 +9,7 @@ type Resource = {
   title: string;
   copy: string;
   cta: string;
+  merchantId: string;
   href: string;
 };
 
@@ -24,7 +25,10 @@ function trackAffiliateClick(resource: Resource, slug: string, placement: string
     site: "hoteldealsflorida",
     route: `/${slug}`,
     placement,
-    cta_text: resource.cta
+    cta_text: resource.cta,
+    network: "AWIN",
+    merchant_id: resource.merchantId,
+    component_type: "V22AffiliateResources"
   };
 
   analyticsWindow.gtag?.("event", "affiliate_click", payload);
@@ -35,6 +39,7 @@ export function V22AffiliateResources({ destination, luxury, slug }: { destinati
   const hotelResource: Resource = luxury
     ? {
         partner: "Skylark",
+        merchantId: "106305",
         creativeId: "skylark-hotel-deals",
         category: "luxury_hotels",
         title: "Compare luxury stay options",
@@ -44,11 +49,12 @@ export function V22AffiliateResources({ destination, luxury, slug }: { destinati
       }
     : {
         partner: "Zen Hotels",
+        merchantId: "115208",
         creativeId: "zenhotels-homepage",
         category: "hotels",
         title: "Check hotel availability",
         copy: `Compare current ${destination} stay options after reviewing location, fees, and amenities.`,
-        cta: "Check hotel options",
+        cta: `Compare ${destination} hotel options`,
         href: ZENHOTELS_AFFILIATE_URL
       };
 
@@ -56,6 +62,7 @@ export function V22AffiliateResources({ destination, luxury, slug }: { destinati
     hotelResource,
     {
       partner: "Airport Transfer Portal",
+      merchantId: "124434",
       creativeId: "airport-transfer-portal-default",
       category: "airport_transfers",
       title: "Plan airport pickup",
