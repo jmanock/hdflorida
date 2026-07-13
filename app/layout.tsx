@@ -4,6 +4,7 @@ import Script from "next/script";
 import { CLARITY_ID } from "@/lib/clarity";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import { NETWORK_NAME, SITE_NAME, SITE_URL } from "@/lib/siteConstants";
+import { NetworkNavigation } from "@/components/NetworkNavigation";
 import "./globals.css";
 
 const inter = Inter({
@@ -102,10 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} fdn-site font-sans antialiased`}>
-        <div className="fdn-network-bar" role="note" aria-label="Florida Deals Network family">
-          <strong>Florida Deals Network</strong>
-          <span>Flights · Hotels · Cruises · Things to do</span>
-        </div>
+        <NetworkNavigation />
         {[organizationSchema, websiteSchema].map((schema) => (
           <script
             key={schema["@type"]}

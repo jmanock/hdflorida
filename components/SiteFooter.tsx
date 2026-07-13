@@ -25,7 +25,9 @@ const networkLinks = [
   ["Florida Flight Deals", "https://flightdealsflorida.org"],
   ["Florida Cruise Deals", "https://cruisedealsflorida.org"],
   ["Local Deals Florida", "https://localdealsflorida.org"],
-  ["Florida Deals Hub", "https://floridadealshub.com"]
+  ["Florida Deals Hub", "https://floridadealshub.com"],
+  ["Florida Right Now", "https://floridadealshub.com/florida-right-now"],
+  ["Beach Conditions", "/clearwater-beach-hotel-deals"]
 ];
 
 export function SiteFooter() {

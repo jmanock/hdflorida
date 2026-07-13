@@ -324,7 +324,7 @@ const hotelDealEntries: HotelDealEntry[] = [
     dates: "See availability by weekend",
     badge: "Weekend",
     booking_url: getHotelAffiliateUrl("daytonaBeach"),
-    image: "https://images.unsplash.com/photo-1521783988139-893ce8f97ab4?auto=format&fit=crop&w=900&q=80",
+    image: "https://images.unsplash.com/photo-1509233725247-49e657c54213?auto=format&fit=crop&w=900&q=80",
     image_alt: "Beachfront hotel pool area for a Daytona weekend stay"
   },
   {

@@ -19,6 +19,7 @@ import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { SafeImage } from "@/components/SafeImage";
+import { FloridaRightNow } from "@/components/FloridaRightNow";
 import { TrackedLink } from "@/components/TrackedLink";
 import { TravelEssentialsBlock } from "@/components/TravelEssentialsBlock";
 import { hotelDeals } from "@/data/hotelDeals";
@@ -305,51 +306,31 @@ export default function Home() {
             </div>
 
             <aside className="relative mx-auto w-full max-w-md rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur">
-              <div className="relative h-52 overflow-hidden rounded-2xl">
-                <SafeImage
-                  src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"
-                  alt="Resort pool and hotel lounge chairs"
-                  fill
-                  sizes="(min-width: 1024px) 28rem, 100vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent" />
-                <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-black text-ink shadow-sm">
-                  Featured Stay
-                </span>
-                <span className="absolute bottom-4 left-4 rounded-full bg-gold px-3 py-1 text-xs font-black text-ink shadow-sm">
-                  Weekend availability
-                </span>
+              <div className="rounded-2xl bg-ink p-5 text-white">
+                <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-200">Hotel comparison snapshot</p>
+                <h2 className="mt-2 text-2xl font-black">Compare the complete stay</h2>
+                <p className="mt-2 text-sm font-semibold leading-6 text-slate-200">A useful hotel search goes beyond the headline nightly rate.</p>
               </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-sm font-black text-ocean">Orlando</p>
-                  <h2 className="mt-1 text-2xl font-black tracking-normal text-ink">
-                    Orlando Family Resort
-                  </h2>
-                  <p className="mt-2 text-sm font-bold text-slateText">
-                    Pool / Family / Near parks
-                  </p>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs font-black uppercase text-slate-400">From</p>
-                  <p className="text-3xl font-black text-gold">Rates</p>
-                  <p className="text-xs font-black text-slate-500">vary by date</p>
-                </div>
-              </div>
-              <div className="mt-6 grid grid-cols-3 gap-3">
-                {["Pool", "Family", "Near parks"].map((item) => (
+              <div className="mt-5 grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+                {[
+                  ["Location", "Travel time to the places you plan to visit"],
+                  ["Total cost", "Taxes, resort fees, parking, and add-ons"],
+                  ["Flexibility", "Cancellation terms and date-specific availability"],
+                ].map(([label, detail]) => (
                   <div
-                    key={item}
-                    className="rounded-2xl border border-slate-200 bg-sand p-3 text-center text-xs font-black text-ink"
+                    key={label}
+                    className="rounded-2xl border border-slate-200 bg-sand p-4"
                   >
-                    {item}
+                    <p className="text-xs font-black uppercase tracking-[0.12em] text-ocean">{label}</p>
+                    <p className="mt-1 text-sm font-bold leading-5 text-slateText">{detail}</p>
                   </div>
                 ))}
               </div>
             </aside>
           </div>
         </section>
+
+        <FloridaRightNow />
 
         <section aria-label="Hotel deal stats" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -571,18 +552,18 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-5 lg:grid-cols-4">
+          <div className="mt-8 grid gap-5 xl:grid-cols-2">
             {featuredHotelCards.map(({ deal, title }) => (
               <article
                 key={deal.id}
-                className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft"
+                className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(18rem,42%)_minmax(0,1fr)]"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="relative aspect-[16/10] overflow-hidden md:aspect-[4/3] md:self-start">
                   <SafeImage
                     src={deal.image}
                     alt={deal.image_alt}
                     fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    sizes="(min-width: 1280px) 21vw, (min-width: 768px) 42vw, 100vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
@@ -607,11 +588,11 @@ export default function Home() {
                     </div>
                     <div className="rounded-2xl border border-slate-200 bg-sand p-4">
                       <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">
-                        Rate guidance
+                        Compare
                       </p>
                       <p className="mt-1 text-lg font-black leading-7 text-ink">{deal.value_label}</p>
                       <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-slate-500">
-                        Why this stay?
+                        Why consider it
                       </p>
                       <p className="mt-1 text-sm font-bold leading-6 text-slateText">
                         {deal.why_this_stay}

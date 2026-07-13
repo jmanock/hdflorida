@@ -14,13 +14,13 @@ const badgeClass: Record<HotelDeal["badge"], string> = {
 
 export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; pageContext?: string }) {
   return (
-    <article className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft sm:grid-cols-[15rem_1fr]">
-      <div className="relative min-h-56 overflow-hidden sm:min-h-full">
+    <article className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(17rem,42%)_minmax(0,1fr)]">
+      <div className="relative aspect-[16/10] overflow-hidden md:aspect-[4/3] md:self-start">
         <SafeImage
           src={deal.image}
           alt={deal.image_alt}
           fill
-          sizes="(min-width: 640px) 240px, 100vw"
+          sizes="(min-width: 1280px) 21vw, (min-width: 768px) 42vw, 100vw"
           className="object-cover transition duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent" />
@@ -91,14 +91,14 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
             </div>
           ) : null}
 
-          <div className="grid gap-4 rounded-2xl border border-slate-200 bg-sand p-4 sm:grid-cols-[1fr_auto] sm:items-end">
-            <div className="min-w-0">
+          <div className="rounded-2xl border border-slate-200 bg-sand p-4">
+            <div>
               <p className="text-xs font-black uppercase tracking-[0.12em] text-slate-500">
-                Rate guidance
+                Compare
               </p>
               <p className="mt-1 text-xl font-black leading-7 text-ink">{deal.value_label}</p>
               <p className="mt-3 text-xs font-black uppercase tracking-[0.12em] text-slate-500">
-                Why this stay?
+                Why consider it
               </p>
               <p className="mt-1 text-sm font-bold leading-6 text-slateText">{deal.why_this_stay}</p>
               <p className="mt-3 text-xs font-bold leading-5 text-slate-500">
@@ -109,7 +109,7 @@ export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; 
             <OutboundDealLink
               deal={deal}
               pageContext={pageContext}
-              className="btn btn-primary min-h-12 w-full px-5 sm:w-64"
+              className="btn btn-primary mt-4 min-h-12 w-full px-5"
             >
               {deal.cta_label}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />

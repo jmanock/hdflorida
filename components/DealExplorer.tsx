@@ -62,7 +62,7 @@ export function DealExplorer() {
             and under-$150 value finds.
           </p>
           <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
-            Updated regularly. Hotel availability and rates may change.
+            Search context only. Hotel availability and rates may change.
           </p>
         </div>
         <button
@@ -75,7 +75,7 @@ export function DealExplorer() {
         </button>
       </div>
 
-      <div className="mt-8 flex gap-2 overflow-x-auto pb-3">
+      <div className="mt-8 flex flex-wrap gap-2 pb-3">
         {filters.map((filter) => (
           <button
             key={filter}
@@ -98,7 +98,7 @@ export function DealExplorer() {
         taxes or fees with the booking source before booking.
       </div>
 
-      <div className="mt-8 grid gap-5 lg:grid-cols-2" aria-live="polite">
+      <div className="mt-8 grid gap-5 xl:grid-cols-2" aria-live="polite">
         {visibleDeals.map((deal) => (
           <DealCard key={deal.id} deal={deal} />
         ))}

@@ -946,7 +946,7 @@ export default async function SeoLandingPage({
             Hotel rates can change quickly. Compare options, check cancellation policies, and
             confirm taxes or fees with the booking source before booking.
           </div>
-          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+          <div className="mt-8 grid gap-5 xl:grid-cols-2">
             {deals.map((deal) => (
               <DealCard key={deal.id} deal={deal} pageContext={page.slug} />
             ))}
