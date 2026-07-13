@@ -1,6 +1,8 @@
 import { LAST_UPDATED_LABEL } from "@/lib/siteConstants";
 
 export function FreshnessBadge({ className = "" }: { className?: string }) {
+  if (!LAST_UPDATED_LABEL) return null;
+
   return (
     <p
       className={`inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/86 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-slateText shadow-sm ${className}`}

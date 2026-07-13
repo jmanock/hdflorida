@@ -7,6 +7,7 @@ import { DealCard } from "@/components/DealCard";
 import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
+import { FloridaRightNow } from "@/components/FloridaRightNow";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { CompareHotelOptions, ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides, StickyHotelCtas } from "@/components/HotelConversionBoosters";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
@@ -710,7 +711,6 @@ export default async function SeoLandingPage({
             "@type": "Organization",
             name: "Florida Deals Hub"
           },
-          dateModified: "2026-06-22",
           mainEntityOfPage: `${SITE_URL}/${page.slug}`
         }
       : null;
@@ -823,6 +823,7 @@ export default async function SeoLandingPage({
         <HotelQuickAnswer destinationLabel={destinationLabel} />
         <V14HotelDiscovery slug={page.slug} destination={destinationLabel} />
         <FloridaIntelligenceEngine slug={page.slug} />
+        {page.slug === "clearwater-beach-hotel-deals" ? <FloridaRightNow /> : null}
 
         <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-card sm:p-8 lg:grid-cols-[0.9fr_1.1fr]">
