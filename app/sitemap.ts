@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { seoLandingPages } from "@/data/seoPages";
+import { tripRealityGuides } from "@/data/tripRealityGuides";
 
 const baseUrl = "https://hoteldealsflorida.org";
 
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/privacy",
     "/terms",
+    ...tripRealityGuides.map((guide) => `/trip-reality/${guide.slug}`),
     ...seoLandingPages.map((page) => `/${page.slug}`)
   ].map((route) => ({
     url: `${baseUrl}${route}`,

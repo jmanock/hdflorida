@@ -335,6 +335,25 @@ export default function Home() {
 
         <FloridaRightNow />
 
+        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="hotel-reality-title">
+          <p className="text-sm font-black uppercase tracking-[0.14em] text-ocean">Choose the stay, not just the rate</p>
+          <h2 id="hotel-reality-title" className="mt-2 text-2xl font-black text-ink sm:text-3xl">Florida hotel reality guides</h2>
+          <p className="mt-2 max-w-2xl font-medium leading-7 text-slateText">Honest location, amenity, and trip-style tradeoffs for three of Florida&apos;s most searched stays.</p>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              ["Is an oceanfront Clearwater hotel worth it?", "/trip-reality/is-an-oceanfront-hotel-in-clearwater-worth-it", "Weigh the view and beach access against parking, crowds, and total cost."],
+              ["What is worth paying extra for in Orlando?", "/trip-reality/what-is-worth-paying-extra-for-orlando-family-trip", "Prioritize the hotel features that can simplify a family trip."],
+              ["South Beach vs. Mid-Beach hotels", "/trip-reality/south-beach-vs-mid-beach-hotels", "Compare atmosphere, transportation, noise, and beach access."],
+            ].map(([title, href, description]) => (
+              <Link key={href} href={href} className="group rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:border-sky-200 hover:shadow-card">
+                <h3 className="font-black text-ink">{title}</h3>
+                <p className="mt-2 text-sm font-medium leading-6 text-slateText">{description}</p>
+                <span className="mt-4 inline-flex items-center gap-2 text-sm font-black text-ocean">Read the reality guide <ArrowRight className="h-4 w-4" /></span>
+              </Link>
+            ))}
+          </div>
+        </section>
+
         <section aria-label="Hotel deal stats" className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
