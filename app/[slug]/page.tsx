@@ -938,7 +938,7 @@ export default async function SeoLandingPage({
               booking terms can be reviewed directly.
             </p>
             <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
-              Updated regularly. Rates may change.
+              Search links are provided for comparison. Rates may change.
             </p>
             <AffiliateDisclosure className="mt-3 max-w-2xl" />
           </div>

@@ -10,6 +10,7 @@ function formatUpdate(value: string) {
 
 export function FloridaRightNow() {
   const data = liveData as any;
+  const unavailable = data.status !== "current";
   const locations = locationOrder.map((id) => data.locations?.find((location: any) => location.locationId === id)).filter(Boolean);
   const activeSystems = data.tropicalWeather?.activeSystems?.length || 0;
 
@@ -28,12 +29,12 @@ export function FloridaRightNow() {
           {locations.map((location: any) => (
             <article className="min-w-0 bg-white p-5" key={location.locationId}>
               <div className="flex items-center justify-between gap-3"><h3 className="text-lg font-black text-ink">{location.name}</h3>{location.locationId.includes("beach") ? <Waves className="h-5 w-5 text-ocean" /> : <CloudSun className="h-5 w-5 text-gold" />}</div>
-              <p className="mt-3 text-sm font-black text-ink">{location.weather?.summary?.value || "Conditions unavailable"}</p>
-              <p className="mt-1 text-xs font-semibold leading-5 text-slateText">{location.weather?.temperature?.value != null ? `${location.weather.temperature.value}°F` : "Temperature unavailable"}{location.waterTemperature?.value != null ? ` · Water ${Math.round(location.waterTemperature.value)}°F` : ""}</p>
+              <p className="mt-3 text-sm font-black text-ink">{unavailable ? "Current conditions unavailable" : location.weather?.summary?.value || "Conditions unavailable"}</p>
+              <p className="mt-1 text-xs font-semibold leading-5 text-slateText">{unavailable ? "Official source update pending" : <>{location.weather?.temperature?.value != null ? `${location.weather.temperature.value}°F` : "Temperature unavailable"}{location.waterTemperature?.value != null ? ` · Water ${Math.round(location.waterTemperature.value)}°F` : ""}</>}</p>
             </article>
           ))}
         </div>
-        <div className="flex flex-col gap-2 px-5 py-4 text-xs font-bold text-slateText sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>{activeSystems ? `${activeSystems} active tropical system record${activeSystems === 1 ? "" : "s"}; verify official guidance.` : "No active tropical systems appear in the latest official feed."}</span><span>Conditions updated <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NWS, NOAA, NHC</span></div>
+        <div className="flex flex-col gap-2 px-5 py-4 text-xs font-bold text-slateText sm:flex-row sm:items-center sm:justify-between sm:px-6"><span>{unavailable ? "Current official alert and tropical data is temporarily unavailable." : activeSystems ? `${activeSystems} active tropical system record${activeSystems === 1 ? "" : "s"}; verify official guidance.` : "No active tropical systems appear in the latest official feed."}</span><span>{unavailable ? "Last successful package" : "Conditions updated"} <time dateTime={data.generatedAt}>{formatUpdate(data.generatedAt)}</time> · Sources: NWS, NOAA, NHC</span></div>
       </div>
     </section>
   );

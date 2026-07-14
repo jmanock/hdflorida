@@ -16,8 +16,8 @@ const hotelDealEntries: HotelDealEntry[] = [
     dates: "See current availability",
     badge: "Family",
     booking_url: getHotelAffiliateUrl("orlando"),
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=80",
-    image_alt: "Family resort pool area with palm trees and hotel balconies"
+    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=80",
+    image_alt: "Hotel and pool setting for an Orlando family resort search"
   },
   {
     id: "miami-beach-hotel-search",
@@ -455,7 +455,7 @@ function getValueLabel(deal: HotelDealEntry) {
   }
 
   if (deal.category === "Family Hotels") {
-    return "Compare family-friendly stays";
+    return "Current resort availability";
   }
 
   if (deal.category === "Luxury") {
@@ -475,7 +475,7 @@ function getValueLabel(deal: HotelDealEntry) {
 
 function getWhyThisStay(deal: HotelDealEntry) {
   if (deal.city === "Orlando") {
-    return "Good for theme park weekends and family trips";
+    return "Family trips near the theme-park corridor";
   }
 
   if (deal.city === "Miami") {

@@ -53,7 +53,7 @@ const stats = [
   { value: "100%", label: "Current Searches" }
 ];
 
-const trustChips = ["Updated Often", "Florida Focused", "Free Deal Alerts"];
+const trustChips = ["Current Search Links", "Florida Focused", "Official Conditions"];
 
 const popularThisWeek = [
   ["Orlando Hotel Deals", "/orlando-hotel-deals", "Theme park and family resort searches"],
@@ -187,7 +187,7 @@ const whyItems = [
     icon: CheckCircle2
   },
   {
-    title: "Updated Often",
+    title: "Easy To Compare",
     description:
       "Designed for fresh inventory, seasonal drops, weekend windows, and easy replacement with real partner feeds.",
     icon: Clock3
@@ -250,19 +250,19 @@ export default function Home() {
         <section className="relative isolate overflow-hidden border-b border-slate-200/70 bg-sand">
           <div className="absolute inset-0 -z-10">
             <SafeImage
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=85"
-              alt="Premium Florida resort pool beside palm trees"
+              src="https://images.unsplash.com/photo-1514214246283-d427a95c5d2f?auto=format&fit=crop&w=1800&q=85"
+              alt="Miami Beach waterfront and hotel district in Florida"
               fill
               priority
               sizes="100vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-white via-white/92 to-white/36" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(245,158,11,0.18),transparent_22rem)]" />
           </div>
 
-          <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_28rem] lg:px-8">
-            <div className="max-w-3xl pt-6">
+          <div className="mx-auto grid max-w-7xl items-center gap-8 px-4 py-8 sm:px-6 md:py-10 lg:min-h-[620px] lg:grid-cols-[1fr_26rem] lg:px-8">
+            <div className="max-w-3xl">
               <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/86 px-4 py-2 text-sm font-black uppercase tracking-[0.14em] text-ocean shadow-sm backdrop-blur">
                 <Hotel className="h-4 w-4" aria-hidden="true" />
                 Florida Deals Hub hotel network
@@ -270,7 +270,7 @@ export default function Home() {
               <div className="mt-4">
                 <FreshnessBadge />
               </div>
-              <h1 className="mt-6 max-w-4xl text-balance text-5xl font-black tracking-normal text-ink sm:text-6xl lg:text-7xl">
+              <h1 className="mt-5 max-w-4xl text-balance text-4xl font-black tracking-normal text-ink sm:text-6xl lg:text-7xl">
                 Find the Best Hotel Deals in Florida
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-slateText sm:text-xl">
@@ -291,6 +291,9 @@ export default function Home() {
                 >
                   Get Hotel Alerts
                 </Link>
+                <Link href="/clearwater-beach-hotel-deals" className="btn btn-secondary px-6">
+                  Beach Conditions
+                </Link>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 {trustChips.map((chip) => (
@@ -305,7 +308,7 @@ export default function Home() {
               </div>
             </div>
 
-            <aside className="relative mx-auto w-full max-w-md rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur">
+            <aside className="relative mx-auto hidden w-full max-w-md rounded-3xl border border-white/80 bg-white/92 p-5 shadow-soft backdrop-blur md:block">
               <div className="rounded-2xl bg-ink p-5 text-white">
                 <p className="text-xs font-black uppercase tracking-[0.14em] text-sky-200">Hotel comparison snapshot</p>
                 <h2 className="mt-2 text-2xl font-black">Compare the complete stay</h2>
@@ -531,7 +534,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <section id="featured-hotels" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-12 sm:px-6 lg:px-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.14em] text-ocean">
@@ -542,7 +545,7 @@ export default function Home() {
                 Featured Florida hotels worth comparing today.
               </h2>
               <p className="mt-3 text-sm font-black uppercase tracking-[0.12em] text-slate-500">
-                Updated regularly. Rates may change.
+                Search links are current. Rates may change.
               </p>
               <AffiliateDisclosure className="mt-3 max-w-2xl" />
             </div>
@@ -552,18 +555,18 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="mt-8 grid gap-5 xl:grid-cols-2">
+          <div className="mt-8 grid gap-5 2xl:grid-cols-2">
             {featuredHotelCards.map(({ deal, title }) => (
               <article
                 key={deal.id}
-                className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(18rem,42%)_minmax(0,1fr)]"
+                className="group grid min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(17rem,42%)_minmax(0,58%)]"
               >
                 <div className="relative aspect-[16/10] overflow-hidden md:aspect-[4/3] md:self-start">
                   <SafeImage
                     src={deal.image}
                     alt={deal.image_alt}
                     fill
-                    sizes="(min-width: 1280px) 21vw, (min-width: 768px) 42vw, 100vw"
+                    sizes="(min-width: 1536px) 21vw, (min-width: 768px) 42vw, 100vw"
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
@@ -697,7 +700,7 @@ export default function Home() {
               source before booking.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {["Updated regularly", "Rates may change", "Availability varies", "Compare before booking"].map((item) => (
+              {["Source details included", "Rates may change", "Availability varies", "Compare before booking"].map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-slate-200 bg-sand px-4 py-2 text-sm font-black text-ink"

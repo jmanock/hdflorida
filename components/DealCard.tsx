@@ -14,7 +14,7 @@ const badgeClass: Record<HotelDeal["badge"], string> = {
 
 export function DealCard({ deal, pageContext = "homepage" }: { deal: HotelDeal; pageContext?: string }) {
   return (
-    <article className="group grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(17rem,42%)_minmax(0,1fr)]">
+    <article className="group grid min-w-0 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1 hover:border-sky-200 hover:shadow-soft md:grid-cols-[minmax(17rem,42%)_minmax(0,58%)]">
       <div className="relative aspect-[16/10] overflow-hidden md:aspect-[4/3] md:self-start">
         <SafeImage
           src={deal.image}

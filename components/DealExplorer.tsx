@@ -98,7 +98,7 @@ export function DealExplorer() {
         taxes or fees with the booking source before booking.
       </div>
 
-      <div className="mt-8 grid gap-5 xl:grid-cols-2" aria-live="polite">
+      <div className="mt-8 grid gap-5 2xl:grid-cols-2" aria-live="polite">
         {visibleDeals.map((deal) => (
           <DealCard key={deal.id} deal={deal} />
         ))}
