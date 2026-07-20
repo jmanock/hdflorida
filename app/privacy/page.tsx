@@ -3,7 +3,8 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 
 export const metadata = {
   title: "Privacy Policy | Florida Hotel Deals",
-  description: "Privacy information for Florida Hotel Deals newsletter and website visitors."
+  description: "Privacy information for Florida Hotel Deals newsletter and website visitors.",
+  alternates: { canonical: "https://hoteldealsflorida.org/privacy" }
 };
 
 export default function PrivacyPage() {

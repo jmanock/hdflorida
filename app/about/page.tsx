@@ -3,7 +3,8 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 
 export const metadata = {
   title: "About | Florida Hotel Deals",
-  description: "Learn about Florida Hotel Deals and the Florida Deals Hub travel savings network."
+  description: "Learn about Florida Hotel Deals and the Florida Deals Hub travel savings network.",
+  alternates: { canonical: "https://hoteldealsflorida.org/about" }
 };
 
 export default function AboutPage() {

@@ -3,7 +3,8 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 
 export const metadata = {
   title: "Contact | Florida Hotel Deals",
-  description: "Contact Florida Hotel Deals for partnerships, hotel deal tips, and site questions."
+  description: "Contact Florida Hotel Deals for partnerships, hotel deal tips, and site questions.",
+  alternates: { canonical: "https://hoteldealsflorida.org/contact" }
 };
 
 export default function ContactPage() {

@@ -3,7 +3,8 @@ import { FreshnessBadge } from "@/components/FreshnessBadge";
 
 export const metadata = {
   title: "Terms | Florida Hotel Deals",
-  description: "Terms of use for Florida Hotel Deals."
+  description: "Terms of use for Florida Hotel Deals.",
+  alternates: { canonical: "https://hoteldealsflorida.org/terms" }
 };
 
 export default function TermsPage() {

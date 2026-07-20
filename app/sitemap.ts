@@ -3,6 +3,7 @@ import { seoLandingPages } from "@/data/seoPages";
 import { tripRealityGuides } from "@/data/tripRealityGuides";
 
 const baseUrl = "https://hoteldealsflorida.org";
+const verifiedModified = new Date("2026-07-20");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -15,7 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...seoLandingPages.map((page) => `/${page.slug}`)
   ].map((route) => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: verifiedModified,
     changeFrequency: route === "" ? "daily" : "weekly",
     priority: route === "" ? 1 : route.includes("hotel-deals") ? 0.85 : 0.75
   }));

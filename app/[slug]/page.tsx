@@ -623,15 +623,22 @@ export default async function SeoLandingPage({
   const relatedPages = page.related
     .map((slug) => seoLandingPageMap.get(slug))
     .filter((relatedPage): relatedPage is NonNullable<typeof relatedPage> => Boolean(relatedPage));
+  const pageIndex = seoLandingPages.findIndex((candidate) => candidate.slug === page.slug);
+  const neighboringPages = [-1, 1, -8, 8]
+    .map((offset) => seoLandingPages[(pageIndex + offset + seoLandingPages.length) % seoLandingPages.length])
+    .filter((candidate) => candidate.slug !== page.slug);
   const relatedSearchCandidates = [
-    { label: "Hotel Deals Home", href: "/" },
-    ...priorityHotelCluster
-      .filter((slug) => slug !== page.slug)
-      .map((slug) => ({ label: getSeoPageLabel(slug), href: `/${slug}` })),
     ...relatedPages.map((relatedPage) => ({
       label: getSeoPageLabel(relatedPage.slug),
       href: `/${relatedPage.slug}`
     })),
+    ...neighboringPages.map((relatedPage) => ({
+      label: getSeoPageLabel(relatedPage.slug),
+      href: `/${relatedPage.slug}`
+    })),
+    ...priorityHotelCluster
+      .filter((slug) => slug !== page.slug)
+      .map((slug) => ({ label: getSeoPageLabel(slug), href: `/${slug}` })),
     ...globalRelatedHotelSearches
       .filter((slug) => slug !== page.slug && !page.related.includes(slug))
       .map((slug) => ({
@@ -646,7 +653,7 @@ export default async function SeoLandingPage({
       seenRelatedHrefs.add(link.href);
       return true;
     })
-    .slice(0, 10);
+    .slice(0, 5);
   const readersAlsoPlanned = [
     { label: "Find Florida attractions", href: "https://localdealsflorida.org/best-things-to-do-in-florida" },
     { label: "Compare Florida flights", href: "https://flightdealsflorida.org/cheap-flights-to-florida-guide" },
