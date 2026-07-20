@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Script from "next/script";
-import { CLARITY_ID } from "@/lib/clarity";
-import { GA_MEASUREMENT_ID } from "@/lib/analytics";
+import { AnalyticsBootstrap } from "@/components/AnalyticsBootstrap";
 import { NETWORK_NAME, SITE_NAME, SITE_URL } from "@/lib/siteConstants";
 import { NetworkNavigation } from "@/components/NetworkNavigation";
 import "./globals.css";
@@ -114,27 +112,7 @@ export default function RootLayout({
           />
         ))}
         {children}
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}');
-          `}
-        </Script>
-        <Script id="microsoft-clarity" strategy="afterInteractive">
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "${CLARITY_ID}");
-          `}
-        </Script>
+        <AnalyticsBootstrap />
       </body>
     </html>
   );

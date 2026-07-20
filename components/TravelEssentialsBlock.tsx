@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { ArrowRight, Bed, BriefcaseBusiness, Crown, Hotel } from "lucide-react";
 import { trackEvent } from "@/lib/analytics";
 import { SKYLARK_DEALS_AFFILIATE_URL, ZENHOTELS_AFFILIATE_URL } from "@/lib/revenuePartners";
@@ -37,9 +36,6 @@ export function TravelEssentialsBlock({ destination, luxury = false }: { destina
       };
   const items = [...hotelTravelEssentials, bookingItem];
 
-  useEffect(() => {
-    trackEvent("travel_essentials_view", { page_type: "hotel", destination, page_path: window.location.pathname, item_count: items.length });
-  }, [destination, items.length]);
 
   function trackClick(item: TravelEssentialItem) {
     const params = {
@@ -59,6 +55,7 @@ export function TravelEssentialsBlock({ destination, luxury = false }: { destina
     };
     trackEvent("travel_essentials_click", params);
     trackEvent("toolkit_click", params);
+    trackEvent("affiliate_resource_view", params);
     trackEvent("affiliate_click", params);
     trackEvent(eventForAdvertiser(item.advertiser), params);
   }
