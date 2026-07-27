@@ -8,6 +8,7 @@ import { OutboundDealLink } from "@/components/OutboundDealLink";
 import { ExpediaHotelCta } from "@/components/ExpediaHotelCta";
 import { FloridaIntelligenceEngine } from "@/components/FloridaIntelligenceEngine";
 import { FloridaRightNow } from "@/components/FloridaRightNow";
+import { HotelDecisionModule } from "@/components/HotelDecisionModule";
 import { FreshnessBadge } from "@/components/FreshnessBadge";
 import { CompareHotelOptions, ExitNewsletterCapture, HotelBookingStack, HotelContinuePlanningGuides, StickyHotelCtas } from "@/components/HotelConversionBoosters";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
@@ -828,6 +829,7 @@ export default async function SeoLandingPage({
         </section>
 
         <HotelQuickAnswer destinationLabel={destinationLabel} />
+        <HotelDecisionModule slug={page.slug} />
         <V14HotelDiscovery slug={page.slug} destination={destinationLabel} />
         <FloridaIntelligenceEngine slug={page.slug} />
         {page.slug === "clearwater-beach-hotel-deals" ? <FloridaRightNow /> : null}
