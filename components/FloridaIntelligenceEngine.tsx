@@ -4,13 +4,7 @@ import { useMemo, useState } from "react";
 import { ArrowRight, BedDouble, CheckCircle2, Compass, Plane, Search, Sparkles, Ticket, Umbrella } from "lucide-react";
 import { hotelTravelEssentials } from "@/lib/travelEssentials";
 import { BOOKING_COM_AFFILIATE_URL, SKYLARK_DEALS_AFFILIATE_URL, SKYLARK_HOME_AFFILIATE_URL, ZENHOTELS_AFFILIATE_URL, getTransferAffiliateUrl } from "@/lib/revenuePartners";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
-  }
-}
+import { trackEvent } from "@/lib/analyticsContract";
 
 const rel = "sponsored noopener noreferrer";
 
@@ -20,8 +14,7 @@ function track(event: string, payload: Record<string, string | number>) {
     page_path: typeof window !== "undefined" ? window.location.pathname : "",
     ...payload
   };
-  window.gtag?.("event", event, data);
-  window.dataLayer?.push({ event, ...data });
+  trackEvent(event, data);
 }
 
 function destinationFromSlug(slug: string) {
