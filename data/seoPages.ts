@@ -716,9 +716,9 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "clearwater-beach-hotel-deals",
-    title: "Clearwater Beach Hotels (2026): Gulf Resorts, Pools & Family Stays",
+    title: "Clearwater Beach Hotels: Gulf Access, Pools & Family Stays",
     description:
-      "Compare Clearwater Beach hotels with Gulf access, family pools, Pier 60 locations, parking details, resort amenities, and current 2026 rates.",
+      "Compare Clearwater Beach hotels by Gulf access, family pools, Pier 60 location, parking, resort fees, amenities and complete stay cost.",
     h1: "Clearwater Beach Hotel Deals",
     eyebrow: "Gulf beach searches",
     intro:
@@ -1035,11 +1035,11 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-budget-hotels",
-    title: "Florida Budget Hotels Worth Booking (2026)",
+    title: "Florida Budget Hotels: Fees, Parking & Location Tradeoffs",
     description:
-      "Compare Florida budget hotels near beaches, parks, airports and cruise ports with fee, parking, breakfast and location tips updated for 2026.",
+      "Compare Florida budget hotels near beaches, parks, airports and cruise ports by fees, parking, breakfast, location and complete stay cost.",
     h1: "Florida Budget Hotels Worth Booking",
-    eyebrow: "Updated 2026 value hotel guide",
+    eyebrow: "Value hotel decision guide",
     intro:
       "Compare Florida budget hotels that can actually save money after parking, breakfast, resort fees, drive time, and cancellation terms are included.",
     details:
@@ -1168,11 +1168,11 @@ export const seoLandingPages: SeoLandingPage[] = [
   },
   {
     slug: "florida-oceanfront-hotels",
-    title: "15 Florida Oceanfront Hotels Worth Comparing (2026)",
+    title: "Florida Oceanfront Hotels: Beach Access, Views & Fees",
     description:
       "Compare Florida oceanfront hotels by true beach access, pools, resort fees, parking, room view and family fit across both coasts.",
-    h1: "15 Florida Oceanfront Hotels Worth Comparing",
-    eyebrow: "Updated 2026 beach hotel guide",
+    h1: "Florida Oceanfront Hotels Worth Comparing",
+    eyebrow: "Oceanfront hotel decision guide",
     intro:
       "Compare Florida oceanfront hotels for true beach access, waterfront rooms, pools, resort amenities, family trips, and coastal weekend value.",
     details:
