@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AnalyticsBootstrap } from "@/components/AnalyticsBootstrap";
+import { ANALYTICS_CONFIG } from "@/lib/analyticsConfig";
 import { NETWORK_NAME, SITE_NAME, SITE_URL } from "@/lib/siteConstants";
 import { NetworkNavigation } from "@/components/NetworkNavigation";
 import "./globals.css";
@@ -100,6 +101,13 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <script
+          id="fdn-ga-library"
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONFIG.measurementId}`}
+        />
+      </head>
       <body className={`${inter.variable} fdn-site font-sans antialiased`}>
         <NetworkNavigation />
         {[organizationSchema, websiteSchema].map((schema) => (
